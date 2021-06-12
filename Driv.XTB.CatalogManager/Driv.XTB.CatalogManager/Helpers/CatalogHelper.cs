@@ -92,6 +92,119 @@ namespace Driv.XTB.CatalogManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
+        public static EntityCollection GetAllRootCatalogs(this IOrganizationService service)
+        {
+            var fetchXml = $@"
+                            <fetch>
+                              <entity name='catalog'>
+                                <attribute name='createdonbehalfbyyominame' />
+                                <attribute name='modifiedonbehalfby' />
+                                <attribute name='statecode' />
+                                <attribute name='description' />
+                                <attribute name='statecodename' />
+                                <attribute name='ismanagedname' />
+                                <attribute name='createdonbehalfby' />
+                                <attribute name='name' />
+                                <attribute name='componentidunique' />
+                                <attribute name='iscustomizable' />
+                                <attribute name='importsequencenumber' />
+                                <attribute name='organizationidname' />
+                                <attribute name='modifiedbyyominame' />
+                                <attribute name='catalogid' />
+                                <attribute name='utcconversiontimezonecode' />
+                                <attribute name='createdbyyominame' />
+                                <attribute name='componentstatename' />
+                                <attribute name='modifiedbyname' />
+                                <attribute name='versionnumber' />
+                                <attribute name='modifiedby' />
+                                <attribute name='createdby' />
+                                <attribute name='timezoneruleversionnumber' />
+                                <attribute name='ismanaged' />
+                                <attribute name='statuscodename' />
+                                <attribute name='overwritetime' />
+                                <attribute name='parentcatalogidname' />
+                                <attribute name='solutionid' />
+                                <attribute name='uniquename' />
+                                <attribute name='modifiedon' />
+                                <attribute name='componentstate' />
+                                <attribute name='modifiedonbehalfbyyominame' />
+                                <attribute name='statuscode' />
+                                <attribute name='createdbyname' />
+                                <attribute name='createdon' />
+                                <attribute name='organizationid' />
+                                <attribute name='createdonbehalfbyname' />
+                                <attribute name='modifiedonbehalfbyname' />
+                                <attribute name='displayname' />
+                                <attribute name='parentcatalogid' />
+                                <attribute name='overriddencreatedon' />
+                                <filter>
+                                      <condition attribute='parentcatalogid' operator='null' />
+                                </filter>
+                              </entity>
+                            </fetch>";
+
+
+            var fetch = new FetchExpression(fetchXml);
+            return service.RetrieveMultiple(fetch);
+        }
+
+        public static EntityCollection GetChildCatalogsFor(this IOrganizationService service, Guid parentcatalogid)
+        {
+            var fetchXml = $@"
+                            <fetch>
+                              <entity name='catalog'>
+                                <attribute name='createdonbehalfbyyominame' />
+                                <attribute name='modifiedonbehalfby' />
+                                <attribute name='statecode' />
+                                <attribute name='description' />
+                                <attribute name='statecodename' />
+                                <attribute name='ismanagedname' />
+                                <attribute name='createdonbehalfby' />
+                                <attribute name='name' />
+                                <attribute name='componentidunique' />
+                                <attribute name='iscustomizable' />
+                                <attribute name='importsequencenumber' />
+                                <attribute name='organizationidname' />
+                                <attribute name='modifiedbyyominame' />
+                                <attribute name='catalogid' />
+                                <attribute name='utcconversiontimezonecode' />
+                                <attribute name='createdbyyominame' />
+                                <attribute name='componentstatename' />
+                                <attribute name='modifiedbyname' />
+                                <attribute name='versionnumber' />
+                                <attribute name='modifiedby' />
+                                <attribute name='createdby' />
+                                <attribute name='timezoneruleversionnumber' />
+                                <attribute name='ismanaged' />
+                                <attribute name='statuscodename' />
+                                <attribute name='overwritetime' />
+                                <attribute name='parentcatalogidname' />
+                                <attribute name='solutionid' />
+                                <attribute name='uniquename' />
+                                <attribute name='modifiedon' />
+                                <attribute name='componentstate' />
+                                <attribute name='modifiedonbehalfbyyominame' />
+                                <attribute name='statuscode' />
+                                <attribute name='createdbyname' />
+                                <attribute name='createdon' />
+                                <attribute name='organizationid' />
+                                <attribute name='createdonbehalfbyname' />
+                                <attribute name='modifiedonbehalfbyname' />
+                                <attribute name='displayname' />
+                                <attribute name='parentcatalogid' />
+                                <attribute name='overriddencreatedon' />
+                                <filter>
+                                  <condition attribute='parentcatalogid' operator='eq' value='{parentcatalogid}'/>
+                                </filter>
+
+                              </entity>
+                            </fetch>";
+
+
+            var fetch = new FetchExpression(fetchXml);
+            return service.RetrieveMultiple(fetch);
+        }
+
         public static EntityCollection GetAllCatalogs(this IOrganizationService service)
         {
             var fetchXml = $@"

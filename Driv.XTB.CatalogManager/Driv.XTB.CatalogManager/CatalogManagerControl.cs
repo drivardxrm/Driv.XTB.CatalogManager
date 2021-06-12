@@ -19,6 +19,7 @@ using xrmtb.XrmToolBox.Controls;
 using XrmToolBox.Extensibility.Interfaces;
 using Driv.XTB.CatalogManager.Proxy;
 using Driv.XTB.CatalogManager.Helpers;
+using Driv.XTB.CatalogManager.Forms;
 
 namespace Driv.XTB.CatalogManager
 {
@@ -141,7 +142,7 @@ namespace Driv.XTB.CatalogManager
 
                 //select the all radio button
                 rbAll.Checked = true;
-                ExecuteMethod(LoadCatalogs);
+                ExecuteMethod(LoadRootCatalogs);
                 cdsCboCatalog.Select();
             }
         }
@@ -151,7 +152,7 @@ namespace Driv.XTB.CatalogManager
         #region Form Events
         private void menuRefresh_Click(object sender, EventArgs e)
         {
-            ExecuteMethod(LoadCatalogs);
+            ExecuteMethod(LoadRootCatalogs);
         }
 
 
@@ -190,17 +191,17 @@ namespace Driv.XTB.CatalogManager
         {
 
 
-            //var about = new About();
-            //about.StartPosition = FormStartPosition.CenterParent;
-            //about.lblVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            //about.ShowDialog();
+            var about = new About();
+            about.StartPosition = FormStartPosition.CenterParent;
+            about.lblVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            about.ShowDialog();
         }
 
         private void rbAll_CheckedChanged(object sender, EventArgs e)
         {
             if (rbAll.Checked)
             {
-                ExecuteMethod(LoadCatalogs);
+                ExecuteMethod(LoadRootCatalogs);
             }
         }
 
@@ -241,7 +242,7 @@ namespace Driv.XTB.CatalogManager
                                             new SolutionProxy(cdsCboSolutions.SelectedEntity) :
                                             null;
 
-            ExecuteMethod(LoadCatalogs);
+            ExecuteMethod(LoadRootCatalogs);
 
         }
 
@@ -321,7 +322,7 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-        private void LoadCatalogs()
+        private void LoadRootCatalogs()
         {
 
             SetCdsCboCustomApiDataSource(null);
@@ -330,12 +331,12 @@ namespace Driv.XTB.CatalogManager
 
             WorkAsync(new WorkAsyncInfo
             {
-                Message = "Loading catalogs...",
+                Message = "Loading root catalogs...",
                 Work = (worker, args) =>
                 {
                     if (rbAll.Checked)
                     {
-                        args.Result = Service.GetAllCatalogs();
+                        args.Result = Service.GetAllRootCatalogs();
                     }
                     else if (rbSolution.Checked && _selectedSolution != null) 
                     {
@@ -475,23 +476,23 @@ namespace Driv.XTB.CatalogManager
 
         private void CreateCatalogDialog() 
         {
-            //var inputdlg = new NewCustomApiForm(Service, _selectedSolution);
-            //var dlgresult = inputdlg.ShowDialog();
-            //if (dlgresult == DialogResult.Cancel)
-            //{
-            //    return;
-            //}
-            //if (dlgresult == DialogResult.OK && inputdlg.NewCustomApiId != null)
-            //{
+            var inputdlg = new NewCatalogForm(Service, _selectedSolution);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.NewCatalogId != null)
+            {
 
-            //    //refresh custom api list and select newly created
-            //    SetSelectedCustomApi(Service.GetCustomApi(inputdlg.NewCustomApiId));
-            //    ExecuteMethod(LoadCustomApis);
-            //}
-            //else if (dlgresult == DialogResult.Ignore)
-            //{
-                
-            //}
+                //refresh custom api list and select newly created
+                SetSelectedCatalog(Service.GetCatalog(inputdlg.NewCatalogId));
+                ExecuteMethod(LoadRootCatalogs);
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
         }
 
         private void UpdateCatalogDialog()
@@ -521,32 +522,31 @@ namespace Driv.XTB.CatalogManager
         private void DeleteCatalogDialog()
         {
             //todo validations = api must be selected
-            //var inputdlg = new DeleteCustomApiForm(Service, _selectedCustomApi);
-            //var dlgresult = inputdlg.ShowDialog();
-            //if (dlgresult == DialogResult.Cancel)
-            //{
-            //    return;
-            //}
-            //if (dlgresult == DialogResult.OK && inputdlg.CustomApiDeleted)
-            //{
+            var inputdlg = new DeleteCatalogForm(Service, _selectedCatalog);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.CatalogDeleted)
+            {
 
-            //    SetSelectedCustomApi(null);
-            //    SetSelectedRequestParameter(null);
-            //    SetSelectedResponseProperty(null);
+                SetSelectedCatalog(null);
+               
 
-            //    ExecuteMethod(LoadCustomApis);
+                ExecuteMethod(LoadRootCatalogs);
 
-                
-            //}
-            //else if (dlgresult == DialogResult.Ignore)
-            //{
 
-            //}
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
         }
 
 
         #endregion
 
-        
+
     }
 }

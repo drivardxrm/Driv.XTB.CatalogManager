@@ -218,6 +218,30 @@
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Solution.cs" />
     <Compile Include="CatalogManagerPlugin.cs" />
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteCatalogForm.designer.cs">
+      <DependentUpon>DeleteCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewCatalogForm.designer.cs">
+      <DependentUpon>NewCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateCatalogForm.designer.cs">
+      <DependentUpon>UpdateCatalogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\ProcessHelper.cs" />
     <Compile Include="Helpers\EntityHelper.cs" />
     <Compile Include="Helpers\CatalogHelper.cs" />
@@ -236,6 +260,18 @@
   <ItemGroup>
     <EmbeddedResource Include="CatalogManagerControl.resx">
       <DependentUpon>CatalogManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteCatalogForm.resx">
+      <DependentUpon>DeleteCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewCatalogForm.resx">
+      <DependentUpon>NewCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateCatalogForm.resx">
+      <DependentUpon>UpdateCatalogForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

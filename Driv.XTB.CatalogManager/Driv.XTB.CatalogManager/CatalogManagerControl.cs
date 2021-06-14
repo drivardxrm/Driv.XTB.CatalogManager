@@ -31,6 +31,8 @@ namespace Driv.XTB.CatalogManager
 
         private CatalogProxy _selectedCatalog;
 
+        private CatalogProxy _selectedCategory; //2nd level catalog
+
         //private CustomApiRequestParameterProxy _selectedRequestParameter;
 
         //private CustomApiResponsePropertyProxy _selectedResponseProperty;
@@ -90,7 +92,14 @@ namespace Driv.XTB.CatalogManager
             cdsTxtIsManaged.OrganizationService = Service;
             cdsTxtIsCustomizable.OrganizationService = Service;
 
-            
+            //2nd Level catalog (category)
+            crmGridCategories.OrganizationService = Service;
+            cdsCategoryTxtUniqueName.OrganizationService = Service;
+
+            cdsCategoryTxtName.OrganizationService = Service;
+            cdsCategoryTxtDisplayName.OrganizationService = Service;
+            cdsCategoryTxtDescription.OrganizationService = Service;
+
 
 
         }
@@ -441,17 +450,48 @@ namespace Driv.XTB.CatalogManager
           
         }
 
-        
+        private void SetSelectedCategory(Entity catalog)
+        {
+            _selectedCategory = catalog != null ? new CatalogProxy(catalog) : null;
 
 
-        
 
-       
+            cdsCategoryTxtUniqueName.Entity = _selectedCatalog?.CatalogRow;
+            cdsCategoryTxtName.Entity = _selectedCatalog?.CatalogRow;
+            cdsCategoryTxtDisplayName.Entity = _selectedCatalog?.CatalogRow;
+            cdsCategoryTxtDescription.Entity = _selectedCatalog?.CatalogRow;
 
 
-       
+            //cdsTxtIsManaged.Entity = _selectedCatalog?.CatalogRow;
+            //cdsTxtIsCustomizable.Entity = _selectedCatalog?.CatalogRow;
 
-        
+            //if (_selectedCatalog != null)
+            //{
+            //    txtCustomizableWarning.Visible = !_selectedCatalog.CanCustomize;
+            //    btnEditCustomApi.Enabled = _selectedCatalog.CanCustomize;
+            //    btnDeleteApi.Enabled = _selectedCatalog.CanCustomize;
+
+            //}
+
+
+            //grpCategories.Enabled = _selectedCatalog != null;
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
         /// Method to find the index of a given ID (Guid) in a CRMGridView. A bit shady but it works.
         private int GetGridSelectedIndex(CRMGridView crmgridview, Guid? selected)
@@ -497,31 +537,31 @@ namespace Driv.XTB.CatalogManager
 
         private void UpdateCatalogDialog()
         {
-            //todo validations = api must be selected
-            //var inputdlg = new UpdateCustomApiForm(Service, _selectedCustomApi);
-            //var dlgresult = inputdlg.ShowDialog();
-            //if (dlgresult == DialogResult.Cancel)
-            //{
-            //    return;
-            //}
-            //if (dlgresult == DialogResult.OK && inputdlg.CustomApiUpdated)
-            //{
+
+            var inputdlg = new UpdateCatalogForm(Service, _selectedCatalog);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.CatalogUpdated)
+            {
 
 
-            //    //refresh custom api list and select newly updated
-            //    SetSelectedCustomApi(Service.GetCustomApi(_selectedCustomApi.CustomApiRow.Id));
-            //    ExecuteMethod(LoadCustomApis);
+                //refresh custom api list and select newly updated
+                SetSelectedCatalog(Service.GetCatalog(_selectedCatalog.CatalogRow.Id));
+                ExecuteMethod(LoadRootCatalogs);
 
-            //}
-            //else if (dlgresult == DialogResult.Ignore)
-            //{
-                
-            //}
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
         }
 
         private void DeleteCatalogDialog()
         {
-            //todo validations = api must be selected
+
             var inputdlg = new DeleteCatalogForm(Service, _selectedCatalog);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
@@ -545,8 +585,12 @@ namespace Driv.XTB.CatalogManager
         }
 
 
+
         #endregion
 
-
+        private void crmGridCategories_RecordEnter(object sender, CRMRecordEventArgs e)
+        {
+            SetSelectedRequestParameter(Service.GetRequestParameter(e.Entity.Id));
+        }
     }
 }

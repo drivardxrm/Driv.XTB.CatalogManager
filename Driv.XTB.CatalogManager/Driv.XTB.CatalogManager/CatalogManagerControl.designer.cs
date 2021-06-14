@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogManagerControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
@@ -65,12 +71,40 @@
             this.cdsCboCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.grpCategories = new System.Windows.Forms.GroupBox();
+            this.crmGridCategories = new xrmtb.XrmToolBox.Controls.CRMGridView();
+            this.btnNewCategory = new System.Windows.Forms.Button();
+            this.cdsCategoryTxtDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.cdsCategoryTxtDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.cdsCategoryTxtName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.cdsCategoryTxtUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.grpCatalogAssignments = new System.Windows.Forms.GroupBox();
+            this.crmGridAssigments = new xrmtb.XrmToolBox.Controls.CRMGridView();
+            this.btnNewAssignment = new System.Windows.Forms.Button();
+            this.cdsDataTextBox1 = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.cdsDataTextBox2 = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cdsDataTextBox3 = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             this.grpCatalog.SuspendLayout();
             this.grpStatusApi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.grpFilter.SuspendLayout();
+            this.grpCategories.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crmGridCategories)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grpCatalogAssignments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crmGridAssigments)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -122,6 +156,7 @@
             // 
             // grpCatalog
             // 
+            this.grpCatalog.Controls.Add(this.grpCategories);
             this.grpCatalog.Controls.Add(this.cdsTxtDescription);
             this.grpCatalog.Controls.Add(this.cdsTxtDisplayName);
             this.grpCatalog.Controls.Add(this.label3);
@@ -139,7 +174,7 @@
             this.grpCatalog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCatalog.Location = new System.Drawing.Point(3, 117);
             this.grpCatalog.Name = "grpCatalog";
-            this.grpCatalog.Size = new System.Drawing.Size(1113, 614);
+            this.grpCatalog.Size = new System.Drawing.Size(999, 538);
             this.grpCatalog.TabIndex = 6;
             this.grpCatalog.TabStop = false;
             this.grpCatalog.Text = "Root Catalog";
@@ -497,6 +532,369 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
+            // grpCategories
+            // 
+            this.grpCategories.Controls.Add(this.grpCatalogAssignments);
+            this.grpCategories.Controls.Add(this.cdsCategoryTxtDescription);
+            this.grpCategories.Controls.Add(this.cdsCategoryTxtDisplayName);
+            this.grpCategories.Controls.Add(this.label1);
+            this.grpCategories.Controls.Add(this.label2);
+            this.grpCategories.Controls.Add(this.button1);
+            this.grpCategories.Controls.Add(this.pictureBox1);
+            this.grpCategories.Controls.Add(this.button2);
+            this.grpCategories.Controls.Add(this.cdsCategoryTxtName);
+            this.grpCategories.Controls.Add(this.cdsCategoryTxtUniqueName);
+            this.grpCategories.Controls.Add(this.label5);
+            this.grpCategories.Controls.Add(this.label7);
+            this.grpCategories.Controls.Add(this.btnNewCategory);
+            this.grpCategories.Controls.Add(this.crmGridCategories);
+            this.grpCategories.Location = new System.Drawing.Point(368, 15);
+            this.grpCategories.Name = "grpCategories";
+            this.grpCategories.Size = new System.Drawing.Size(628, 521);
+            this.grpCategories.TabIndex = 94;
+            this.grpCategories.TabStop = false;
+            this.grpCategories.Text = "Categories (2nd Level Catalogs)";
+            // 
+            // crmGridCategories
+            // 
+            this.crmGridCategories.AllowUserToOrderColumns = true;
+            this.crmGridCategories.AllowUserToResizeRows = false;
+            this.crmGridCategories.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.crmGridCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.crmGridCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.crmGridCategories.ColumnOrder = "uniquename, displayname, description";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.crmGridCategories.DefaultCellStyle = dataGridViewCellStyle23;
+            this.crmGridCategories.FilterColumns = "";
+            this.crmGridCategories.Location = new System.Drawing.Point(22, 51);
+            this.crmGridCategories.MultiSelect = false;
+            this.crmGridCategories.Name = "crmGridCategories";
+            this.crmGridCategories.OrganizationService = null;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.crmGridCategories.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.crmGridCategories.Size = new System.Drawing.Size(240, 150);
+            this.crmGridCategories.TabIndex = 0;
+            this.crmGridCategories.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.crmGridCategories_RecordEnter);
+            // 
+            // btnNewCategory
+            // 
+            this.btnNewCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewCategory.Image = ((System.Drawing.Image)(resources.GetObject("btnNewCategory.Image")));
+            this.btnNewCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewCategory.Location = new System.Drawing.Point(22, 16);
+            this.btnNewCategory.Name = "btnNewCategory";
+            this.btnNewCategory.Size = new System.Drawing.Size(163, 29);
+            this.btnNewCategory.TabIndex = 85;
+            this.btnNewCategory.Text = "Create New Category";
+            this.btnNewCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewCategory.UseVisualStyleBackColor = true;
+            // 
+            // cdsCategoryTxtDescription
+            // 
+            this.cdsCategoryTxtDescription.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsCategoryTxtDescription.DisplayFormat = "description";
+            this.cdsCategoryTxtDescription.Entity = null;
+            this.cdsCategoryTxtDescription.EntityReference = null;
+            this.cdsCategoryTxtDescription.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsCategoryTxtDescription.Location = new System.Drawing.Point(351, 125);
+            this.cdsCategoryTxtDescription.LogicalName = "customapi";
+            this.cdsCategoryTxtDescription.Multiline = true;
+            this.cdsCategoryTxtDescription.Name = "cdsCategoryTxtDescription";
+            this.cdsCategoryTxtDescription.OrganizationService = null;
+            this.cdsCategoryTxtDescription.Size = new System.Drawing.Size(242, 40);
+            this.cdsCategoryTxtDescription.TabIndex = 104;
+            // 
+            // cdsCategoryTxtDisplayName
+            // 
+            this.cdsCategoryTxtDisplayName.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsCategoryTxtDisplayName.DisplayFormat = "displayname";
+            this.cdsCategoryTxtDisplayName.Entity = null;
+            this.cdsCategoryTxtDisplayName.EntityReference = null;
+            this.cdsCategoryTxtDisplayName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsCategoryTxtDisplayName.Location = new System.Drawing.Point(351, 100);
+            this.cdsCategoryTxtDisplayName.LogicalName = "customapi";
+            this.cdsCategoryTxtDisplayName.Name = "cdsCategoryTxtDisplayName";
+            this.cdsCategoryTxtDisplayName.OrganizationService = null;
+            this.cdsCategoryTxtDisplayName.Size = new System.Drawing.Size(242, 20);
+            this.cdsCategoryTxtDisplayName.TabIndex = 103;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(270, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 101;
+            this.label1.Text = "Description";
+            this.ttInfo.SetToolTip(this.label1, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. \r\nFor example, as a ToolTip.");
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(270, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 102;
+            this.label2.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label2, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(475, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 29);
+            this.button1.TabIndex = 100;
+            this.button1.Text = "Delete Catalog";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(593, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox1.TabIndex = 99;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(351, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 29);
+            this.button2.TabIndex = 96;
+            this.button2.Text = "Edit Catalog";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // cdsCategoryTxtName
+            // 
+            this.cdsCategoryTxtName.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsCategoryTxtName.DisplayFormat = "name";
+            this.cdsCategoryTxtName.Entity = null;
+            this.cdsCategoryTxtName.EntityReference = null;
+            this.cdsCategoryTxtName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsCategoryTxtName.Location = new System.Drawing.Point(351, 74);
+            this.cdsCategoryTxtName.LogicalName = "customapi";
+            this.cdsCategoryTxtName.Name = "cdsCategoryTxtName";
+            this.cdsCategoryTxtName.OrganizationService = null;
+            this.cdsCategoryTxtName.Size = new System.Drawing.Size(242, 20);
+            this.cdsCategoryTxtName.TabIndex = 98;
+            // 
+            // cdsCategoryTxtUniqueName
+            // 
+            this.cdsCategoryTxtUniqueName.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsCategoryTxtUniqueName.DisplayFormat = "uniquename";
+            this.cdsCategoryTxtUniqueName.Entity = null;
+            this.cdsCategoryTxtUniqueName.EntityReference = null;
+            this.cdsCategoryTxtUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cdsCategoryTxtUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsCategoryTxtUniqueName.Location = new System.Drawing.Point(351, 48);
+            this.cdsCategoryTxtUniqueName.LogicalName = "customapi";
+            this.cdsCategoryTxtUniqueName.Name = "cdsCategoryTxtUniqueName";
+            this.cdsCategoryTxtUniqueName.OrganizationService = null;
+            this.cdsCategoryTxtUniqueName.Size = new System.Drawing.Size(242, 20);
+            this.cdsCategoryTxtUniqueName.TabIndex = 97;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(270, 77);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 94;
+            this.label5.Text = "Name";
+            this.ttInfo.SetToolTip(this.label5, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(270, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 95;
+            this.label7.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
+            // 
+            // grpCatalogAssignments
+            // 
+            this.grpCatalogAssignments.Controls.Add(this.cdsDataTextBox3);
+            this.grpCatalogAssignments.Controls.Add(this.label11);
+            this.grpCatalogAssignments.Controls.Add(this.cdsDataTextBox1);
+            this.grpCatalogAssignments.Controls.Add(this.cdsDataTextBox2);
+            this.grpCatalogAssignments.Controls.Add(this.label8);
+            this.grpCatalogAssignments.Controls.Add(this.label9);
+            this.grpCatalogAssignments.Controls.Add(this.btnNewAssignment);
+            this.grpCatalogAssignments.Controls.Add(this.crmGridAssigments);
+            this.grpCatalogAssignments.Location = new System.Drawing.Point(3, 207);
+            this.grpCatalogAssignments.Name = "grpCatalogAssignments";
+            this.grpCatalogAssignments.Size = new System.Drawing.Size(618, 314);
+            this.grpCatalogAssignments.TabIndex = 105;
+            this.grpCatalogAssignments.TabStop = false;
+            this.grpCatalogAssignments.Text = "Catalog Assignments";
+            // 
+            // crmGridAssigments
+            // 
+            this.crmGridAssigments.AllowUserToOrderColumns = true;
+            this.crmGridAssigments.AllowUserToResizeRows = false;
+            this.crmGridAssigments.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.crmGridAssigments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.crmGridAssigments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.crmGridAssigments.ColumnOrder = "uniquename, displayname, description";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.crmGridAssigments.DefaultCellStyle = dataGridViewCellStyle20;
+            this.crmGridAssigments.FilterColumns = "";
+            this.crmGridAssigments.Location = new System.Drawing.Point(19, 54);
+            this.crmGridAssigments.MultiSelect = false;
+            this.crmGridAssigments.Name = "crmGridAssigments";
+            this.crmGridAssigments.OrganizationService = null;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.crmGridAssigments.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.crmGridAssigments.Size = new System.Drawing.Size(240, 150);
+            this.crmGridAssigments.TabIndex = 1;
+            // 
+            // btnNewAssignment
+            // 
+            this.btnNewAssignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewAssignment.Image = ((System.Drawing.Image)(resources.GetObject("btnNewAssignment.Image")));
+            this.btnNewAssignment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewAssignment.Location = new System.Drawing.Point(19, 19);
+            this.btnNewAssignment.Name = "btnNewAssignment";
+            this.btnNewAssignment.Size = new System.Drawing.Size(189, 29);
+            this.btnNewAssignment.TabIndex = 106;
+            this.btnNewAssignment.Text = "Create Catalog Assignment";
+            this.btnNewAssignment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewAssignment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewAssignment.UseVisualStyleBackColor = true;
+            // 
+            // cdsDataTextBox1
+            // 
+            this.cdsDataTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsDataTextBox1.DisplayFormat = "description";
+            this.cdsDataTextBox1.Entity = null;
+            this.cdsDataTextBox1.EntityReference = null;
+            this.cdsDataTextBox1.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsDataTextBox1.Location = new System.Drawing.Point(348, 79);
+            this.cdsDataTextBox1.LogicalName = "customapi";
+            this.cdsDataTextBox1.Multiline = true;
+            this.cdsDataTextBox1.Name = "cdsDataTextBox1";
+            this.cdsDataTextBox1.OrganizationService = null;
+            this.cdsDataTextBox1.Size = new System.Drawing.Size(242, 40);
+            this.cdsDataTextBox1.TabIndex = 110;
+            // 
+            // cdsDataTextBox2
+            // 
+            this.cdsDataTextBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsDataTextBox2.DisplayFormat = "displayname";
+            this.cdsDataTextBox2.Entity = null;
+            this.cdsDataTextBox2.EntityReference = null;
+            this.cdsDataTextBox2.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsDataTextBox2.Location = new System.Drawing.Point(348, 54);
+            this.cdsDataTextBox2.LogicalName = "customapi";
+            this.cdsDataTextBox2.Name = "cdsDataTextBox2";
+            this.cdsDataTextBox2.OrganizationService = null;
+            this.cdsDataTextBox2.Size = new System.Drawing.Size(242, 20);
+            this.cdsDataTextBox2.TabIndex = 109;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(267, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(60, 13);
+            this.label8.TabIndex = 107;
+            this.label8.Text = "Description";
+            this.ttInfo.SetToolTip(this.label8, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. \r\nFor example, as a ToolTip.");
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(267, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 13);
+            this.label9.TabIndex = 108;
+            this.label9.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label9, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
+            // 
+            // cdsDataTextBox3
+            // 
+            this.cdsDataTextBox3.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsDataTextBox3.DisplayFormat = "displayname";
+            this.cdsDataTextBox3.Entity = null;
+            this.cdsDataTextBox3.EntityReference = null;
+            this.cdsDataTextBox3.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsDataTextBox3.Location = new System.Drawing.Point(348, 125);
+            this.cdsDataTextBox3.LogicalName = "customapi";
+            this.cdsDataTextBox3.Name = "cdsDataTextBox3";
+            this.cdsDataTextBox3.OrganizationService = null;
+            this.cdsDataTextBox3.Size = new System.Drawing.Size(242, 20);
+            this.cdsDataTextBox3.TabIndex = 112;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(267, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.TabIndex = 111;
+            this.label11.Text = "Type";
+            this.ttInfo.SetToolTip(this.label11, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
+            // 
             // CatalogManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,6 +920,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.grpFilter.ResumeLayout(false);
             this.grpFilter.PerformLayout();
+            this.grpCategories.ResumeLayout(false);
+            this.grpCategories.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crmGridCategories)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grpCatalogAssignments.ResumeLayout(false);
+            this.grpCatalogAssignments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crmGridAssigments)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,5 +968,28 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtDisplayName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox grpCategories;
+        private xrmtb.XrmToolBox.Controls.CRMGridView crmGridCategories;
+        private System.Windows.Forms.Button btnNewCategory;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtDescription;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtDisplayName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtUniqueName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox grpCatalogAssignments;
+        private xrmtb.XrmToolBox.Controls.CRMGridView crmGridAssigments;
+        private System.Windows.Forms.Button btnNewAssignment;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsDataTextBox3;
+        private System.Windows.Forms.Label label11;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsDataTextBox1;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsDataTextBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

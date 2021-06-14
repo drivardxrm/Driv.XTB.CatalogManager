@@ -42,7 +42,7 @@ namespace Driv.XTB.CatalogManager.Forms
 
        
 
-        public bool CustomApiUpdated { get; private set; }
+        public bool CatalogUpdated { get; private set; }
 
         #endregion Public Properties
 
@@ -75,28 +75,28 @@ namespace Driv.XTB.CatalogManager.Forms
      
         private Entity CatalogToUpdate() 
         {
-            var api = new Entity(CustomAPI.EntityName,_catalogproxy.CatalogRow.Id);
+            var catalog = new Entity(Catalog.EntityName,_catalogproxy.CatalogRow.Id);
             
             //Update only if needed
             if (_catalogproxy.Name != txtName.Text) 
             {
-                api[CustomAPI.PrimaryName] = txtName.Text;
+                catalog[Catalog.PrimaryName] = txtName.Text;
                 _shouldupdate = true;
             };
 
             if (_catalogproxy.Description != txtDescription.Text)
             {
-                api[CustomAPI.Description] = txtDescription.Text;
+                catalog[Catalog.Description] = txtDescription.Text;
                 _shouldupdate = true;
             };
 
             if (_catalogproxy.DisplayName != txtDisplayName.Text)
             {
-                api[CustomAPI.DisplayName] = txtDisplayName.Text;
+                catalog[Catalog.DisplayName] = txtDisplayName.Text;
                 _shouldupdate = true;
             };
 
-            return api;
+            return catalog;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace Driv.XTB.CatalogManager.Forms
                 {
                     Cursor = Cursors.WaitCursor;
                     _service.Update(customapitoupdate);
-                    CustomApiUpdated = true;
+                    CatalogUpdated = true;
                     Cursor = Cursors.Default;
                 }
                 else 

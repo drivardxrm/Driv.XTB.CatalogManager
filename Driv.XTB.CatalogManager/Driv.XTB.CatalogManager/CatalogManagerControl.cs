@@ -265,14 +265,14 @@ namespace Driv.XTB.CatalogManager
         {
 
 
-           
+            SetSelectedCategory(null);
 
 
             var catalog = cdsCboCatalog.SelectedIndex == -1 ? null : cdsCboCatalog.SelectedEntity;
             SetSelectedCatalog(catalog);
 
 
-            
+            LoadCategories();
 
         }
 
@@ -634,6 +634,28 @@ namespace Driv.XTB.CatalogManager
             }
         }
 
+        private void UpdateCategoryDialog()
+        {
+
+            var inputdlg = new UpdateCatalogForm(Service, _selectedCategory);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.CatalogUpdated)
+            {
+
+
+                LoadCategories(_selectedCategory.CatalogRow.Id);
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
         private void DeleteCatalogDialog()
         {
 
@@ -650,6 +672,31 @@ namespace Driv.XTB.CatalogManager
                
 
                 ExecuteMethod(LoadRootCatalogs);
+
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
+        private void DeleteCategoryDialog()
+        {
+
+            var inputdlg = new DeleteCatalogForm(Service, _selectedCategory);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.CatalogDeleted)
+            {
+
+                SetSelectedCategory(null);
+
+
+                LoadCategories(null);
 
 
             }
@@ -676,6 +723,14 @@ namespace Driv.XTB.CatalogManager
 
         }
 
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            DeleteCategoryDialog();
+        }
 
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            UpdateCategoryDialog();
+        }
     }
 }

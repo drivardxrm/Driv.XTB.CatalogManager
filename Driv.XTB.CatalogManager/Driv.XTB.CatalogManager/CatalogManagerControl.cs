@@ -93,7 +93,7 @@ namespace Driv.XTB.CatalogManager
             cdsTxtIsCustomizable.OrganizationService = Service;
 
             //2nd Level catalog (category)
-            crmGridCategories.OrganizationService = Service;
+            cdsGridCategories.OrganizationService = Service;
             cdsCategoryTxtUniqueName.OrganizationService = Service;
 
             cdsCategoryTxtName.OrganizationService = Service;
@@ -415,9 +415,16 @@ namespace Driv.XTB.CatalogManager
             cdsCboCatalog.SelectedIndexChanged += new EventHandler(cdsCboCatalog_SelectedIndexChanged);
         }
 
+        private void SetGridCategoriesDataSource(object datasource)
+        {
+            cdsGridCategories.RecordEnter -= new CRMRecordEventHandler(cdsGridCategories_RecordEnter);
+            cdsGridCategories.DataSource = datasource;
+            cdsGridCategories.RecordEnter += new CRMRecordEventHandler(cdsGridCategories_RecordEnter);
+        }
 
-        
-        
+
+
+
 
         private void SetSelectedCatalog(Entity catalog) 
         {
@@ -516,7 +523,7 @@ namespace Driv.XTB.CatalogManager
 
         private void CreateCatalogDialog() 
         {
-            var inputdlg = new NewCatalogForm(Service, _selectedSolution);
+            var inputdlg = new NewCatalogForm(Service, _selectedSolution, null);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -533,6 +540,74 @@ namespace Driv.XTB.CatalogManager
             {
 
             }
+        }
+
+        private void CreateCategoryDialog()
+        {
+            var inputdlg = new NewCatalogForm(Service, _selectedSolution, _selectedCatalog);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.NewCatalogId != null)
+            {
+
+                //refresh category list
+                LoadCategories(inputdlg.NewCatalogId);
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
+        private void LoadCategories(Guid? selected = null)
+        {
+            SetGridCategoriesDataSource(null);
+
+
+            SetSelectedCategory(null);
+
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading categories...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetChildCatalogsFor(_selectedCatalog?.CatalogRow.Id ?? Guid.Empty);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var categories = (EntityCollection)args.Result;
+
+                            SetGridCategoriesDataSource(categories);
+
+                            cdsGridCategories.ClearSelection();
+
+                            if (cdsGridCategories.Rows.Count > 0)
+                            {
+                                int index = GetGridSelectedIndex(cdsGridCategories, selected);
+                                cdsGridCategories.CurrentCell = cdsGridCategories.Rows[index].Cells[2];
+
+                            }
+                            else
+                            {
+                                SetSelectedCategory(null);
+                            }
+
+                        }
+                    }
+                }
+            });
         }
 
         private void UpdateCatalogDialog()
@@ -588,9 +663,19 @@ namespace Driv.XTB.CatalogManager
 
         #endregion
 
-        private void crmGridCategories_RecordEnter(object sender, CRMRecordEventArgs e)
+
+
+        private void btnNewCategory_Click(object sender, EventArgs e)
         {
-            SetSelectedRequestParameter(Service.GetRequestParameter(e.Entity.Id));
+            CreateCategoryDialog();
         }
+
+        private void cdsGridCategories_RecordEnter(object sender, CRMRecordEventArgs e)
+        {
+            SetSelectedCategory(Service.GetCatalog(e.Entity.Id));
+
+        }
+
+
     }
 }

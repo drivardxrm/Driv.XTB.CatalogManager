@@ -24,7 +24,7 @@ namespace Driv.XTB.CatalogManager.Forms
 
         #region Public Constructors
 
-        public NewCatalogForm(IOrganizationService service, SolutionProxy solution)
+        public NewCatalogForm(IOrganizationService service, SolutionProxy solution, CatalogProxy parentcatalog)
         {
             InitializeComponent();
             _service = service;
@@ -32,7 +32,17 @@ namespace Driv.XTB.CatalogManager.Forms
 
             dlgLookupPublisher.Service = service;
 
-
+            if (parentcatalog != null)
+            {
+                cdsTextParentCatalog.OrganizationService = service;
+                cdsTextParentCatalog.Entity = parentcatalog.CatalogRow;
+            }
+            else 
+            {
+                lblParentCatalog.Visible = false;
+                cdsTextParentCatalog.Visible = false;
+            
+            }
             
 
             if (solution?.PublisherRef != null)
@@ -144,6 +154,11 @@ namespace Driv.XTB.CatalogManager.Forms
         private Entity CatalogToCreate() 
         {
             var catalog = new Entity(Catalog.EntityName);
+
+            if (cdsTextParentCatalog.Id != Guid.Empty) 
+            {
+                catalog[Catalog.ParentCatalog] = cdsTextParentCatalog.EntityReference;
+            }
 
             catalog[Catalog.UniqueName] = txtPrefix.Text + txtUniqueName.Text;          
             catalog[Catalog.Description] = txtDescription.Text;

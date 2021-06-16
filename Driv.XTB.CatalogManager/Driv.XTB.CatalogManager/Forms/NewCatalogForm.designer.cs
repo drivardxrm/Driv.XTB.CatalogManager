@@ -51,6 +51,8 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.lblParentCatalog = new System.Windows.Forms.Label();
+            this.cdsTextParentCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -58,6 +60,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cdsTextParentCatalog);
+            this.panel2.Controls.Add(this.lblParentCatalog);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.pictureBox13);
             this.panel2.Controls.Add(this.lblTitle);
@@ -286,6 +290,30 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
+            // lblParentCatalog
+            // 
+            this.lblParentCatalog.AutoSize = true;
+            this.lblParentCatalog.Location = new System.Drawing.Point(26, 75);
+            this.lblParentCatalog.Name = "lblParentCatalog";
+            this.lblParentCatalog.Size = new System.Drawing.Size(77, 13);
+            this.lblParentCatalog.TabIndex = 77;
+            this.lblParentCatalog.Text = "Parent Catalog";
+            this.ttInfo.SetToolTip(this.lblParentCatalog, "The primary name of the catalog");
+            // 
+            // cdsTextParentCatalog
+            // 
+            this.cdsTextParentCatalog.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTextParentCatalog.DisplayFormat = "{{name}} - ({{uniquename}}";
+            this.cdsTextParentCatalog.Entity = null;
+            this.cdsTextParentCatalog.EntityReference = null;
+            this.cdsTextParentCatalog.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTextParentCatalog.Location = new System.Drawing.Point(104, 71);
+            this.cdsTextParentCatalog.LogicalName = "catalog";
+            this.cdsTextParentCatalog.Name = "cdsTextParentCatalog";
+            this.cdsTextParentCatalog.OrganizationService = null;
+            this.cdsTextParentCatalog.Size = new System.Drawing.Size(232, 20);
+            this.cdsTextParentCatalog.TabIndex = 78;
+            // 
             // NewCatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,5 +360,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.ToolTip ttInfo;
+        private System.Windows.Forms.Label lblParentCatalog;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTextParentCatalog;
     }
 }

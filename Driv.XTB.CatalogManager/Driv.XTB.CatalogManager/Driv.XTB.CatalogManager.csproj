@@ -242,6 +242,7 @@
     <Compile Include="Forms\UpdateCatalogForm.designer.cs">
       <DependentUpon>UpdateCatalogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CatalogAssignmentHelper.cs" />
     <Compile Include="Helpers\ProcessHelper.cs" />
     <Compile Include="Helpers\EntityHelper.cs" />
     <Compile Include="Helpers\CatalogHelper.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="Helpers\PublisherHelper.cs" />
     <Compile Include="Helpers\SolutionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\CatalogAssignmentProxy.cs" />
     <Compile Include="Proxy\CatalogProxy.cs" />
     <Compile Include="Proxy\SolutionProxy.cs" />
     <Compile Include="Settings.cs" />

@@ -33,9 +33,9 @@ namespace Driv.XTB.CatalogManager
 
         private CatalogProxy _selectedCategory; //2nd level catalog
 
-        //private CustomApiRequestParameterProxy _selectedRequestParameter;
+        private CatalogAssignmentProxy _selectedCatalogAssignment; 
 
-        //private CustomApiResponsePropertyProxy _selectedResponseProperty;
+
 
         private Entity _selectedPublisher;
 
@@ -399,6 +399,102 @@ namespace Driv.XTB.CatalogManager
 
         }
 
+        private void LoadCategories(Guid? selected = null)
+        {
+            SetGridCategoriesDataSource(null);
+
+
+            SetSelectedCategory(null);
+
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading categories...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetChildCatalogsFor(_selectedCatalog?.CatalogRow.Id ?? Guid.Empty);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var categories = (EntityCollection)args.Result;
+
+                            SetGridCategoriesDataSource(categories);
+
+                            cdsGridCategories.ClearSelection();
+
+                            if (cdsGridCategories.Rows.Count > 0)
+                            {
+                                int index = GetGridSelectedIndex(cdsGridCategories, selected);
+                                cdsGridCategories.CurrentCell = cdsGridCategories.Rows[index].Cells[2];
+
+                            }
+                            else
+                            {
+                                SetSelectedCategory(null);
+                            }
+
+                        }
+                    }
+                }
+            });
+        }
+
+        private void LoadAssignments(Guid? selected = null)
+        {
+            SetGridCategoriesDataSource(null);
+
+
+            SetSelectedCategory(null);
+
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading assignments...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCatalogAssignmentsFor(_selectedCategory?.CatalogRow.Id ?? Guid.Empty);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var assignments = (EntityCollection)args.Result;
+
+                            SetGridAssignmentsDataSource(assignments);
+
+                            cdsGridAssigments.ClearSelection();
+
+                            if (cdsGridAssigments.Rows.Count > 0)
+                            {
+                                int index = GetGridSelectedIndex(cdsGridAssigments, selected);
+                                cdsGridAssigments.CurrentCell = cdsGridAssigments.Rows[index].Cells[2];
+
+                            }
+                            else
+                            {
+                                SetSelectedAssignment(null);
+                            }
+
+                        }
+                    }
+                }
+            });
+        }
+
         /// Will set the DataSource of the control. Disabling the event handlers will prevent unessesary triggers.
         private void SetCdsCboSolutionsDataSource(object datasource)
         {
@@ -420,6 +516,13 @@ namespace Driv.XTB.CatalogManager
             cdsGridCategories.RecordEnter -= new CRMRecordEventHandler(cdsGridCategories_RecordEnter);
             cdsGridCategories.DataSource = datasource;
             cdsGridCategories.RecordEnter += new CRMRecordEventHandler(cdsGridCategories_RecordEnter);
+        }
+
+        private void SetGridAssignmentsDataSource(object datasource)
+        {
+            cdsGridAssigments.RecordEnter -= new CRMRecordEventHandler(cdsGridAssigments_RecordEnter);
+            cdsGridAssigments.DataSource = datasource;
+            cdsGridAssigments.RecordEnter += new CRMRecordEventHandler(cdsGridAssigments_RecordEnter);
         }
 
 
@@ -450,7 +553,7 @@ namespace Driv.XTB.CatalogManager
             }
             
             
-            grpCatalog.Enabled = _selectedCatalog != null;
+            grpCategories.Enabled = _selectedCatalog != null;
             
 
 
@@ -463,10 +566,41 @@ namespace Driv.XTB.CatalogManager
 
 
 
-            cdsCategoryTxtUniqueName.Entity = _selectedCatalog?.CatalogRow;
-            cdsCategoryTxtName.Entity = _selectedCatalog?.CatalogRow;
-            cdsCategoryTxtDisplayName.Entity = _selectedCatalog?.CatalogRow;
-            cdsCategoryTxtDescription.Entity = _selectedCatalog?.CatalogRow;
+            cdsCategoryTxtUniqueName.Entity = _selectedCategory?.CatalogRow;
+            cdsCategoryTxtName.Entity = _selectedCategory?.CatalogRow;
+            cdsCategoryTxtDisplayName.Entity = _selectedCategory?.CatalogRow;
+            cdsCategoryTxtDescription.Entity = _selectedCategory?.CatalogRow;
+
+
+            //cdsTxtIsManaged.Entity = _selectedCatalog?.CatalogRow;
+            //cdsTxtIsCustomizable.Entity = _selectedCatalog?.CatalogRow;
+
+            //if (_selectedCatalog != null)
+            //{
+            //    txtCustomizableWarning.Visible = !_selectedCatalog.CanCustomize;
+            //    btnEditCustomApi.Enabled = _selectedCatalog.CanCustomize;
+            //    btnDeleteApi.Enabled = _selectedCatalog.CanCustomize;
+
+            //}
+
+
+            //grpCategories.Enabled = _selectedCatalog != null;
+
+
+            grpCatalogAssignments.Enabled = _selectedCategory != null;
+
+        }
+
+        private void SetSelectedAssignment(Entity catalogassignment)
+        {
+            _selectedCatalogAssignment = catalogassignment != null ? new CatalogAssignmentProxy(catalogassignment) : null;
+
+
+
+            //cdsCategoryTxtUniqueName.Entity = _selectedCategory?.CatalogRow;
+            //cdsCategoryTxtName.Entity = _selectedCategory?.CatalogRow;
+            //cdsCategoryTxtDisplayName.Entity = _selectedCategory?.CatalogRow;
+            //cdsCategoryTxtDescription.Entity = _selectedCategory?.CatalogRow;
 
 
             //cdsTxtIsManaged.Entity = _selectedCatalog?.CatalogRow;
@@ -562,53 +696,7 @@ namespace Driv.XTB.CatalogManager
             }
         }
 
-        private void LoadCategories(Guid? selected = null)
-        {
-            SetGridCategoriesDataSource(null);
-
-
-            SetSelectedCategory(null);
-
-            WorkAsync(new WorkAsyncInfo
-            {
-                Message = "Loading categories...",
-                Work = (worker, args) =>
-                {
-                    args.Result = Service.GetChildCatalogsFor(_selectedCatalog?.CatalogRow.Id ?? Guid.Empty);
-
-                },
-                PostWorkCallBack = (args) =>
-                {
-                    if (args.Error != null)
-                    {
-                        MessageBox.Show(args.Error.Message);
-                    }
-                    else
-                    {
-                        if (args.Result is EntityCollection)
-                        {
-                            var categories = (EntityCollection)args.Result;
-
-                            SetGridCategoriesDataSource(categories);
-
-                            cdsGridCategories.ClearSelection();
-
-                            if (cdsGridCategories.Rows.Count > 0)
-                            {
-                                int index = GetGridSelectedIndex(cdsGridCategories, selected);
-                                cdsGridCategories.CurrentCell = cdsGridCategories.Rows[index].Cells[2];
-
-                            }
-                            else
-                            {
-                                SetSelectedCategory(null);
-                            }
-
-                        }
-                    }
-                }
-            });
-        }
+       
 
         private void UpdateCatalogDialog()
         {
@@ -731,6 +819,12 @@ namespace Driv.XTB.CatalogManager
         private void btnEditCategory_Click(object sender, EventArgs e)
         {
             UpdateCategoryDialog();
+        }
+
+        private void cdsGridAssigments_RecordEnter(object sender, CRMRecordEventArgs e)
+        {
+            SetSelectedAssignment(Service.GetCatalogAssignment(e.Entity.Id));
+
         }
     }
 }

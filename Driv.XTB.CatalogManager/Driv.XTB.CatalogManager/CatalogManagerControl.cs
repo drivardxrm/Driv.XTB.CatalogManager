@@ -696,7 +696,27 @@ namespace Driv.XTB.CatalogManager
             }
         }
 
-       
+        private void CreateCategoryAssignmentDialog()
+        {
+            var inputdlg = new NewCatalogAssignmentForm(Service, _selectedSolution, _selectedCatalog, _selectedCategory);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.NewCatalogAssignmentId != null)
+            {
+
+                //refresh category list
+                LoadAssignments(inputdlg.NewCatalogAssignmentId);
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
+
 
         private void UpdateCatalogDialog()
         {
@@ -825,6 +845,11 @@ namespace Driv.XTB.CatalogManager
         {
             SetSelectedAssignment(Service.GetCatalogAssignment(e.Entity.Id));
 
+        }
+
+        private void btnNewAssignment_Click(object sender, EventArgs e)
+        {
+            CreateCategoryAssignmentDialog();
         }
     }
 }

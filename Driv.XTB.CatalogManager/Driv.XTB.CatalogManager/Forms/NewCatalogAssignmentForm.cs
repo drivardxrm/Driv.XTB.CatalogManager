@@ -189,9 +189,11 @@ namespace Driv.XTB.CatalogManager.Forms
             {
                 txtLookupCustomAPI.Entity = null;
                 txtLookupCustomAPI.Enabled = false;
+                btnLookupCustomAPI.Enabled = false;
 
                 txtLookupProcess.Entity = null;
                 txtLookupProcess.Enabled = false;
+                btnLookupProcess.Enabled = false;
 
                 cboEntities.Enabled = true;
                 cboEntities.LoadData();
@@ -205,9 +207,11 @@ namespace Driv.XTB.CatalogManager.Forms
             {
          
                 txtLookupCustomAPI.Enabled = true;
+                btnLookupCustomAPI.Enabled = true;
 
                 txtLookupProcess.Entity = null;
                 txtLookupProcess.Enabled = false;
+                btnLookupProcess.Enabled = false;
 
                 cboEntities.Enabled = false;
                 
@@ -222,9 +226,11 @@ namespace Driv.XTB.CatalogManager.Forms
 
                 txtLookupCustomAPI.Enabled = false;
                 txtLookupCustomAPI.Entity = null;
+                btnLookupCustomAPI.Enabled = false;
 
 
                 txtLookupProcess.Enabled = true;
+                btnLookupProcess.Enabled = true;
 
                 cboEntities.Enabled = false;
 

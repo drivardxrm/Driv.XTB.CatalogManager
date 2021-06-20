@@ -210,6 +210,9 @@
     <Compile Include="CatalogManagerControl.designer.cs">
       <DependentUpon>CatalogManagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ImageGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Entities\Catalog.cs" />
     <Compile Include="Entities\CatalogAssignment.cs" />
     <Compile Include="Entities\CustomAPI.cs" />

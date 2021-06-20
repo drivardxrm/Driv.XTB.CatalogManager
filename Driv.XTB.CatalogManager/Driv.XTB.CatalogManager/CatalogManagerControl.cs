@@ -557,8 +557,8 @@ namespace Driv.XTB.CatalogManager
                 
             }
 
-            grpCatalog.Enabled = _selectedCatalog != null;
-            grpCategories.Enabled = _selectedCatalog != null;
+            imgGrpRootCatalog.Enabled = _selectedCatalog != null;
+            imgGrpCategories.Enabled = _selectedCatalog != null;
 
 
             UpdateTreeView();
@@ -577,10 +577,19 @@ namespace Driv.XTB.CatalogManager
             txtCategoryDescription.Entity = _selectedCategory?.CatalogRow;
             txtCategoryIsCustomizable.Entity = _selectedCategory?.CatalogRow;
 
+           
+                
+            btnEditCategory.Enabled = _selectedCategory != null;
+            btnDeleteCategory.Enabled = _selectedCategory != null;
+
+
+            
+
+
             LoadAssignments(_selectedCategory?.CatalogRow?.Id ?? Guid.Empty);
 
 
-            grpCatalogAssignments.Enabled = _selectedCategory != null;
+            imgGrpAssignments.Enabled = _selectedCategory != null;
 
             
 
@@ -599,6 +608,8 @@ namespace Driv.XTB.CatalogManager
             pictAPI.Visible = txtAssignmentType.Text == "customapi";
             pictProcess.Visible = txtAssignmentType.Text == "workflow";
 
+            btnUpdateAssignment.Enabled = _selectedCatalogAssignment != null;
+            btnDeleteAssignment.Enabled = _selectedCatalogAssignment != null;
 
         }
 
@@ -643,10 +654,11 @@ namespace Driv.XTB.CatalogManager
 
                         if (assignmentobject != null)
                         {
-                            var assignmentname = ((AliasedValue)assignment["assignment_name"])?.Value.ToString();
+                            var assignmenttype = assignmentobject.LogicalName;
+                            var assignmentname = $"{((AliasedValue)assignment["assignment_name"])?.Value.ToString()} ({assignmenttype})";
 
                             var assignmentnode = categorynode.Nodes.Add(assignmentname);
-                            var assignmenttype = assignmentobject.LogicalName;
+                            
                             var assignmentimgindex = 0;
                             switch (assignmenttype)
                             {

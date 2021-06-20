@@ -1,0 +1,219 @@
+﻿namespace Driv.XTB.CatalogManager.Forms
+{
+    partial class DeleteCatalogAssignmentForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteCatalogAssignmentForm));
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
+            this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.txtAssignmentObject = new System.Windows.Forms.TextBox();
+            this.txtAssignmentName = new System.Windows.Forms.TextBox();
+            this.txtAssignmentType = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.txtAssignmentObject);
+            this.panel2.Controls.Add(this.txtAssignmentName);
+            this.panel2.Controls.Add(this.txtAssignmentType);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.lblTitle);
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnOk);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(500, 205);
+            this.panel2.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(104, 98);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(320, 41);
+            this.textBox1.TabIndex = 75;
+            this.textBox1.Text = "Warning : this operation will delete the selected  Catalog Assignment. This actio" +
+    "n is irreversible.";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(19, 11);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(228, 20);
+            this.lblTitle.TabIndex = 73;
+            this.lblTitle.Text = "Delete Catalog Assignment";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(375, 159);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(78, 32);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.BackColor = System.Drawing.Color.Red;
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOk.Location = new System.Drawing.Point(291, 159);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(78, 32);
+            this.btnOk.TabIndex = 72;
+            this.btnOk.Text = "Delete";
+            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // dlgLookupPublisher
+            // 
+            this.dlgLookupPublisher.Entity = null;
+            this.dlgLookupPublisher.LogicalName = "publisher";
+            this.dlgLookupPublisher.LogicalNames = new string[] {
+        "publisher"};
+            this.dlgLookupPublisher.Service = null;
+            this.dlgLookupPublisher.Title = null;
+            // 
+            // dlgLookupPluginType
+            // 
+            this.dlgLookupPluginType.Entity = null;
+            this.dlgLookupPluginType.IncludePersonalViews = true;
+            this.dlgLookupPluginType.LogicalName = "plugintype";
+            this.dlgLookupPluginType.LogicalNames = new string[] {
+        "plugintype"};
+            this.dlgLookupPluginType.Service = null;
+            this.dlgLookupPluginType.Title = "Custom Api - PluginType";
+            // 
+            // txtAssignmentObject
+            // 
+            this.txtAssignmentObject.Location = new System.Drawing.Point(186, 72);
+            this.txtAssignmentObject.Name = "txtAssignmentObject";
+            this.txtAssignmentObject.ReadOnly = true;
+            this.txtAssignmentObject.Size = new System.Drawing.Size(252, 20);
+            this.txtAssignmentObject.TabIndex = 114;
+            // 
+            // txtAssignmentName
+            // 
+            this.txtAssignmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAssignmentName.Location = new System.Drawing.Point(79, 46);
+            this.txtAssignmentName.Name = "txtAssignmentName";
+            this.txtAssignmentName.ReadOnly = true;
+            this.txtAssignmentName.Size = new System.Drawing.Size(359, 20);
+            this.txtAssignmentName.TabIndex = 113;
+            // 
+            // txtAssignmentType
+            // 
+            this.txtAssignmentType.Location = new System.Drawing.Point(79, 72);
+            this.txtAssignmentType.Name = "txtAssignmentType";
+            this.txtAssignmentType.ReadOnly = true;
+            this.txtAssignmentType.Size = new System.Drawing.Size(101, 20);
+            this.txtAssignmentType.TabIndex = 112;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Object";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Name";
+            // 
+            // DeleteCatalogAssignmentForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(500, 205);
+            this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "DeleteCatalogAssignmentForm";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Catalog Manager";
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Panel panel2;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupPublisher;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupPluginType;
+        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAssignmentObject;
+        private System.Windows.Forms.TextBox txtAssignmentName;
+        private System.Windows.Forms.TextBox txtAssignmentType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+    }
+}

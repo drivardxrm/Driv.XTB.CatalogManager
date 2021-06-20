@@ -224,6 +224,12 @@
     <Compile Include="Forms\About.designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DeleteCatalogAssignmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteCatalogAssignmentForm.designer.cs">
+      <DependentUpon>DeleteCatalogAssignmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DeleteCatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,12 @@
     </Compile>
     <Compile Include="Forms\NewCatalogForm.designer.cs">
       <DependentUpon>NewCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateCatalogAssignmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateCatalogAssignmentForm.designer.cs">
+      <DependentUpon>UpdateCatalogAssignmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UpdateCatalogForm.cs">
       <SubType>Form</SubType>
@@ -272,6 +284,9 @@
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteCatalogAssignmentForm.resx">
+      <DependentUpon>DeleteCatalogAssignmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeleteCatalogForm.resx">
       <DependentUpon>DeleteCatalogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewCatalogForm.resx">
       <DependentUpon>NewCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateCatalogAssignmentForm.resx">
+      <DependentUpon>UpdateCatalogAssignmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateCatalogForm.resx">
       <DependentUpon>UpdateCatalogForm.cs</DependentUpon>

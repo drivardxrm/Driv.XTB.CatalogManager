@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateCatalogAssignmentForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtAssignmentObject = new System.Windows.Forms.TextBox();
+            this.txtAssignmentName = new System.Windows.Forms.TextBox();
+            this.txtAssignmentType = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -38,13 +45,6 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
-            this.lblCustomizable = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAssignmentObject = new System.Windows.Forms.TextBox();
-            this.txtAssignmentName = new System.Windows.Forms.TextBox();
-            this.txtAssignmentType = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -70,6 +70,70 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 186);
             this.panel2.TabIndex = 5;
+            // 
+            // txtAssignmentObject
+            // 
+            this.txtAssignmentObject.Location = new System.Drawing.Point(185, 75);
+            this.txtAssignmentObject.Name = "txtAssignmentObject";
+            this.txtAssignmentObject.ReadOnly = true;
+            this.txtAssignmentObject.Size = new System.Drawing.Size(252, 20);
+            this.txtAssignmentObject.TabIndex = 109;
+            // 
+            // txtAssignmentName
+            // 
+            this.txtAssignmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAssignmentName.Location = new System.Drawing.Point(78, 49);
+            this.txtAssignmentName.Name = "txtAssignmentName";
+            this.txtAssignmentName.Size = new System.Drawing.Size(359, 20);
+            this.txtAssignmentName.TabIndex = 108;
+            // 
+            // txtAssignmentType
+            // 
+            this.txtAssignmentType.Location = new System.Drawing.Point(78, 75);
+            this.txtAssignmentType.Name = "txtAssignmentType";
+            this.txtAssignmentType.ReadOnly = true;
+            this.txtAssignmentType.Size = new System.Drawing.Size(101, 20);
+            this.txtAssignmentType.TabIndex = 107;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(25, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 106;
+            this.label1.Text = "Object";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(25, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 104;
+            this.label2.Text = "Name";
+            // 
+            // lblCustomizable
+            // 
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomizable.Location = new System.Drawing.Point(25, 108);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 102;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Catalog can be customized or deleted.");
+            // 
+            // chkIsCustomizable
+            // 
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(108, 107);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 101;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -148,70 +212,6 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 104;
-            this.label2.Text = "Name";
-            // 
-            // chkIsCustomizable
-            // 
-            this.chkIsCustomizable.AutoSize = true;
-            this.chkIsCustomizable.Location = new System.Drawing.Point(108, 107);
-            this.chkIsCustomizable.Name = "chkIsCustomizable";
-            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
-            this.chkIsCustomizable.TabIndex = 101;
-            this.chkIsCustomizable.UseVisualStyleBackColor = true;
-            // 
-            // lblCustomizable
-            // 
-            this.lblCustomizable.AutoSize = true;
-            this.lblCustomizable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomizable.Location = new System.Drawing.Point(25, 108);
-            this.lblCustomizable.Name = "lblCustomizable";
-            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
-            this.lblCustomizable.TabIndex = 102;
-            this.lblCustomizable.Text = "IsCustomizable";
-            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Catalog can be customized or deleted.");
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 106;
-            this.label1.Text = "Object";
-            // 
-            // txtAssignmentObject
-            // 
-            this.txtAssignmentObject.Location = new System.Drawing.Point(185, 75);
-            this.txtAssignmentObject.Name = "txtAssignmentObject";
-            this.txtAssignmentObject.ReadOnly = true;
-            this.txtAssignmentObject.Size = new System.Drawing.Size(252, 20);
-            this.txtAssignmentObject.TabIndex = 109;
-            // 
-            // txtAssignmentName
-            // 
-            this.txtAssignmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAssignmentName.Location = new System.Drawing.Point(78, 49);
-            this.txtAssignmentName.Name = "txtAssignmentName";
-            this.txtAssignmentName.Size = new System.Drawing.Size(359, 20);
-            this.txtAssignmentName.TabIndex = 108;
-            // 
-            // txtAssignmentType
-            // 
-            this.txtAssignmentType.Location = new System.Drawing.Point(78, 75);
-            this.txtAssignmentType.Name = "txtAssignmentType";
-            this.txtAssignmentType.ReadOnly = true;
-            this.txtAssignmentType.Size = new System.Drawing.Size(101, 20);
-            this.txtAssignmentType.TabIndex = 107;
             // 
             // UpdateCatalogAssignmentForm
             // 

@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateCatalogForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.lblCustomizable = new System.Windows.Forms.Label();
-            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -76,6 +76,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 267);
             this.panel2.TabIndex = 5;
+            // 
+            // lblCustomizable
+            // 
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Location = new System.Drawing.Point(26, 182);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 102;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Catalog can be customized or deleted.");
+            // 
+            // chkIsCustomizable
+            // 
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(104, 182);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 101;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -228,25 +247,6 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
-            // 
-            // lblCustomizable
-            // 
-            this.lblCustomizable.AutoSize = true;
-            this.lblCustomizable.Location = new System.Drawing.Point(26, 182);
-            this.lblCustomizable.Name = "lblCustomizable";
-            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
-            this.lblCustomizable.TabIndex = 102;
-            this.lblCustomizable.Text = "IsCustomizable";
-            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Catalog can be customized or deleted.");
-            // 
-            // chkIsCustomizable
-            // 
-            this.chkIsCustomizable.AutoSize = true;
-            this.chkIsCustomizable.Location = new System.Drawing.Point(104, 182);
-            this.chkIsCustomizable.Name = "chkIsCustomizable";
-            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
-            this.chkIsCustomizable.TabIndex = 101;
-            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // UpdateCatalogForm
             // 

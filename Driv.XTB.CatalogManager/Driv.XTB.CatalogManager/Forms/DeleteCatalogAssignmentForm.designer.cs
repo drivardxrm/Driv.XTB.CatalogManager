@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteCatalogAssignmentForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtAssignmentObject = new System.Windows.Forms.TextBox();
+            this.txtAssignmentName = new System.Windows.Forms.TextBox();
+            this.txtAssignmentType = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.txtAssignmentObject = new System.Windows.Forms.TextBox();
-            this.txtAssignmentName = new System.Windows.Forms.TextBox();
-            this.txtAssignmentType = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,51 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 205);
             this.panel2.TabIndex = 5;
+            // 
+            // txtAssignmentObject
+            // 
+            this.txtAssignmentObject.Location = new System.Drawing.Point(186, 72);
+            this.txtAssignmentObject.Name = "txtAssignmentObject";
+            this.txtAssignmentObject.ReadOnly = true;
+            this.txtAssignmentObject.Size = new System.Drawing.Size(252, 20);
+            this.txtAssignmentObject.TabIndex = 114;
+            // 
+            // txtAssignmentName
+            // 
+            this.txtAssignmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAssignmentName.Location = new System.Drawing.Point(79, 46);
+            this.txtAssignmentName.Name = "txtAssignmentName";
+            this.txtAssignmentName.ReadOnly = true;
+            this.txtAssignmentName.Size = new System.Drawing.Size(359, 20);
+            this.txtAssignmentName.TabIndex = 113;
+            // 
+            // txtAssignmentType
+            // 
+            this.txtAssignmentType.Location = new System.Drawing.Point(79, 72);
+            this.txtAssignmentType.Name = "txtAssignmentType";
+            this.txtAssignmentType.ReadOnly = true;
+            this.txtAssignmentType.Size = new System.Drawing.Size(101, 20);
+            this.txtAssignmentType.TabIndex = 112;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Object";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Name";
             // 
             // textBox1
             // 
@@ -134,51 +179,6 @@
         "plugintype"};
             this.dlgLookupPluginType.Service = null;
             this.dlgLookupPluginType.Title = "Custom Api - PluginType";
-            // 
-            // txtAssignmentObject
-            // 
-            this.txtAssignmentObject.Location = new System.Drawing.Point(186, 72);
-            this.txtAssignmentObject.Name = "txtAssignmentObject";
-            this.txtAssignmentObject.ReadOnly = true;
-            this.txtAssignmentObject.Size = new System.Drawing.Size(252, 20);
-            this.txtAssignmentObject.TabIndex = 114;
-            // 
-            // txtAssignmentName
-            // 
-            this.txtAssignmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAssignmentName.Location = new System.Drawing.Point(79, 46);
-            this.txtAssignmentName.Name = "txtAssignmentName";
-            this.txtAssignmentName.ReadOnly = true;
-            this.txtAssignmentName.Size = new System.Drawing.Size(359, 20);
-            this.txtAssignmentName.TabIndex = 113;
-            // 
-            // txtAssignmentType
-            // 
-            this.txtAssignmentType.Location = new System.Drawing.Point(79, 72);
-            this.txtAssignmentType.Name = "txtAssignmentType";
-            this.txtAssignmentType.ReadOnly = true;
-            this.txtAssignmentType.Size = new System.Drawing.Size(101, 20);
-            this.txtAssignmentType.TabIndex = 112;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "Object";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 110;
-            this.label2.Text = "Name";
             // 
             // DeleteCatalogAssignmentForm
             // 

@@ -261,40 +261,38 @@ namespace Driv.XTB.CatalogManager.Helpers
         public static EntityCollection GetFullCatalog(this IOrganizationService service, Guid parentcatalogid) 
         {
 
-            
+
             var fetchXml = $@"
-                <fetch>
-                  <entity name='catalog'>
-                    <attribute name='description' />
-                    <attribute name='name' />
-                    <attribute name='iscustomizable' />
-                    <attribute name='catalogid' />
-                    <attribute name='ismanaged' />
-                    <attribute name='displayname' />
-                    <order attribute='name' />
-                    <link-entity name='catalog' from='catalogid' to='parentcatalogid' link-type='inner' alias='RootCatalog'>
-                      <attribute name='description' />
-                      <attribute name='name' />
-                      <attribute name='iscustomizable' />
-                      <attribute name='catalogid' />
-                      <attribute name='ismanaged' />
-                      <attribute name='displayname' />
-                      <filter>
-                        <condition attribute='catalogid' operator='eq' value='{parentcatalogid}'/>
-                      </filter>
-                    </link-entity>
-                    <link-entity name='catalogassignment' from='catalogid' to='catalogid' link-type='outer' alias='Assignment'>
-                      <attribute name='objectname' />
-                      <attribute name='name' />
-                      <attribute name='iscustomizable' />
-                      <attribute name='ismanaged' />
-                      <attribute name='catalogassignmentid' />
-                      <attribute name='object' />
-                      <attribute name='objectidtype' />
-                      <order attribute='name' />
-                    </link-entity>
-                  </entity>
-                </fetch>"; 
+                            <fetch>
+                              <entity name='catalog'>
+                                <attribute name='catalogid' alias='root_catalogid' />
+                                <attribute name='uniquename' alias='root_uniquename' />
+                                <attribute name='name' alias='root_name' />
+                                <attribute name='displayname' alias='root_displayname' />
+                                <attribute name='description' alias='root_description' />
+                                <attribute name='iscustomizable' alias='root_iscustomizable' />
+                                <attribute name='ismanaged' alias='root_ismanaged' />
+                                <filter>
+                                  <condition attribute='catalogid' operator='eq' value='{parentcatalogid}'/>
+                                </filter>
+                                <link-entity name='catalog' from='parentcatalogid' to='catalogid' link-type='outer'>
+                                  <attribute name='catalogid' alias='category_catalogid' />
+                                  <attribute name='uniquename' alias='category_uniquename' />
+                                  <attribute name='name' alias='category_name' />
+                                  <attribute name='displayname' alias='category_displayname' />
+                                  <attribute name='description' alias='category_description' />
+                                  <attribute name='iscustomizable' alias='category_iscustomizable' />
+                                  <attribute name='ismanaged' alias='category_ismanaged' />
+                                  <link-entity name='catalogassignment' from='catalogid' to='catalogid' link-type='outer'>
+                                    <attribute name='catalogassignmentid' alias='assignment_catalogassignmentid' />
+                                    <attribute name='name' alias='assignment_name' />
+                                    <attribute name='object' alias='assignment_object' />
+                                    <attribute name='iscustomizable' alias='assignment_iscustomizable' />
+                                    <attribute name='ismanaged' alias='assignment_ismanaged' />
+                                  </link-entity>
+                                </link-entity>
+                              </entity>
+                            </fetch>";
 
             var fetch = new FetchExpression(fetchXml);
             return service.RetrieveMultiple(fetch);

@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogManagerControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
@@ -76,6 +76,9 @@
             this.btnNewCategory = new System.Windows.Forms.Button();
             this.gridCategories = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.grpCatalogAssignments = new System.Windows.Forms.GroupBox();
+            this.txtAssignmentType = new System.Windows.Forms.TextBox();
+            this.btnDeleteAssignment = new System.Windows.Forms.Button();
+            this.btnUpdateAssignment = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtAssignmentIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.txtAssignmentName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -96,11 +99,13 @@
             this.cboCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.btnUpdateAssignment = new System.Windows.Forms.Button();
-            this.btnDeleteAssignment = new System.Windows.Forms.Button();
-            this.txtAssignmentType = new System.Windows.Forms.TextBox();
             this.treeCatalog = new System.Windows.Forms.TreeView();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.pictProcess = new System.Windows.Forms.PictureBox();
+            this.pictAPI = new System.Windows.Forms.PictureBox();
+            this.pictTable = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.toolStripMenu.SuspendLayout();
             this.grpCatalog.SuspendLayout();
             this.grpStatusApi.SuspendLayout();
@@ -112,6 +117,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridAssignments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictProcess)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictAPI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -164,6 +174,7 @@
             // grpCatalog
             // 
             this.grpCatalog.Controls.Add(this.txtCatalogDescription);
+            this.grpCatalog.Controls.Add(this.pictureBox4);
             this.grpCatalog.Controls.Add(this.txtCatalogDisplayName);
             this.grpCatalog.Controls.Add(this.label3);
             this.grpCatalog.Controls.Add(this.label10);
@@ -402,6 +413,7 @@
             // 
             // grpCategories
             // 
+            this.grpCategories.Controls.Add(this.pictureBox5);
             this.grpCategories.Controls.Add(this.label8);
             this.grpCategories.Controls.Add(this.txtCategoryDescription);
             this.grpCategories.Controls.Add(this.txtCategoryIsCustomizable);
@@ -609,37 +621,37 @@
             this.gridCategories.AllowUserToOrderColumns = true;
             this.gridCategories.AllowUserToResizeRows = false;
             this.gridCategories.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCategories.ColumnOrder = "name";
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridCategories.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridCategories.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridCategories.FilterColumns = "";
             this.gridCategories.Location = new System.Drawing.Point(22, 51);
             this.gridCategories.MultiSelect = false;
             this.gridCategories.Name = "gridCategories";
             this.gridCategories.OrganizationService = null;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridCategories.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCategories.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridCategories.ShowAllColumnsInColumnOrder = true;
             this.gridCategories.ShowColumnsNotInColumnOrder = false;
             this.gridCategories.ShowIdColumn = false;
@@ -650,6 +662,9 @@
             // 
             // grpCatalogAssignments
             // 
+            this.grpCatalogAssignments.Controls.Add(this.pictProcess);
+            this.grpCatalogAssignments.Controls.Add(this.pictAPI);
+            this.grpCatalogAssignments.Controls.Add(this.pictTable);
             this.grpCatalogAssignments.Controls.Add(this.txtAssignmentType);
             this.grpCatalogAssignments.Controls.Add(this.btnDeleteAssignment);
             this.grpCatalogAssignments.Controls.Add(this.btnUpdateAssignment);
@@ -667,6 +682,44 @@
             this.grpCatalogAssignments.TabIndex = 105;
             this.grpCatalogAssignments.TabStop = false;
             this.grpCatalogAssignments.Text = "Catalog Assignments";
+            // 
+            // txtAssignmentType
+            // 
+            this.txtAssignmentType.Location = new System.Drawing.Point(370, 91);
+            this.txtAssignmentType.Name = "txtAssignmentType";
+            this.txtAssignmentType.ReadOnly = true;
+            this.txtAssignmentType.Size = new System.Drawing.Size(89, 20);
+            this.txtAssignmentType.TabIndex = 119;
+            // 
+            // btnDeleteAssignment
+            // 
+            this.btnDeleteAssignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteAssignment.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAssignment.Image")));
+            this.btnDeleteAssignment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAssignment.Location = new System.Drawing.Point(485, 19);
+            this.btnDeleteAssignment.Name = "btnDeleteAssignment";
+            this.btnDeleteAssignment.Size = new System.Drawing.Size(141, 29);
+            this.btnDeleteAssignment.TabIndex = 118;
+            this.btnDeleteAssignment.Text = "Delete Assignment";
+            this.btnDeleteAssignment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAssignment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteAssignment.UseVisualStyleBackColor = true;
+            this.btnDeleteAssignment.Click += new System.EventHandler(this.btnDeleteAssignment_Click);
+            // 
+            // btnUpdateAssignment
+            // 
+            this.btnUpdateAssignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateAssignment.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateAssignment.Image")));
+            this.btnUpdateAssignment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateAssignment.Location = new System.Drawing.Point(341, 19);
+            this.btnUpdateAssignment.Name = "btnUpdateAssignment";
+            this.btnUpdateAssignment.Size = new System.Drawing.Size(138, 29);
+            this.btnUpdateAssignment.TabIndex = 117;
+            this.btnUpdateAssignment.Text = "Edit Assignment";
+            this.btnUpdateAssignment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateAssignment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdateAssignment.UseVisualStyleBackColor = true;
+            this.btnUpdateAssignment.Click += new System.EventHandler(this.btnUpdateAssignment_Click);
             // 
             // label9
             // 
@@ -762,38 +815,38 @@
             this.gridAssignments.AllowUserToOrderColumns = true;
             this.gridAssignments.AllowUserToResizeRows = false;
             this.gridAssignments.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAssignments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAssignments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridAssignments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridAssignments.ColumnOrder = "name";
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridAssignments.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAssignments.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridAssignments.EntityReferenceClickable = true;
             this.gridAssignments.FilterColumns = "";
             this.gridAssignments.Location = new System.Drawing.Point(19, 54);
             this.gridAssignments.MultiSelect = false;
             this.gridAssignments.Name = "gridAssignments";
             this.gridAssignments.OrganizationService = null;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAssignments.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAssignments.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridAssignments.ShowAllColumnsInColumnOrder = true;
             this.gridAssignments.ShowColumnsNotInColumnOrder = false;
             this.gridAssignments.ShowFriendlyNames = true;
@@ -941,44 +994,6 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
-            // btnUpdateAssignment
-            // 
-            this.btnUpdateAssignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateAssignment.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateAssignment.Image")));
-            this.btnUpdateAssignment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateAssignment.Location = new System.Drawing.Point(341, 19);
-            this.btnUpdateAssignment.Name = "btnUpdateAssignment";
-            this.btnUpdateAssignment.Size = new System.Drawing.Size(138, 29);
-            this.btnUpdateAssignment.TabIndex = 117;
-            this.btnUpdateAssignment.Text = "Edit Assignment";
-            this.btnUpdateAssignment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateAssignment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdateAssignment.UseVisualStyleBackColor = true;
-            this.btnUpdateAssignment.Click += new System.EventHandler(this.btnUpdateAssignment_Click);
-            // 
-            // btnDeleteAssignment
-            // 
-            this.btnDeleteAssignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAssignment.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAssignment.Image")));
-            this.btnDeleteAssignment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteAssignment.Location = new System.Drawing.Point(485, 19);
-            this.btnDeleteAssignment.Name = "btnDeleteAssignment";
-            this.btnDeleteAssignment.Size = new System.Drawing.Size(141, 29);
-            this.btnDeleteAssignment.TabIndex = 118;
-            this.btnDeleteAssignment.Text = "Delete Assignment";
-            this.btnDeleteAssignment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteAssignment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteAssignment.UseVisualStyleBackColor = true;
-            this.btnDeleteAssignment.Click += new System.EventHandler(this.btnDeleteAssignment_Click);
-            // 
-            // txtAssignmentType
-            // 
-            this.txtAssignmentType.Location = new System.Drawing.Point(341, 93);
-            this.txtAssignmentType.Name = "txtAssignmentType";
-            this.txtAssignmentType.ReadOnly = true;
-            this.txtAssignmentType.Size = new System.Drawing.Size(89, 20);
-            this.txtAssignmentType.TabIndex = 119;
-            // 
             // treeCatalog
             // 
             this.treeCatalog.ImageIndex = 0;
@@ -997,7 +1012,60 @@
             this.imgList.Images.SetKeyName(1, "icons8-view-details-48.png");
             this.imgList.Images.SetKeyName(2, "icons8-table-48.png");
             this.imgList.Images.SetKeyName(3, "icons8-api-64.png");
-            this.imgList.Images.SetKeyName(4, "icons8-process-40.png");
+            this.imgList.Images.SetKeyName(4, "icons8-gears-40.png");
+            // 
+            // pictProcess
+            // 
+            this.pictProcess.Enabled = false;
+            this.pictProcess.Image = ((System.Drawing.Image)(resources.GetObject("pictProcess.Image")));
+            this.pictProcess.Location = new System.Drawing.Point(341, 90);
+            this.pictProcess.Name = "pictProcess";
+            this.pictProcess.Size = new System.Drawing.Size(23, 21);
+            this.pictProcess.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictProcess.TabIndex = 122;
+            this.pictProcess.TabStop = false;
+            // 
+            // pictAPI
+            // 
+            this.pictAPI.Enabled = false;
+            this.pictAPI.Image = ((System.Drawing.Image)(resources.GetObject("pictAPI.Image")));
+            this.pictAPI.Location = new System.Drawing.Point(341, 91);
+            this.pictAPI.Name = "pictAPI";
+            this.pictAPI.Size = new System.Drawing.Size(23, 21);
+            this.pictAPI.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictAPI.TabIndex = 121;
+            this.pictAPI.TabStop = false;
+            // 
+            // pictTable
+            // 
+            this.pictTable.Enabled = false;
+            this.pictTable.Image = ((System.Drawing.Image)(resources.GetObject("pictTable.Image")));
+            this.pictTable.Location = new System.Drawing.Point(341, 90);
+            this.pictTable.Name = "pictTable";
+            this.pictTable.Size = new System.Drawing.Size(23, 21);
+            this.pictTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictTable.TabIndex = 120;
+            this.pictTable.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(328, 271);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 107;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(561, 271);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox5.TabIndex = 108;
+            this.pictureBox5.TabStop = false;
             // 
             // CatalogManagerControl
             // 
@@ -1034,6 +1102,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.grpFilter.ResumeLayout(false);
             this.grpFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictProcess)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictAPI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1105,5 +1178,10 @@
         private System.Windows.Forms.TextBox txtAssignmentType;
         private System.Windows.Forms.TreeView treeCatalog;
         private System.Windows.Forms.ImageList imgList;
+        private System.Windows.Forms.PictureBox pictProcess;
+        private System.Windows.Forms.PictureBox pictAPI;
+        private System.Windows.Forms.PictureBox pictTable;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

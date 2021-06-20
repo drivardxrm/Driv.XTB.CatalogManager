@@ -527,7 +527,6 @@ namespace Driv.XTB.CatalogManager
         {
             gridAssignments.RecordEnter -= new CRMRecordEventHandler(cdsGridAssigments_RecordEnter);
             gridAssignments.DataSource = datasource;
-            UpdateTreeView();
             gridAssignments.RecordEnter += new CRMRecordEventHandler(cdsGridAssigments_RecordEnter);
         }
 
@@ -560,10 +559,10 @@ namespace Driv.XTB.CatalogManager
 
             grpCatalog.Enabled = _selectedCatalog != null;
             grpCategories.Enabled = _selectedCatalog != null;
-            
 
 
-          
+            UpdateTreeView();
+
         }
 
         private void SetSelectedCategory(Entity catalog)
@@ -595,9 +594,10 @@ namespace Driv.XTB.CatalogManager
             txtAssignmentObject.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
             txtAssignmentIsCustomizable.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
             txtAssignmentType.Text = _selectedCatalogAssignment?.ObjectType;
-           
 
-
+            pictTable.Visible = txtAssignmentType.Text == "entity";
+            pictAPI.Visible = txtAssignmentType.Text == "customapi";
+            pictProcess.Visible = txtAssignmentType.Text == "workflow";
 
 
         }
@@ -607,49 +607,71 @@ namespace Driv.XTB.CatalogManager
         private void UpdateTreeView() 
         {
             treeCatalog.Nodes.Clear();
+            
             if (_selectedCatalog != null) 
             {
-                var rootnode = treeCatalog.Nodes.Add(_selectedCatalog.Name);
+                var fullcatalog = Service.GetFullCatalog(_selectedCatalog.CatalogRow.Id);
+                var root = fullcatalog.Entities.First();
+
+                var rootname = ((AliasedValue)root["root_name"])?.Value.ToString();
+
+                var rootnode = treeCatalog.Nodes.Add(rootname);
+
                 rootnode.ImageIndex = 0;
                 rootnode.SelectedImageIndex = 0;
 
-                if (gridCategories.DataSource != null) {
-                    var categories = (DataCollection<Entity>)gridCategories.DataSource;
-                    foreach (var category in categories)
-                    {
-                        var categorynode = rootnode.Nodes.Add(category[Catalog.PrimaryName].ToString());
-                        categorynode.ImageIndex = 1;
-                        categorynode.SelectedImageIndex = 1;
-                        if (gridAssignments.DataSource != null) 
-                        {
-                            var assignments = (DataCollection<Entity>)gridAssignments.DataSource;
-                            foreach (var assignment in assignments)
-                            {
-                                var assignmentnode = categorynode.Nodes.Add(assignment[CatalogAssignment.PrimaryName].ToString());
-                                var assignmenttype = ((EntityReference)assignment[CatalogAssignment.CatalogAssignmentObject]).LogicalName;
-                                var assignmentimgindex = 0;
-                                switch (assignmenttype) {
-                                    case "entity":
-                                        assignmentimgindex = 2;
-                                        break;
-                                    case "customapi": 
-                                        assignmentimgindex = 3;
-                                        break;
-                                    case "workflow":
-                                        assignmentimgindex = 4;
-                                        break;
 
-                                }
-                                assignmentnode.ImageIndex = assignmentimgindex;
-                                assignmentnode.SelectedImageIndex = assignmentimgindex;
+                var categories = fullcatalog.Entities.Where(e => e.Contains("category_catalogid")).GroupBy(e => ((AliasedValue)e["category_catalogid"]).Value);
+
+
+                foreach (var categorygroup in categories)
+                {
+                    var category = categorygroup.First();
+                    var categoryname = ((AliasedValue)category["category_name"])?.Value.ToString();
+                    var categorynode = rootnode.Nodes.Add(categoryname);
+
+                    categorynode.ImageIndex = 1;
+                    categorynode.SelectedImageIndex = 1;
+
+                            
+                    foreach (var assignment in categorygroup)
+                    {
+                        var assignmentobject = assignment.Contains("assignment_object") ?
+                                                (EntityReference)((AliasedValue)assignment["assignment_object"])?.Value :
+                                                null;
+
+
+                        if (assignmentobject != null)
+                        {
+                            var assignmentname = ((AliasedValue)assignment["assignment_name"])?.Value.ToString();
+
+                            var assignmentnode = categorynode.Nodes.Add(assignmentname);
+                            var assignmenttype = assignmentobject.LogicalName;
+                            var assignmentimgindex = 0;
+                            switch (assignmenttype)
+                            {
+                                case "entity":
+                                    assignmentimgindex = 2;
+                                    break;
+                                case "customapi":
+                                    assignmentimgindex = 3;
+                                    break;
+                                case "workflow":
+                                    assignmentimgindex = 4;
+                                    break;
 
                             }
-                        }                       
-                    }
-                }
-                treeCatalog.ExpandAll();
+                            assignmentnode.ImageIndex = assignmentimgindex;
+                            assignmentnode.SelectedImageIndex = assignmentimgindex;
+                        }
+                        
 
+                    }
+                    
+                }
             }
+            treeCatalog.ExpandAll();
+
 
             
         }
@@ -694,7 +716,7 @@ namespace Driv.XTB.CatalogManager
             if (dlgresult == DialogResult.OK && inputdlg.NewCatalogId != null)
             {
 
-                //refresh custom api list and select newly created
+                //refresh catalog list and select newly created
                 SetSelectedCatalog(Service.GetCatalog(inputdlg.NewCatalogId));
                 ExecuteMethod(LoadRootCatalogs);
             }
@@ -717,6 +739,7 @@ namespace Driv.XTB.CatalogManager
 
                 //refresh category list
                 LoadCategories(inputdlg.NewCatalogId);
+                UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
             {
@@ -737,6 +760,7 @@ namespace Driv.XTB.CatalogManager
 
                 //refresh category list
                 LoadAssignments(inputdlg.NewCatalogAssignmentId);
+                UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
             {
@@ -784,6 +808,7 @@ namespace Driv.XTB.CatalogManager
 
 
                 LoadCategories(_selectedCategory.CatalogRow.Id);
+                UpdateTreeView();
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -806,6 +831,7 @@ namespace Driv.XTB.CatalogManager
 
 
                 LoadAssignments(_selectedCatalogAssignment.CatalogAssignmentRow.Id);
+                UpdateTreeView();
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -853,7 +879,9 @@ namespace Driv.XTB.CatalogManager
             {
 
                 SetSelectedCategory(null);
-
+                SetSelectedAssignment(null);
+                LoadAssignments();
+                UpdateTreeView();
 
                 //LoadCategories(null);
 
@@ -881,7 +909,7 @@ namespace Driv.XTB.CatalogManager
 
 
                 LoadAssignments();
-
+                UpdateTreeView();
 
             }
             else if (dlgresult == DialogResult.Ignore)

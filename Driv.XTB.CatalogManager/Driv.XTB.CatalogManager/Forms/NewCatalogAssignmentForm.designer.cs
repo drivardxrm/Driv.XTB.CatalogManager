@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCatalogAssignmentForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCustomizable = new System.Windows.Forms.Label();
             this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,14 +57,22 @@
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.dlgCustomAPI = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgProcess = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.lblCustomizable);
             this.panel2.Controls.Add(this.chkIsCustomizable);
@@ -92,6 +101,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(720, 275);
             this.panel2.TabIndex = 5;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(231, 149);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox1.TabIndex = 99;
+            this.pictureBox1.TabStop = false;
             // 
             // lblCustomizable
             // 
@@ -126,7 +145,7 @@
             // rbCustomProcessAction
             // 
             this.rbCustomProcessAction.AutoSize = true;
-            this.rbCustomProcessAction.Location = new System.Drawing.Point(23, 227);
+            this.rbCustomProcessAction.Location = new System.Drawing.Point(45, 228);
             this.rbCustomProcessAction.Name = "rbCustomProcessAction";
             this.rbCustomProcessAction.Size = new System.Drawing.Size(134, 17);
             this.rbCustomProcessAction.TabIndex = 95;
@@ -138,7 +157,7 @@
             // rbCustomAPI
             // 
             this.rbCustomAPI.AutoSize = true;
-            this.rbCustomAPI.Location = new System.Drawing.Point(23, 200);
+            this.rbCustomAPI.Location = new System.Drawing.Point(45, 201);
             this.rbCustomAPI.Name = "rbCustomAPI";
             this.rbCustomAPI.Size = new System.Drawing.Size(80, 17);
             this.rbCustomAPI.TabIndex = 94;
@@ -150,7 +169,7 @@
             // rbTable
             // 
             this.rbTable.AutoSize = true;
-            this.rbTable.Location = new System.Drawing.Point(23, 171);
+            this.rbTable.Location = new System.Drawing.Point(45, 172);
             this.rbTable.Name = "rbTable";
             this.rbTable.Size = new System.Drawing.Size(52, 17);
             this.rbTable.TabIndex = 93;
@@ -169,7 +188,7 @@
             this.txtLookupProcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLookupProcess.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtLookupProcess.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtLookupProcess.Location = new System.Drawing.Point(163, 226);
+            this.txtLookupProcess.Location = new System.Drawing.Point(185, 227);
             this.txtLookupProcess.LogicalName = "workflow";
             this.txtLookupProcess.Name = "txtLookupProcess";
             this.txtLookupProcess.OrganizationService = null;
@@ -179,7 +198,7 @@
             // btnLookupProcess
             // 
             this.btnLookupProcess.Image = ((System.Drawing.Image)(resources.GetObject("btnLookupProcess.Image")));
-            this.btnLookupProcess.Location = new System.Drawing.Point(351, 198);
+            this.btnLookupProcess.Location = new System.Drawing.Point(374, 227);
             this.btnLookupProcess.Name = "btnLookupProcess";
             this.btnLookupProcess.Size = new System.Drawing.Size(23, 23);
             this.btnLookupProcess.TabIndex = 91;
@@ -197,7 +216,7 @@
             this.txtLookupCustomAPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline);
             this.txtLookupCustomAPI.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtLookupCustomAPI.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtLookupCustomAPI.Location = new System.Drawing.Point(104, 199);
+            this.txtLookupCustomAPI.Location = new System.Drawing.Point(126, 200);
             this.txtLookupCustomAPI.LogicalName = "customapi";
             this.txtLookupCustomAPI.Name = "txtLookupCustomAPI";
             this.txtLookupCustomAPI.OrganizationService = null;
@@ -207,7 +226,7 @@
             // btnLookupCustomAPI
             // 
             this.btnLookupCustomAPI.Image = ((System.Drawing.Image)(resources.GetObject("btnLookupCustomAPI.Image")));
-            this.btnLookupCustomAPI.Location = new System.Drawing.Point(352, 224);
+            this.btnLookupCustomAPI.Location = new System.Drawing.Point(374, 200);
             this.btnLookupCustomAPI.Name = "btnLookupCustomAPI";
             this.btnLookupCustomAPI.Size = new System.Drawing.Size(23, 23);
             this.btnLookupCustomAPI.TabIndex = 87;
@@ -218,7 +237,7 @@
             // 
             this.cboEntities.AutoLoadData = false;
             this.cboEntities.LanguageCode = 1033;
-            this.cboEntities.Location = new System.Drawing.Point(82, 167);
+            this.cboEntities.Location = new System.Drawing.Point(104, 168);
             this.cboEntities.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboEntities.Name = "cboEntities";
             this.cboEntities.Service = null;
@@ -378,15 +397,35 @@
             this.dlgProcess.Service = null;
             this.dlgProcess.Title = "Process";
             // 
-            // pictureBox1
+            // pictureBox2
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(209, 148);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox1.TabIndex = 99;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(17, 169);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(23, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 100;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(17, 197);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(23, 21);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 101;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(17, 224);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(23, 21);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 102;
+            this.pictureBox4.TabStop = false;
             // 
             // NewCatalogAssignmentForm
             // 
@@ -406,8 +445,11 @@
             this.Text = "Catalog Manager";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -440,5 +482,8 @@
         private System.Windows.Forms.Label lblCustomizable;
         private System.Windows.Forms.CheckBox chkIsCustomizable;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

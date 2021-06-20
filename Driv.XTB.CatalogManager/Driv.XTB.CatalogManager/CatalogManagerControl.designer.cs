@@ -47,13 +47,14 @@
             this.label22 = new System.Windows.Forms.Label();
             this.btnNewApi = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
+            this.cboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.rbSolution = new System.Windows.Forms.RadioButton();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.cboCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.imgList = new System.Windows.Forms.ImageList(this.components);
+            this.imgGrpRootCatalog = new ImageGroupBoxApplication.ImageGroupBox();
             this.imgGrpCategories = new ImageGroupBoxApplication.ImageGroupBox();
             this.imgGrpAssignments = new ImageGroupBoxApplication.ImageGroupBox();
             this.pictProcess = new System.Windows.Forms.PictureBox();
@@ -85,7 +86,6 @@
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imgGrpRootCatalog = new ImageGroupBoxApplication.ImageGroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtCatalogIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.treeCatalog = new System.Windows.Forms.TreeView();
@@ -107,6 +107,7 @@
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpFilter.SuspendLayout();
+            this.imgGrpRootCatalog.SuspendLayout();
             this.imgGrpCategories.SuspendLayout();
             this.imgGrpAssignments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictProcess)).BeginInit();
@@ -115,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.imgGrpRootCatalog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,7 +191,7 @@
             this.grpFilter.Controls.Add(this.label22);
             this.grpFilter.Controls.Add(this.btnNewApi);
             this.grpFilter.Controls.Add(this.label17);
-            this.grpFilter.Controls.Add(this.cdsCboSolutions);
+            this.grpFilter.Controls.Add(this.cboSolutions);
             this.grpFilter.Controls.Add(this.rbSolution);
             this.grpFilter.Controls.Add(this.rbAll);
             this.grpFilter.Controls.Add(this.cboCatalog);
@@ -238,17 +238,17 @@
             this.label17.TabIndex = 41;
             this.label17.Text = "Or";
             // 
-            // cdsCboSolutions
+            // cboSolutions
             // 
-            this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
-            this.cdsCboSolutions.Enabled = false;
-            this.cdsCboSolutions.FormattingEnabled = true;
-            this.cdsCboSolutions.Location = new System.Drawing.Point(166, 13);
-            this.cdsCboSolutions.Name = "cdsCboSolutions";
-            this.cdsCboSolutions.OrganizationService = null;
-            this.cdsCboSolutions.Size = new System.Drawing.Size(295, 21);
-            this.cdsCboSolutions.TabIndex = 40;
-            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
+            this.cboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
+            this.cboSolutions.Enabled = false;
+            this.cboSolutions.FormattingEnabled = true;
+            this.cboSolutions.Location = new System.Drawing.Point(166, 13);
+            this.cboSolutions.Name = "cboSolutions";
+            this.cboSolutions.OrganizationService = null;
+            this.cboSolutions.Size = new System.Drawing.Size(295, 21);
+            this.cboSolutions.TabIndex = 40;
+            this.cboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
             // 
             // rbSolution
             // 
@@ -313,6 +313,35 @@
             this.imgList.Images.SetKeyName(2, "icons8-table-48.png");
             this.imgList.Images.SetKeyName(3, "icons8-api-64.png");
             this.imgList.Images.SetKeyName(4, "icons8-gears-40.png");
+            // 
+            // imgGrpRootCatalog
+            // 
+            this.imgGrpRootCatalog.Controls.Add(this.imgGrpCategories);
+            this.imgGrpRootCatalog.Controls.Add(this.label14);
+            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogIsManaged);
+            this.imgGrpRootCatalog.Controls.Add(this.treeCatalog);
+            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogDescription);
+            this.imgGrpRootCatalog.Controls.Add(this.label23);
+            this.imgGrpRootCatalog.Controls.Add(this.btnEditCustomApi);
+            this.imgGrpRootCatalog.Controls.Add(this.label28);
+            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogDisplayName);
+            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogIsCustomizable);
+            this.imgGrpRootCatalog.Controls.Add(this.label6);
+            this.imgGrpRootCatalog.Controls.Add(this.label3);
+            this.imgGrpRootCatalog.Controls.Add(this.label4);
+            this.imgGrpRootCatalog.Controls.Add(this.label10);
+            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogUniqueName);
+            this.imgGrpRootCatalog.Controls.Add(this.txtCustomizableWarning);
+            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogName);
+            this.imgGrpRootCatalog.Controls.Add(this.pictureBox3);
+            this.imgGrpRootCatalog.Controls.Add(this.btnDeleteApi);
+            this.imgGrpRootCatalog.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGrpRootCatalog.Icon")));
+            this.imgGrpRootCatalog.Location = new System.Drawing.Point(3, 111);
+            this.imgGrpRootCatalog.Name = "imgGrpRootCatalog";
+            this.imgGrpRootCatalog.Size = new System.Drawing.Size(1100, 669);
+            this.imgGrpRootCatalog.TabIndex = 107;
+            this.imgGrpRootCatalog.TabStop = false;
+            this.imgGrpRootCatalog.Text = "Root Catalog";
             // 
             // imgGrpCategories
             // 
@@ -794,35 +823,6 @@
             this.pictureBox1.TabIndex = 99;
             this.pictureBox1.TabStop = false;
             // 
-            // imgGrpRootCatalog
-            // 
-            this.imgGrpRootCatalog.Controls.Add(this.imgGrpCategories);
-            this.imgGrpRootCatalog.Controls.Add(this.label14);
-            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogIsManaged);
-            this.imgGrpRootCatalog.Controls.Add(this.treeCatalog);
-            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogDescription);
-            this.imgGrpRootCatalog.Controls.Add(this.label23);
-            this.imgGrpRootCatalog.Controls.Add(this.btnEditCustomApi);
-            this.imgGrpRootCatalog.Controls.Add(this.label28);
-            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogDisplayName);
-            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogIsCustomizable);
-            this.imgGrpRootCatalog.Controls.Add(this.label6);
-            this.imgGrpRootCatalog.Controls.Add(this.label3);
-            this.imgGrpRootCatalog.Controls.Add(this.label4);
-            this.imgGrpRootCatalog.Controls.Add(this.label10);
-            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogUniqueName);
-            this.imgGrpRootCatalog.Controls.Add(this.txtCustomizableWarning);
-            this.imgGrpRootCatalog.Controls.Add(this.txtCatalogName);
-            this.imgGrpRootCatalog.Controls.Add(this.pictureBox3);
-            this.imgGrpRootCatalog.Controls.Add(this.btnDeleteApi);
-            this.imgGrpRootCatalog.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGrpRootCatalog.Icon")));
-            this.imgGrpRootCatalog.Location = new System.Drawing.Point(3, 111);
-            this.imgGrpRootCatalog.Name = "imgGrpRootCatalog";
-            this.imgGrpRootCatalog.Size = new System.Drawing.Size(1100, 669);
-            this.imgGrpRootCatalog.TabIndex = 107;
-            this.imgGrpRootCatalog.TabStop = false;
-            this.imgGrpRootCatalog.Text = "Root Catalog";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -1066,6 +1066,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.grpFilter.ResumeLayout(false);
             this.grpFilter.PerformLayout();
+            this.imgGrpRootCatalog.ResumeLayout(false);
+            this.imgGrpRootCatalog.PerformLayout();
             this.imgGrpCategories.ResumeLayout(false);
             this.imgGrpCategories.PerformLayout();
             this.imgGrpAssignments.ResumeLayout(false);
@@ -1076,8 +1078,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCategories)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.imgGrpRootCatalog.ResumeLayout(false);
-            this.imgGrpRootCatalog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1104,7 +1104,7 @@
         private System.Windows.Forms.ToolStripButton menuRefresh;
         private System.Windows.Forms.RadioButton rbAll;
         private System.Windows.Forms.RadioButton rbSolution;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboSolutions;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cboSolutions;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ToolStripButton menuNewApi;

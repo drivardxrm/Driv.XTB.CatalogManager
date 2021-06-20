@@ -229,21 +229,21 @@ namespace Driv.XTB.CatalogManager
 
                 cboCatalog.SelectedIndex = -1;
 
-                cdsCboSolutions.Enabled = true;
+                cboSolutions.Enabled = true;
 
                 ExecuteMethod(LoadSolutions, Guid.Empty);
-                cdsCboSolutions.Select();
+                cboSolutions.Select();
 
             }
             else
             {
-                cdsCboSolutions.Enabled = false;
+                cboSolutions.Enabled = false;
 
 
-                SetCdsCboSolutionsDataSource(null);
+                SetCboSolutionsDataSource(null);
 
 
-                cdsCboSolutions.SelectedIndex = -1;
+                cboSolutions.SelectedIndex = -1;
                 _selectedSolution = null;
 
             }
@@ -252,8 +252,8 @@ namespace Driv.XTB.CatalogManager
 
         private void cdsCboSolutions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedSolution = cdsCboSolutions.SelectedIndex != -1 ?
-                                            new SolutionProxy(cdsCboSolutions.SelectedEntity) :
+            _selectedSolution = cboSolutions.SelectedIndex != -1 ?
+                                            new SolutionProxy(cboSolutions.SelectedEntity) :
                                             null;
 
             ExecuteMethod(LoadRootCatalogs);
@@ -293,7 +293,7 @@ namespace Driv.XTB.CatalogManager
         private void LoadSolutions(Guid selected)
         {
 
-            SetCdsCboSolutionsDataSource(null);
+            SetCboSolutionsDataSource(null);
 
             //TODO Apply filters
 
@@ -323,11 +323,11 @@ namespace Driv.XTB.CatalogManager
                             //Find the index of the selected solution
                             var index = solutions.Entities.Select(e => e.Id).ToList().IndexOf(selected);
 
-                            SetCdsCboSolutionsDataSource(solutions);
+                            SetCboSolutionsDataSource(solutions);
                            
                             
-                            cdsCboSolutions.SelectedIndex = index;
-                            cdsCboSolutions.Enabled = true;
+                            cboSolutions.SelectedIndex = index;
+                            cboSolutions.Enabled = true;
 
                         }
                     }
@@ -501,11 +501,11 @@ namespace Driv.XTB.CatalogManager
         }
 
         /// Will set the DataSource of the control. Disabling the event handlers will prevent unessesary triggers.
-        private void SetCdsCboSolutionsDataSource(object datasource)
+        private void SetCboSolutionsDataSource(object datasource)
         {
-            cdsCboSolutions.SelectedIndexChanged -= new EventHandler(cdsCboSolutions_SelectedIndexChanged);
-            cdsCboSolutions.DataSource = datasource;
-            cdsCboSolutions.SelectedIndexChanged += new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+            cboSolutions.SelectedIndexChanged -= new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+            cboSolutions.DataSource = datasource;
+            cboSolutions.SelectedIndexChanged += new EventHandler(cdsCboSolutions_SelectedIndexChanged);
         }
 
         

@@ -22,60 +22,51 @@ namespace Driv.XTB.CatalogManager.Helpers
         {
             var fetchXml = $@"
             <fetch>
-              <entity name='customapi'>
+                <entity name='catalog'>
                 <attribute name='createdonbehalfbyyominame' />
-                <attribute name='owninguser' />
+                <attribute name='modifiedonbehalfby' />
                 <attribute name='statecode' />
-                <attribute name='owneridname' />
                 <attribute name='description' />
                 <attribute name='statecodename' />
                 <attribute name='ismanagedname' />
                 <attribute name='createdonbehalfby' />
-                <attribute name='isfunctionname' />
-                <attribute name='sdkmessageidname' />
                 <attribute name='name' />
                 <attribute name='componentidunique' />
                 <attribute name='iscustomizable' />
-                <attribute name='isprivate' />
-                <attribute name='customapiid' />
                 <attribute name='importsequencenumber' />
-                <attribute name='bindingtypename' />
+                <attribute name='organizationidname' />
                 <attribute name='modifiedbyyominame' />
-                <attribute name='allowedcustomprocessingsteptype' />
-                <attribute name='componentstate' />
-                <attribute name='allowedcustomprocessingsteptypename' />
+                <attribute name='catalogid' />
                 <attribute name='utcconversiontimezonecode' />
                 <attribute name='createdbyyominame' />
-                <attribute name='owningbusinessunit' />
+                <attribute name='componentstatename' />
                 <attribute name='modifiedbyname' />
-                <attribute name='owningteam' />
-                <attribute name='isfunction' />
-                <attribute name='workflowsdkstepenabled' />
+                <attribute name='versionnumber' />
                 <attribute name='modifiedby' />
                 <attribute name='createdby' />
                 <attribute name='timezoneruleversionnumber' />
-                <attribute name='sdkmessageid' />
-                <attribute name='plugintypeid' />
-                <attribute name='owneridtype' />
+                <attribute name='ismanaged' />
                 <attribute name='statuscodename' />
                 <attribute name='overwritetime' />
-                <attribute name='uniquename' />
+                <attribute name='parentcatalogidname' />
                 <attribute name='solutionid' />
-                <attribute name='owneridyominame' />
+                <attribute name='uniquename' />
                 <attribute name='modifiedon' />
-                <attribute name='displayname' />
-                <attribute name='bindingtype' />
-                <attribute name='ismanaged' />
+                <attribute name='componentstate' />
+                <attribute name='modifiedonbehalfbyyominame' />
                 <attribute name='statuscode' />
                 <attribute name='createdbyname' />
                 <attribute name='createdon' />
-                <attribute name='plugintypeidname' />
-                <attribute name='componentstatename' />
-                <attribute name='boundentitylogicalname' />
-                <attribute name='executeprivilegename' />
-                <attribute name='isprivatename' />
-                <attribute name='ownerid' />
-                <link-entity name='solutioncomponent' from='objectid' to='customapiid' link-type='inner' alias='SC'>
+                <attribute name='organizationid' />
+                <attribute name='createdonbehalfbyname' />
+                <attribute name='modifiedonbehalfbyname' />
+                <attribute name='displayname' />
+                <attribute name='parentcatalogid' />
+                <attribute name='overriddencreatedon' />
+                <filter>
+                    <condition attribute='parentcatalogid' operator='null' />
+                </filter>
+                <link-entity name='solutioncomponent' from='objectid' to='catalogid' link-type='inner' alias='SC'>
                     <attribute name='componenttype' />
                     <attribute name='solutionid' />
                     <filter>
@@ -84,7 +75,7 @@ namespace Driv.XTB.CatalogManager.Helpers
                     
                 </link-entity>
                 <order attribute='name' />
-              </entity>
+                </entity>
             </fetch>";
 
 

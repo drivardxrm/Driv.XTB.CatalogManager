@@ -610,25 +610,45 @@ namespace Driv.XTB.CatalogManager
             if (_selectedCatalog != null) 
             {
                 var rootnode = treeCatalog.Nodes.Add(_selectedCatalog.Name);
+                rootnode.ImageIndex = 0;
+                rootnode.SelectedImageIndex = 0;
 
                 if (gridCategories.DataSource != null) {
                     var categories = (DataCollection<Entity>)gridCategories.DataSource;
                     foreach (var category in categories)
                     {
                         var categorynode = rootnode.Nodes.Add(category[Catalog.PrimaryName].ToString());
+                        categorynode.ImageIndex = 1;
+                        categorynode.SelectedImageIndex = 1;
                         if (gridAssignments.DataSource != null) 
                         {
                             var assignments = (DataCollection<Entity>)gridAssignments.DataSource;
                             foreach (var assignment in assignments)
                             {
                                 var assignmentnode = categorynode.Nodes.Add(assignment[CatalogAssignment.PrimaryName].ToString());
+                                var assignmenttype = ((EntityReference)assignment[CatalogAssignment.CatalogAssignmentObject]).LogicalName;
+                                var assignmentimgindex = 0;
+                                switch (assignmenttype) {
+                                    case "entity":
+                                        assignmentimgindex = 2;
+                                        break;
+                                    case "customapi": 
+                                        assignmentimgindex = 3;
+                                        break;
+                                    case "workflow":
+                                        assignmentimgindex = 4;
+                                        break;
 
+                                }
+                                assignmentnode.ImageIndex = assignmentimgindex;
+                                assignmentnode.SelectedImageIndex = assignmentimgindex;
 
                             }
                         }                       
                     }
                 }
-                
+                treeCatalog.ExpandAll();
+
             }
 
             

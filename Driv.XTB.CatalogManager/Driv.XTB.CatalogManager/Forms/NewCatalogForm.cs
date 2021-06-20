@@ -164,6 +164,7 @@ namespace Driv.XTB.CatalogManager.Forms
             catalog[Catalog.Description] = txtDescription.Text;
             catalog[Catalog.DisplayName] = txtDisplayName.Text;          
             catalog[Catalog.PrimaryName] = txtName.Text;
+            catalog[Catalog.IsCustomizable] = chkIsCustomizable.Checked;
 
             return catalog;
         }

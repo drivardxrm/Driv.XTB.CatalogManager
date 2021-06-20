@@ -84,22 +84,27 @@ namespace Driv.XTB.CatalogManager
 
             cdsCboCatalog.OrganizationService = Service;
             
-            cdsTxtUniqueName.OrganizationService = Service;
+            txtCatalogUniqueName.OrganizationService = Service;
             
-            cdsTxtName.OrganizationService = Service;
-            cdsTxtDisplayName.OrganizationService = Service;
-            cdsTxtDescription.OrganizationService = Service;
-            cdsTxtIsManaged.OrganizationService = Service;
-            cdsTxtIsCustomizable.OrganizationService = Service;
+            txtCatalogName.OrganizationService = Service;
+            txtCatalogDisplayName.OrganizationService = Service;
+            txtCatalogDescription.OrganizationService = Service;
+            txtCatalogIsManaged.OrganizationService = Service;
+            txtCatalogIsCustomizable.OrganizationService = Service;
 
             //2nd Level catalog (category)
             cdsGridCategories.OrganizationService = Service;
-            cdsCategoryTxtUniqueName.OrganizationService = Service;
+            txtCategoryUniqueName.OrganizationService = Service;
 
-            cdsCategoryTxtName.OrganizationService = Service;
-            cdsCategoryTxtDisplayName.OrganizationService = Service;
-            cdsCategoryTxtDescription.OrganizationService = Service;
+            txtCategoryName.OrganizationService = Service;
+            txtCategoryDisplayName.OrganizationService = Service;
+            txtCategoryDescription.OrganizationService = Service;
+            txtCategoryIsCustomizable.OrganizationService = Service;
 
+            //Catalog assignment
+            txtAssignmentIsCustomizable.OrganizationService = Service;
+            txtAssignmentName.OrganizationService = Service;
+            txtAssignmentObject.OrganizationService = Service;
 
 
         }
@@ -449,10 +454,10 @@ namespace Driv.XTB.CatalogManager
 
         private void LoadAssignments(Guid? selected = null)
         {
-            SetGridCategoriesDataSource(null);
+            SetGridAssignmentsDataSource(null);
 
 
-            SetSelectedCategory(null);
+            SetSelectedAssignment(null);
 
             WorkAsync(new WorkAsyncInfo
             {
@@ -535,14 +540,14 @@ namespace Driv.XTB.CatalogManager
 
             
 
-            cdsTxtUniqueName.Entity = _selectedCatalog?.CatalogRow;
-            cdsTxtName.Entity = _selectedCatalog?.CatalogRow;
-            cdsTxtDisplayName.Entity = _selectedCatalog?.CatalogRow;
-            cdsTxtDescription.Entity = _selectedCatalog?.CatalogRow;
+            txtCatalogUniqueName.Entity = _selectedCatalog?.CatalogRow;
+            txtCatalogName.Entity = _selectedCatalog?.CatalogRow;
+            txtCatalogDisplayName.Entity = _selectedCatalog?.CatalogRow;
+            txtCatalogDescription.Entity = _selectedCatalog?.CatalogRow;
 
 
-            cdsTxtIsManaged.Entity = _selectedCatalog?.CatalogRow;
-            cdsTxtIsCustomizable.Entity = _selectedCatalog?.CatalogRow;
+            txtCatalogIsManaged.Entity = _selectedCatalog?.CatalogRow;
+            txtCatalogIsCustomizable.Entity = _selectedCatalog?.CatalogRow;
 
             if (_selectedCatalog != null)
             {
@@ -551,8 +556,8 @@ namespace Driv.XTB.CatalogManager
                 btnDeleteApi.Enabled = _selectedCatalog.CanCustomize;
                 
             }
-            
-            
+
+            grpCatalog.Enabled = _selectedCatalog != null;
             grpCategories.Enabled = _selectedCatalog != null;
             
 
@@ -566,28 +571,18 @@ namespace Driv.XTB.CatalogManager
 
 
 
-            cdsCategoryTxtUniqueName.Entity = _selectedCategory?.CatalogRow;
-            cdsCategoryTxtName.Entity = _selectedCategory?.CatalogRow;
-            cdsCategoryTxtDisplayName.Entity = _selectedCategory?.CatalogRow;
-            cdsCategoryTxtDescription.Entity = _selectedCategory?.CatalogRow;
+            txtCategoryUniqueName.Entity = _selectedCategory?.CatalogRow;
+            txtCategoryName.Entity = _selectedCategory?.CatalogRow;
+            txtCategoryDisplayName.Entity = _selectedCategory?.CatalogRow;
+            txtCategoryDescription.Entity = _selectedCategory?.CatalogRow;
+            txtCategoryIsCustomizable.Entity = _selectedCategory?.CatalogRow;
 
-
-            //cdsTxtIsManaged.Entity = _selectedCatalog?.CatalogRow;
-            //cdsTxtIsCustomizable.Entity = _selectedCatalog?.CatalogRow;
-
-            //if (_selectedCatalog != null)
-            //{
-            //    txtCustomizableWarning.Visible = !_selectedCatalog.CanCustomize;
-            //    btnEditCustomApi.Enabled = _selectedCatalog.CanCustomize;
-            //    btnDeleteApi.Enabled = _selectedCatalog.CanCustomize;
-
-            //}
-
-
-            //grpCategories.Enabled = _selectedCatalog != null;
+            LoadAssignments(_selectedCategory?.CatalogRow?.Id ?? Guid.Empty);
 
 
             grpCatalogAssignments.Enabled = _selectedCategory != null;
+
+            
 
         }
 
@@ -595,27 +590,11 @@ namespace Driv.XTB.CatalogManager
         {
             _selectedCatalogAssignment = catalogassignment != null ? new CatalogAssignmentProxy(catalogassignment) : null;
 
+            txtAssignmentName.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
+            txtAssignmentObject.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
+            txtAssignmentIsCustomizable.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
 
-
-            //cdsCategoryTxtUniqueName.Entity = _selectedCategory?.CatalogRow;
-            //cdsCategoryTxtName.Entity = _selectedCategory?.CatalogRow;
-            //cdsCategoryTxtDisplayName.Entity = _selectedCategory?.CatalogRow;
-            //cdsCategoryTxtDescription.Entity = _selectedCategory?.CatalogRow;
-
-
-            //cdsTxtIsManaged.Entity = _selectedCatalog?.CatalogRow;
-            //cdsTxtIsCustomizable.Entity = _selectedCatalog?.CatalogRow;
-
-            //if (_selectedCatalog != null)
-            //{
-            //    txtCustomizableWarning.Visible = !_selectedCatalog.CanCustomize;
-            //    btnEditCustomApi.Enabled = _selectedCatalog.CanCustomize;
-            //    btnDeleteApi.Enabled = _selectedCatalog.CanCustomize;
-
-            //}
-
-
-            //grpCategories.Enabled = _selectedCatalog != null;
+           
 
 
 

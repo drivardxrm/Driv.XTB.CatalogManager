@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCatalogForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cdsTextParentCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.lblParentCatalog = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -51,8 +53,8 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.lblParentCatalog = new System.Windows.Forms.Label();
-            this.cdsTextParentCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -60,6 +62,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblCustomizable);
+            this.panel2.Controls.Add(this.chkIsCustomizable);
             this.panel2.Controls.Add(this.cdsTextParentCatalog);
             this.panel2.Controls.Add(this.lblParentCatalog);
             this.panel2.Controls.Add(this.label17);
@@ -85,6 +89,30 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 328);
             this.panel2.TabIndex = 5;
+            // 
+            // cdsTextParentCatalog
+            // 
+            this.cdsTextParentCatalog.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTextParentCatalog.DisplayFormat = "{{name}} - ({{uniquename}}";
+            this.cdsTextParentCatalog.Entity = null;
+            this.cdsTextParentCatalog.EntityReference = null;
+            this.cdsTextParentCatalog.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTextParentCatalog.Location = new System.Drawing.Point(104, 71);
+            this.cdsTextParentCatalog.LogicalName = "catalog";
+            this.cdsTextParentCatalog.Name = "cdsTextParentCatalog";
+            this.cdsTextParentCatalog.OrganizationService = null;
+            this.cdsTextParentCatalog.Size = new System.Drawing.Size(232, 20);
+            this.cdsTextParentCatalog.TabIndex = 78;
+            // 
+            // lblParentCatalog
+            // 
+            this.lblParentCatalog.AutoSize = true;
+            this.lblParentCatalog.Location = new System.Drawing.Point(26, 75);
+            this.lblParentCatalog.Name = "lblParentCatalog";
+            this.lblParentCatalog.Size = new System.Drawing.Size(77, 13);
+            this.lblParentCatalog.TabIndex = 77;
+            this.lblParentCatalog.Text = "Parent Catalog";
+            this.ttInfo.SetToolTip(this.lblParentCatalog, "The primary name of the catalog");
             // 
             // label17
             // 
@@ -290,29 +318,24 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
-            // lblParentCatalog
+            // lblCustomizable
             // 
-            this.lblParentCatalog.AutoSize = true;
-            this.lblParentCatalog.Location = new System.Drawing.Point(26, 75);
-            this.lblParentCatalog.Name = "lblParentCatalog";
-            this.lblParentCatalog.Size = new System.Drawing.Size(77, 13);
-            this.lblParentCatalog.TabIndex = 77;
-            this.lblParentCatalog.Text = "Parent Catalog";
-            this.ttInfo.SetToolTip(this.lblParentCatalog, "The primary name of the catalog");
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Location = new System.Drawing.Point(26, 229);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 100;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Catalog can be customized or deleted.");
             // 
-            // cdsTextParentCatalog
+            // chkIsCustomizable
             // 
-            this.cdsTextParentCatalog.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTextParentCatalog.DisplayFormat = "{{name}} - ({{uniquename}}";
-            this.cdsTextParentCatalog.Entity = null;
-            this.cdsTextParentCatalog.EntityReference = null;
-            this.cdsTextParentCatalog.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTextParentCatalog.Location = new System.Drawing.Point(104, 71);
-            this.cdsTextParentCatalog.LogicalName = "catalog";
-            this.cdsTextParentCatalog.Name = "cdsTextParentCatalog";
-            this.cdsTextParentCatalog.OrganizationService = null;
-            this.cdsTextParentCatalog.Size = new System.Drawing.Size(232, 20);
-            this.cdsTextParentCatalog.TabIndex = 78;
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(104, 229);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 99;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // NewCatalogForm
             // 
@@ -362,5 +385,7 @@
         private System.Windows.Forms.ToolTip ttInfo;
         private System.Windows.Forms.Label lblParentCatalog;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTextParentCatalog;
+        private System.Windows.Forms.Label lblCustomizable;
+        private System.Windows.Forms.CheckBox chkIsCustomizable;
     }
 }

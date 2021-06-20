@@ -42,6 +42,10 @@ namespace Driv.XTB.CatalogManager.Forms
 
             cboEntities.Service = service;
 
+
+            txtLookupCustomAPI.Enabled = false;
+            txtLookupProcess.Enabled = false;
+            cboEntities.Enabled = false;
            
 
         }
@@ -111,21 +115,28 @@ namespace Driv.XTB.CatalogManager.Forms
         {
             var catalogassignment = new Entity(CatalogAssignment.EntityName);
 
-            //if (cdsTextParentCatalog.Id != Guid.Empty) 
-            //{
-            //    catalog[Catalog.ParentCatalog] = cdsTextParentCatalog.EntityReference;
-            //}
 
             catalogassignment[CatalogAssignment.PrimaryName] = txtName.Text;
             catalogassignment[CatalogAssignment.catalog] = cdsTextCategory.EntityReference;
-            //catalogassignment[CatalogAssignment.CatalogAssignmentObject] = txtLookupCustomAPI.EntityReference;
 
-            //var metadata = _service.GetMetadata(cboEntities.SelectedEntity.LogicalName);
-            //var metadataid = metadata.MetadataId;
+            catalogassignment[CatalogAssignment.IsCustomizable] = chkIsCustomizable.Checked;
 
-            //catalogassignment[CatalogAssignment.CatalogAssignmentObject] = new EntityReference(EntityTable.EntityName,metadataid ?? Guid.Empty);
+            if (rbTable.Checked) 
+            {
+                var metadata = _service.GetMetadata(cboEntities.SelectedEntity.LogicalName);
+                var metadataid = metadata.MetadataId;
+                catalogassignment[CatalogAssignment.CatalogAssignmentObject] = new EntityReference(EntityTable.EntityName, metadataid ?? Guid.Empty);
+            }
 
-            catalogassignment[CatalogAssignment.CatalogAssignmentObject] = txtLookupProcess.EntityReference;
+            if (rbCustomAPI.Checked) 
+            {
+                catalogassignment[CatalogAssignment.CatalogAssignmentObject] = txtLookupCustomAPI.EntityReference;
+            }
+
+            if (rbCustomProcessAction.Checked) 
+            {
+                catalogassignment[CatalogAssignment.CatalogAssignmentObject] = txtLookupProcess.EntityReference;
+            }
 
             return catalogassignment;
         }
@@ -141,7 +152,7 @@ namespace Driv.XTB.CatalogManager.Forms
 
                     break;
                 case DialogResult.Abort:
-                    //txtLookupPluginType.Entity = null;
+   
                     break;
             }
 
@@ -159,7 +170,7 @@ namespace Driv.XTB.CatalogManager.Forms
 
                     break;
                 case DialogResult.Abort:
-                    //txtLookupPluginType.Entity = null;
+               
                     break;
             }
 
@@ -170,6 +181,56 @@ namespace Driv.XTB.CatalogManager.Forms
         private void cboEntities_SelectedItemChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void rbTable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTable.Checked)
+            {
+                txtLookupCustomAPI.Entity = null;
+                txtLookupCustomAPI.Enabled = false;
+
+                txtLookupProcess.Entity = null;
+                txtLookupProcess.Enabled = false;
+
+                cboEntities.Enabled = true;
+                cboEntities.LoadData();
+
+            }
+        }
+
+        private void rbCustomAPI_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCustomAPI.Checked)
+            {
+         
+                txtLookupCustomAPI.Enabled = true;
+
+                txtLookupProcess.Entity = null;
+                txtLookupProcess.Enabled = false;
+
+                cboEntities.Enabled = false;
+                
+
+            }
+        }
+
+        private void rbCustomProcessAction_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCustomProcessAction.Checked)
+            {
+
+                txtLookupCustomAPI.Enabled = false;
+                txtLookupCustomAPI.Entity = null;
+
+
+                txtLookupProcess.Enabled = true;
+
+                cboEntities.Enabled = false;
+
+
+            }
+
         }
     }
 }

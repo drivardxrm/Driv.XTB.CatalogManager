@@ -42,41 +42,41 @@
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
             this.grpCatalog = new System.Windows.Forms.GroupBox();
-            this.cdsTxtDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.cdsTxtDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCatalogDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCatalogDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCustomizableWarning = new System.Windows.Forms.TextBox();
             this.grpStatusApi = new System.Windows.Forms.GroupBox();
-            this.cdsTxtIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCatalogIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.cdsTxtIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCatalogIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnDeleteApi = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnEditCustomApi = new System.Windows.Forms.Button();
-            this.cdsTxtName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.cdsTxtUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCatalogName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCatalogUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.grpCategories = new System.Windows.Forms.GroupBox();
-            this.cdsCategoryTxtDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.cdsCategoryTxtDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCategoryDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCategoryDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnEditCategory = new System.Windows.Forms.Button();
-            this.cdsCategoryTxtName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.cdsCategoryTxtUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCategoryName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCategoryUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnNewCategory = new System.Windows.Forms.Button();
             this.cdsGridCategories = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.grpCatalogAssignments = new System.Windows.Forms.GroupBox();
-            this.cdsDataTextBox4 = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtAssignmentName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.cdsDataTextBox3 = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtAssignmentObject = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.btnNewAssignment = new System.Windows.Forms.Button();
             this.cdsGridAssigments = new xrmtb.XrmToolBox.Controls.CRMGridView();
@@ -92,6 +92,10 @@
             this.cdsCboCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCategoryIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtAssignmentIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.toolStripMenu.SuspendLayout();
             this.grpCatalog.SuspendLayout();
             this.grpStatusApi.SuspendLayout();
@@ -154,8 +158,8 @@
             // 
             // grpCatalog
             // 
-            this.grpCatalog.Controls.Add(this.cdsTxtDescription);
-            this.grpCatalog.Controls.Add(this.cdsTxtDisplayName);
+            this.grpCatalog.Controls.Add(this.txtCatalogDescription);
+            this.grpCatalog.Controls.Add(this.txtCatalogDisplayName);
             this.grpCatalog.Controls.Add(this.label3);
             this.grpCatalog.Controls.Add(this.label10);
             this.grpCatalog.Controls.Add(this.txtCustomizableWarning);
@@ -163,8 +167,8 @@
             this.grpCatalog.Controls.Add(this.btnDeleteApi);
             this.grpCatalog.Controls.Add(this.pictureBox3);
             this.grpCatalog.Controls.Add(this.btnEditCustomApi);
-            this.grpCatalog.Controls.Add(this.cdsTxtName);
-            this.grpCatalog.Controls.Add(this.cdsTxtUniqueName);
+            this.grpCatalog.Controls.Add(this.txtCatalogName);
+            this.grpCatalog.Controls.Add(this.txtCatalogUniqueName);
             this.grpCatalog.Controls.Add(this.label4);
             this.grpCatalog.Controls.Add(this.label6);
             this.grpCatalog.Enabled = false;
@@ -176,34 +180,34 @@
             this.grpCatalog.TabStop = false;
             this.grpCatalog.Text = "Root Catalog";
             // 
-            // cdsTxtDescription
+            // txtCatalogDescription
             // 
-            this.cdsTxtDescription.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtDescription.DisplayFormat = "description";
-            this.cdsTxtDescription.Entity = null;
-            this.cdsTxtDescription.EntityReference = null;
-            this.cdsTxtDescription.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtDescription.Location = new System.Drawing.Point(100, 128);
-            this.cdsTxtDescription.LogicalName = "customapi";
-            this.cdsTxtDescription.Multiline = true;
-            this.cdsTxtDescription.Name = "cdsTxtDescription";
-            this.cdsTxtDescription.OrganizationService = null;
-            this.cdsTxtDescription.Size = new System.Drawing.Size(242, 40);
-            this.cdsTxtDescription.TabIndex = 93;
+            this.txtCatalogDescription.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCatalogDescription.DisplayFormat = "description";
+            this.txtCatalogDescription.Entity = null;
+            this.txtCatalogDescription.EntityReference = null;
+            this.txtCatalogDescription.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCatalogDescription.Location = new System.Drawing.Point(100, 128);
+            this.txtCatalogDescription.LogicalName = "customapi";
+            this.txtCatalogDescription.Multiline = true;
+            this.txtCatalogDescription.Name = "txtCatalogDescription";
+            this.txtCatalogDescription.OrganizationService = null;
+            this.txtCatalogDescription.Size = new System.Drawing.Size(242, 40);
+            this.txtCatalogDescription.TabIndex = 93;
             // 
-            // cdsTxtDisplayName
+            // txtCatalogDisplayName
             // 
-            this.cdsTxtDisplayName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtDisplayName.DisplayFormat = "displayname";
-            this.cdsTxtDisplayName.Entity = null;
-            this.cdsTxtDisplayName.EntityReference = null;
-            this.cdsTxtDisplayName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtDisplayName.Location = new System.Drawing.Point(100, 103);
-            this.cdsTxtDisplayName.LogicalName = "customapi";
-            this.cdsTxtDisplayName.Name = "cdsTxtDisplayName";
-            this.cdsTxtDisplayName.OrganizationService = null;
-            this.cdsTxtDisplayName.Size = new System.Drawing.Size(242, 20);
-            this.cdsTxtDisplayName.TabIndex = 92;
+            this.txtCatalogDisplayName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCatalogDisplayName.DisplayFormat = "displayname";
+            this.txtCatalogDisplayName.Entity = null;
+            this.txtCatalogDisplayName.EntityReference = null;
+            this.txtCatalogDisplayName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCatalogDisplayName.Location = new System.Drawing.Point(100, 103);
+            this.txtCatalogDisplayName.LogicalName = "customapi";
+            this.txtCatalogDisplayName.Name = "txtCatalogDisplayName";
+            this.txtCatalogDisplayName.OrganizationService = null;
+            this.txtCatalogDisplayName.Size = new System.Drawing.Size(242, 20);
+            this.txtCatalogDisplayName.TabIndex = 92;
             // 
             // label3
             // 
@@ -243,10 +247,10 @@
             // 
             // grpStatusApi
             // 
-            this.grpStatusApi.Controls.Add(this.cdsTxtIsManaged);
+            this.grpStatusApi.Controls.Add(this.txtCatalogIsManaged);
             this.grpStatusApi.Controls.Add(this.label23);
             this.grpStatusApi.Controls.Add(this.label28);
-            this.grpStatusApi.Controls.Add(this.cdsTxtIsCustomizable);
+            this.grpStatusApi.Controls.Add(this.txtCatalogIsCustomizable);
             this.grpStatusApi.Location = new System.Drawing.Point(22, 184);
             this.grpStatusApi.Name = "grpStatusApi";
             this.grpStatusApi.Size = new System.Drawing.Size(183, 64);
@@ -254,19 +258,19 @@
             this.grpStatusApi.TabStop = false;
             this.grpStatusApi.Text = "Status";
             // 
-            // cdsTxtIsManaged
+            // txtCatalogIsManaged
             // 
-            this.cdsTxtIsManaged.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtIsManaged.DisplayFormat = "ismanaged";
-            this.cdsTxtIsManaged.Entity = null;
-            this.cdsTxtIsManaged.EntityReference = null;
-            this.cdsTxtIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtIsManaged.Location = new System.Drawing.Point(95, 12);
-            this.cdsTxtIsManaged.LogicalName = "catalog";
-            this.cdsTxtIsManaged.Name = "cdsTxtIsManaged";
-            this.cdsTxtIsManaged.OrganizationService = null;
-            this.cdsTxtIsManaged.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtIsManaged.TabIndex = 83;
+            this.txtCatalogIsManaged.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCatalogIsManaged.DisplayFormat = "ismanaged";
+            this.txtCatalogIsManaged.Entity = null;
+            this.txtCatalogIsManaged.EntityReference = null;
+            this.txtCatalogIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCatalogIsManaged.Location = new System.Drawing.Point(95, 12);
+            this.txtCatalogIsManaged.LogicalName = "catalog";
+            this.txtCatalogIsManaged.Name = "txtCatalogIsManaged";
+            this.txtCatalogIsManaged.OrganizationService = null;
+            this.txtCatalogIsManaged.Size = new System.Drawing.Size(68, 20);
+            this.txtCatalogIsManaged.TabIndex = 83;
             // 
             // label23
             // 
@@ -286,19 +290,19 @@
             this.label28.TabIndex = 86;
             this.label28.Text = "IsCustomizable";
             // 
-            // cdsTxtIsCustomizable
+            // txtCatalogIsCustomizable
             // 
-            this.cdsTxtIsCustomizable.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtIsCustomizable.DisplayFormat = "iscustomizable";
-            this.cdsTxtIsCustomizable.Entity = null;
-            this.cdsTxtIsCustomizable.EntityReference = null;
-            this.cdsTxtIsCustomizable.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtIsCustomizable.Location = new System.Drawing.Point(95, 35);
-            this.cdsTxtIsCustomizable.LogicalName = "catalog";
-            this.cdsTxtIsCustomizable.Name = "cdsTxtIsCustomizable";
-            this.cdsTxtIsCustomizable.OrganizationService = null;
-            this.cdsTxtIsCustomizable.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtIsCustomizable.TabIndex = 85;
+            this.txtCatalogIsCustomizable.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCatalogIsCustomizable.DisplayFormat = "iscustomizable";
+            this.txtCatalogIsCustomizable.Entity = null;
+            this.txtCatalogIsCustomizable.EntityReference = null;
+            this.txtCatalogIsCustomizable.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCatalogIsCustomizable.Location = new System.Drawing.Point(95, 35);
+            this.txtCatalogIsCustomizable.LogicalName = "catalog";
+            this.txtCatalogIsCustomizable.Name = "txtCatalogIsCustomizable";
+            this.txtCatalogIsCustomizable.OrganizationService = null;
+            this.txtCatalogIsCustomizable.Size = new System.Drawing.Size(68, 20);
+            this.txtCatalogIsCustomizable.TabIndex = 85;
             // 
             // btnDeleteApi
             // 
@@ -340,34 +344,34 @@
             this.btnEditCustomApi.UseVisualStyleBackColor = true;
             this.btnEditCustomApi.Click += new System.EventHandler(this.btnEditCustomApi_Click);
             // 
-            // cdsTxtName
+            // txtCatalogName
             // 
-            this.cdsTxtName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtName.DisplayFormat = "name";
-            this.cdsTxtName.Entity = null;
-            this.cdsTxtName.EntityReference = null;
-            this.cdsTxtName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtName.Location = new System.Drawing.Point(100, 77);
-            this.cdsTxtName.LogicalName = "customapi";
-            this.cdsTxtName.Name = "cdsTxtName";
-            this.cdsTxtName.OrganizationService = null;
-            this.cdsTxtName.Size = new System.Drawing.Size(242, 20);
-            this.cdsTxtName.TabIndex = 42;
+            this.txtCatalogName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCatalogName.DisplayFormat = "name";
+            this.txtCatalogName.Entity = null;
+            this.txtCatalogName.EntityReference = null;
+            this.txtCatalogName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCatalogName.Location = new System.Drawing.Point(100, 77);
+            this.txtCatalogName.LogicalName = "customapi";
+            this.txtCatalogName.Name = "txtCatalogName";
+            this.txtCatalogName.OrganizationService = null;
+            this.txtCatalogName.Size = new System.Drawing.Size(242, 20);
+            this.txtCatalogName.TabIndex = 42;
             // 
-            // cdsTxtUniqueName
+            // txtCatalogUniqueName
             // 
-            this.cdsTxtUniqueName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtUniqueName.DisplayFormat = "uniquename";
-            this.cdsTxtUniqueName.Entity = null;
-            this.cdsTxtUniqueName.EntityReference = null;
-            this.cdsTxtUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cdsTxtUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtUniqueName.Location = new System.Drawing.Point(100, 51);
-            this.cdsTxtUniqueName.LogicalName = "customapi";
-            this.cdsTxtUniqueName.Name = "cdsTxtUniqueName";
-            this.cdsTxtUniqueName.OrganizationService = null;
-            this.cdsTxtUniqueName.Size = new System.Drawing.Size(242, 20);
-            this.cdsTxtUniqueName.TabIndex = 41;
+            this.txtCatalogUniqueName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCatalogUniqueName.DisplayFormat = "uniquename";
+            this.txtCatalogUniqueName.Entity = null;
+            this.txtCatalogUniqueName.EntityReference = null;
+            this.txtCatalogUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCatalogUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCatalogUniqueName.Location = new System.Drawing.Point(100, 51);
+            this.txtCatalogUniqueName.LogicalName = "customapi";
+            this.txtCatalogUniqueName.Name = "txtCatalogUniqueName";
+            this.txtCatalogUniqueName.OrganizationService = null;
+            this.txtCatalogUniqueName.Size = new System.Drawing.Size(242, 20);
+            this.txtCatalogUniqueName.TabIndex = 41;
             // 
             // label4
             // 
@@ -393,15 +397,17 @@
             // 
             // grpCategories
             // 
-            this.grpCategories.Controls.Add(this.cdsCategoryTxtDescription);
-            this.grpCategories.Controls.Add(this.cdsCategoryTxtDisplayName);
+            this.grpCategories.Controls.Add(this.label8);
+            this.grpCategories.Controls.Add(this.txtCategoryDescription);
+            this.grpCategories.Controls.Add(this.txtCategoryIsCustomizable);
+            this.grpCategories.Controls.Add(this.txtCategoryDisplayName);
             this.grpCategories.Controls.Add(this.label1);
             this.grpCategories.Controls.Add(this.label2);
             this.grpCategories.Controls.Add(this.btnDeleteCategory);
             this.grpCategories.Controls.Add(this.pictureBox1);
             this.grpCategories.Controls.Add(this.btnEditCategory);
-            this.grpCategories.Controls.Add(this.cdsCategoryTxtName);
-            this.grpCategories.Controls.Add(this.cdsCategoryTxtUniqueName);
+            this.grpCategories.Controls.Add(this.txtCategoryName);
+            this.grpCategories.Controls.Add(this.txtCategoryUniqueName);
             this.grpCategories.Controls.Add(this.label5);
             this.grpCategories.Controls.Add(this.label7);
             this.grpCategories.Controls.Add(this.btnNewCategory);
@@ -413,34 +419,34 @@
             this.grpCategories.TabStop = false;
             this.grpCategories.Text = "Categories (2nd Level Catalogs)";
             // 
-            // cdsCategoryTxtDescription
+            // txtCategoryDescription
             // 
-            this.cdsCategoryTxtDescription.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsCategoryTxtDescription.DisplayFormat = "description";
-            this.cdsCategoryTxtDescription.Entity = null;
-            this.cdsCategoryTxtDescription.EntityReference = null;
-            this.cdsCategoryTxtDescription.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsCategoryTxtDescription.Location = new System.Drawing.Point(277, 141);
-            this.cdsCategoryTxtDescription.LogicalName = "customapi";
-            this.cdsCategoryTxtDescription.Multiline = true;
-            this.cdsCategoryTxtDescription.Name = "cdsCategoryTxtDescription";
-            this.cdsCategoryTxtDescription.OrganizationService = null;
-            this.cdsCategoryTxtDescription.Size = new System.Drawing.Size(242, 40);
-            this.cdsCategoryTxtDescription.TabIndex = 104;
+            this.txtCategoryDescription.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategoryDescription.DisplayFormat = "description";
+            this.txtCategoryDescription.Entity = null;
+            this.txtCategoryDescription.EntityReference = null;
+            this.txtCategoryDescription.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCategoryDescription.Location = new System.Drawing.Point(277, 141);
+            this.txtCategoryDescription.LogicalName = "customapi";
+            this.txtCategoryDescription.Multiline = true;
+            this.txtCategoryDescription.Name = "txtCategoryDescription";
+            this.txtCategoryDescription.OrganizationService = null;
+            this.txtCategoryDescription.Size = new System.Drawing.Size(242, 40);
+            this.txtCategoryDescription.TabIndex = 104;
             // 
-            // cdsCategoryTxtDisplayName
+            // txtCategoryDisplayName
             // 
-            this.cdsCategoryTxtDisplayName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsCategoryTxtDisplayName.DisplayFormat = "displayname";
-            this.cdsCategoryTxtDisplayName.Entity = null;
-            this.cdsCategoryTxtDisplayName.EntityReference = null;
-            this.cdsCategoryTxtDisplayName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsCategoryTxtDisplayName.Location = new System.Drawing.Point(277, 116);
-            this.cdsCategoryTxtDisplayName.LogicalName = "customapi";
-            this.cdsCategoryTxtDisplayName.Name = "cdsCategoryTxtDisplayName";
-            this.cdsCategoryTxtDisplayName.OrganizationService = null;
-            this.cdsCategoryTxtDisplayName.Size = new System.Drawing.Size(242, 20);
-            this.cdsCategoryTxtDisplayName.TabIndex = 103;
+            this.txtCategoryDisplayName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategoryDisplayName.DisplayFormat = "displayname";
+            this.txtCategoryDisplayName.Entity = null;
+            this.txtCategoryDisplayName.EntityReference = null;
+            this.txtCategoryDisplayName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCategoryDisplayName.Location = new System.Drawing.Point(277, 116);
+            this.txtCategoryDisplayName.LogicalName = "customapi";
+            this.txtCategoryDisplayName.Name = "txtCategoryDisplayName";
+            this.txtCategoryDisplayName.OrganizationService = null;
+            this.txtCategoryDisplayName.Size = new System.Drawing.Size(242, 20);
+            this.txtCategoryDisplayName.TabIndex = 103;
             // 
             // label1
             // 
@@ -504,34 +510,34 @@
             this.btnEditCategory.UseVisualStyleBackColor = true;
             this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
             // 
-            // cdsCategoryTxtName
+            // txtCategoryName
             // 
-            this.cdsCategoryTxtName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsCategoryTxtName.DisplayFormat = "name";
-            this.cdsCategoryTxtName.Entity = null;
-            this.cdsCategoryTxtName.EntityReference = null;
-            this.cdsCategoryTxtName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsCategoryTxtName.Location = new System.Drawing.Point(277, 90);
-            this.cdsCategoryTxtName.LogicalName = "customapi";
-            this.cdsCategoryTxtName.Name = "cdsCategoryTxtName";
-            this.cdsCategoryTxtName.OrganizationService = null;
-            this.cdsCategoryTxtName.Size = new System.Drawing.Size(242, 20);
-            this.cdsCategoryTxtName.TabIndex = 98;
+            this.txtCategoryName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategoryName.DisplayFormat = "name";
+            this.txtCategoryName.Entity = null;
+            this.txtCategoryName.EntityReference = null;
+            this.txtCategoryName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCategoryName.Location = new System.Drawing.Point(277, 90);
+            this.txtCategoryName.LogicalName = "customapi";
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.OrganizationService = null;
+            this.txtCategoryName.Size = new System.Drawing.Size(242, 20);
+            this.txtCategoryName.TabIndex = 98;
             // 
-            // cdsCategoryTxtUniqueName
+            // txtCategoryUniqueName
             // 
-            this.cdsCategoryTxtUniqueName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsCategoryTxtUniqueName.DisplayFormat = "uniquename";
-            this.cdsCategoryTxtUniqueName.Entity = null;
-            this.cdsCategoryTxtUniqueName.EntityReference = null;
-            this.cdsCategoryTxtUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cdsCategoryTxtUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsCategoryTxtUniqueName.Location = new System.Drawing.Point(277, 64);
-            this.cdsCategoryTxtUniqueName.LogicalName = "customapi";
-            this.cdsCategoryTxtUniqueName.Name = "cdsCategoryTxtUniqueName";
-            this.cdsCategoryTxtUniqueName.OrganizationService = null;
-            this.cdsCategoryTxtUniqueName.Size = new System.Drawing.Size(242, 20);
-            this.cdsCategoryTxtUniqueName.TabIndex = 97;
+            this.txtCategoryUniqueName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategoryUniqueName.DisplayFormat = "uniquename";
+            this.txtCategoryUniqueName.Entity = null;
+            this.txtCategoryUniqueName.EntityReference = null;
+            this.txtCategoryUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoryUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCategoryUniqueName.Location = new System.Drawing.Point(277, 64);
+            this.txtCategoryUniqueName.LogicalName = "customapi";
+            this.txtCategoryUniqueName.Name = "txtCategoryUniqueName";
+            this.txtCategoryUniqueName.OrganizationService = null;
+            this.txtCategoryUniqueName.Size = new System.Drawing.Size(242, 20);
+            this.txtCategoryUniqueName.TabIndex = 97;
             // 
             // label5
             // 
@@ -616,9 +622,11 @@
             // 
             // grpCatalogAssignments
             // 
-            this.grpCatalogAssignments.Controls.Add(this.cdsDataTextBox4);
+            this.grpCatalogAssignments.Controls.Add(this.label9);
+            this.grpCatalogAssignments.Controls.Add(this.txtAssignmentIsCustomizable);
+            this.grpCatalogAssignments.Controls.Add(this.txtAssignmentName);
             this.grpCatalogAssignments.Controls.Add(this.label13);
-            this.grpCatalogAssignments.Controls.Add(this.cdsDataTextBox3);
+            this.grpCatalogAssignments.Controls.Add(this.txtAssignmentObject);
             this.grpCatalogAssignments.Controls.Add(this.label11);
             this.grpCatalogAssignments.Controls.Add(this.btnNewAssignment);
             this.grpCatalogAssignments.Controls.Add(this.cdsGridAssigments);
@@ -629,19 +637,19 @@
             this.grpCatalogAssignments.TabStop = false;
             this.grpCatalogAssignments.Text = "Catalog Assignments";
             // 
-            // cdsDataTextBox4
+            // txtAssignmentName
             // 
-            this.cdsDataTextBox4.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsDataTextBox4.DisplayFormat = "name";
-            this.cdsDataTextBox4.Entity = null;
-            this.cdsDataTextBox4.EntityReference = null;
-            this.cdsDataTextBox4.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsDataTextBox4.Location = new System.Drawing.Point(343, 64);
-            this.cdsDataTextBox4.LogicalName = "customapi";
-            this.cdsDataTextBox4.Name = "cdsDataTextBox4";
-            this.cdsDataTextBox4.OrganizationService = null;
-            this.cdsDataTextBox4.Size = new System.Drawing.Size(242, 20);
-            this.cdsDataTextBox4.TabIndex = 114;
+            this.txtAssignmentName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtAssignmentName.DisplayFormat = "name";
+            this.txtAssignmentName.Entity = null;
+            this.txtAssignmentName.EntityReference = null;
+            this.txtAssignmentName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtAssignmentName.Location = new System.Drawing.Point(343, 64);
+            this.txtAssignmentName.LogicalName = "catalogassignment";
+            this.txtAssignmentName.Name = "txtAssignmentName";
+            this.txtAssignmentName.OrganizationService = null;
+            this.txtAssignmentName.Size = new System.Drawing.Size(242, 20);
+            this.txtAssignmentName.TabIndex = 114;
             // 
             // label13
             // 
@@ -654,19 +662,19 @@
             this.ttInfo.SetToolTip(this.label13, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
         "s when viewed in the solution.");
             // 
-            // cdsDataTextBox3
+            // txtAssignmentObject
             // 
-            this.cdsDataTextBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsDataTextBox3.DisplayFormat = "displayname";
-            this.cdsDataTextBox3.Entity = null;
-            this.cdsDataTextBox3.EntityReference = null;
-            this.cdsDataTextBox3.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsDataTextBox3.Location = new System.Drawing.Point(343, 93);
-            this.cdsDataTextBox3.LogicalName = "customapi";
-            this.cdsDataTextBox3.Name = "cdsDataTextBox3";
-            this.cdsDataTextBox3.OrganizationService = null;
-            this.cdsDataTextBox3.Size = new System.Drawing.Size(242, 20);
-            this.cdsDataTextBox3.TabIndex = 112;
+            this.txtAssignmentObject.BackColor = System.Drawing.SystemColors.Window;
+            this.txtAssignmentObject.DisplayFormat = "object";
+            this.txtAssignmentObject.Entity = null;
+            this.txtAssignmentObject.EntityReference = null;
+            this.txtAssignmentObject.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtAssignmentObject.Location = new System.Drawing.Point(343, 93);
+            this.txtAssignmentObject.LogicalName = "catalogassignment";
+            this.txtAssignmentObject.Name = "txtAssignmentObject";
+            this.txtAssignmentObject.OrganizationService = null;
+            this.txtAssignmentObject.Size = new System.Drawing.Size(242, 20);
+            this.txtAssignmentObject.TabIndex = 112;
             // 
             // label11
             // 
@@ -874,6 +882,52 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(194, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.TabIndex = 88;
+            this.label8.Text = "IsCustomizable";
+            // 
+            // txtCategoryIsCustomizable
+            // 
+            this.txtCategoryIsCustomizable.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategoryIsCustomizable.DisplayFormat = "iscustomizable";
+            this.txtCategoryIsCustomizable.Entity = null;
+            this.txtCategoryIsCustomizable.EntityReference = null;
+            this.txtCategoryIsCustomizable.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCategoryIsCustomizable.Location = new System.Drawing.Point(277, 187);
+            this.txtCategoryIsCustomizable.LogicalName = "catalog";
+            this.txtCategoryIsCustomizable.Name = "txtCategoryIsCustomizable";
+            this.txtCategoryIsCustomizable.OrganizationService = null;
+            this.txtCategoryIsCustomizable.Size = new System.Drawing.Size(68, 20);
+            this.txtCategoryIsCustomizable.TabIndex = 87;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(260, 121);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 13);
+            this.label9.TabIndex = 116;
+            this.label9.Text = "IsCustomizable";
+            // 
+            // txtAssignmentIsCustomizable
+            // 
+            this.txtAssignmentIsCustomizable.BackColor = System.Drawing.SystemColors.Window;
+            this.txtAssignmentIsCustomizable.DisplayFormat = "iscustomizable";
+            this.txtAssignmentIsCustomizable.Entity = null;
+            this.txtAssignmentIsCustomizable.EntityReference = null;
+            this.txtAssignmentIsCustomizable.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtAssignmentIsCustomizable.Location = new System.Drawing.Point(343, 118);
+            this.txtAssignmentIsCustomizable.LogicalName = "catalogassignment";
+            this.txtAssignmentIsCustomizable.Name = "txtAssignmentIsCustomizable";
+            this.txtAssignmentIsCustomizable.OrganizationService = null;
+            this.txtAssignmentIsCustomizable.Size = new System.Drawing.Size(68, 20);
+            this.txtAssignmentIsCustomizable.TabIndex = 115;
+            // 
             // CatalogManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -924,8 +978,8 @@
         private System.Windows.Forms.GroupBox grpFilter;
         private System.Windows.Forms.Label label12;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboCatalog;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtUniqueName;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCatalogUniqueName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCatalogName;
         private System.Windows.Forms.Label lblInfoLock;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -939,36 +993,40 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ToolStripButton menuNewApi;
         private System.Windows.Forms.Label label23;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtIsManaged;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtIsCustomizable;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCatalogIsManaged;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCatalogIsCustomizable;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox grpStatusApi;
         private System.Windows.Forms.TextBox txtCustomizableWarning;
         private System.Windows.Forms.ToolTip ttInfo;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtDescription;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtDisplayName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCatalogDescription;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCatalogDisplayName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox grpCategories;
         private xrmtb.XrmToolBox.Controls.CRMGridView cdsGridCategories;
         private System.Windows.Forms.Button btnNewCategory;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtDescription;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtDisplayName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCategoryDescription;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCategoryDisplayName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDeleteCategory;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnEditCategory;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtName;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCategoryTxtUniqueName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCategoryName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCategoryUniqueName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox grpCatalogAssignments;
         private xrmtb.XrmToolBox.Controls.CRMGridView cdsGridAssigments;
         private System.Windows.Forms.Button btnNewAssignment;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsDataTextBox3;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtAssignmentObject;
         private System.Windows.Forms.Label label11;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsDataTextBox4;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtAssignmentName;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label8;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCategoryIsCustomizable;
+        private System.Windows.Forms.Label label9;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtAssignmentIsCustomizable;
     }
 }

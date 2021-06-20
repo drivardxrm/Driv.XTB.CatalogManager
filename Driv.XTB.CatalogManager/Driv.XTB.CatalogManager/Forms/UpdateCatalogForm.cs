@@ -96,6 +96,12 @@ namespace Driv.XTB.CatalogManager.Forms
                 _shouldupdate = true;
             };
 
+            if (_catalogproxy.IsCustomizable != chkIsCustomizable.Checked)
+            {
+                catalog[Catalog.IsCustomizable] = chkIsCustomizable.Checked;
+                _shouldupdate = true;
+            };
+
             return catalog;
         }
 

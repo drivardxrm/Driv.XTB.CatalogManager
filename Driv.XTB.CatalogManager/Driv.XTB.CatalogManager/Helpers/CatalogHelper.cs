@@ -258,5 +258,48 @@ namespace Driv.XTB.CatalogManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
+        public static EntityCollection GetFullCatalog(this IOrganizationService service, Guid parentcatalogid) 
+        {
+
+            
+            var fetchXml = $@"
+                <fetch>
+                  <entity name='catalog'>
+                    <attribute name='description' />
+                    <attribute name='name' />
+                    <attribute name='iscustomizable' />
+                    <attribute name='catalogid' />
+                    <attribute name='ismanaged' />
+                    <attribute name='displayname' />
+                    <order attribute='name' />
+                    <link-entity name='catalog' from='catalogid' to='parentcatalogid' link-type='inner' alias='RootCatalog'>
+                      <attribute name='description' />
+                      <attribute name='name' />
+                      <attribute name='iscustomizable' />
+                      <attribute name='catalogid' />
+                      <attribute name='ismanaged' />
+                      <attribute name='displayname' />
+                      <filter>
+                        <condition attribute='catalogid' operator='eq' value='{parentcatalogid}'/>
+                      </filter>
+                    </link-entity>
+                    <link-entity name='catalogassignment' from='catalogid' to='catalogid' link-type='outer' alias='Assignment'>
+                      <attribute name='objectname' />
+                      <attribute name='name' />
+                      <attribute name='iscustomizable' />
+                      <attribute name='ismanaged' />
+                      <attribute name='catalogassignmentid' />
+                      <attribute name='object' />
+                      <attribute name='objectidtype' />
+                      <order attribute='name' />
+                    </link-entity>
+                  </entity>
+                </fetch>"; 
+
+            var fetch = new FetchExpression(fetchXml);
+            return service.RetrieveMultiple(fetch);
+
+        }
+
     }
 }

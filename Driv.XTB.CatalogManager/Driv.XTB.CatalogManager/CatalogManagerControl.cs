@@ -52,7 +52,7 @@ namespace Driv.XTB.CatalogManager
             InitializeComponent();
         }
 
-        private void CustomApiManagerControl_Load(object sender, EventArgs e)
+        private void CatalogManagerControl_Load(object sender, EventArgs e)
         {
             
             // Loads or creates the settings for the plugin
@@ -100,17 +100,21 @@ namespace Driv.XTB.CatalogManager
             txtCategoryDisplayName.OrganizationService = Service;
             txtCategoryDescription.OrganizationService = Service;
             txtCategoryIsCustomizable.OrganizationService = Service;
+            txtCategoryIsManaged.OrganizationService = Service;
+
 
             //Catalog assignment
             txtAssignmentIsCustomizable.OrganizationService = Service;
             txtAssignmentName.OrganizationService = Service;
             txtAssignmentObject.OrganizationService = Service;
+            txtAssignmentIsManaged.OrganizationService = Service;
+
 
 
         }
 
         //If Plugin is opened from Integration with another plugin
-        //TargetArgumet = GUID of Custom API to display (string format)	Id
+        //TargetArgumet = GUID of Catalog to display (string format)	Id
         public void OnIncomingMessage(MessageBusEventArgs message)
         {
             
@@ -150,7 +154,6 @@ namespace Driv.XTB.CatalogManager
                 SetCboCatalogDataSource(null);
 
 
-                //LoadSolutions();
                 ExecuteMethod(InitializeService);
                 
 
@@ -181,24 +184,45 @@ namespace Driv.XTB.CatalogManager
             CreateCatalogDialog();
         }
 
-        private void btnEditCustomApi_Click(object sender, EventArgs e)
+        private void btnEditCatalog_Click(object sender, EventArgs e)
         {
             UpdateCatalogDialog();
         }
 
 
-
-       
-
-
-        private void btnDeleteApi_Click(object sender, EventArgs e)
+        private void btnDeleteCatalog_Click(object sender, EventArgs e)
         {
             DeleteCatalogDialog();
         }
 
-       
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            DeleteCategoryDialog();
+        }
 
-       
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            UpdateCategoryDialog();
+        }
+
+        private void btnNewAssignment_Click(object sender, EventArgs e)
+        {
+            CreateCategoryAssignmentDialog();
+        }
+
+        private void btnUpdateAssignment_Click(object sender, EventArgs e)
+        {
+            UpdateAssignmentDialog();
+        }
+
+        private void btnDeleteAssignment_Click(object sender, EventArgs e)
+        {
+            DeleteAssignmentDialog();
+        }
+
+
+
+
 
 
         private void tslAbout_Click(object sender, EventArgs e)
@@ -250,7 +274,7 @@ namespace Driv.XTB.CatalogManager
         }
 
 
-        private void cdsCboSolutions_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboSolutions_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedSolution = cboSolutions.SelectedIndex != -1 ?
                                             new SolutionProxy(cboSolutions.SelectedEntity) :
@@ -266,7 +290,7 @@ namespace Driv.XTB.CatalogManager
 
 
 
-        private void cdsCboCatalog_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboCatalog_SelectedIndexChanged(object sender, EventArgs e)
         {
 
 
@@ -503,31 +527,31 @@ namespace Driv.XTB.CatalogManager
         /// Will set the DataSource of the control. Disabling the event handlers will prevent unessesary triggers.
         private void SetCboSolutionsDataSource(object datasource)
         {
-            cboSolutions.SelectedIndexChanged -= new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+            cboSolutions.SelectedIndexChanged -= new EventHandler(cboSolutions_SelectedIndexChanged);
             cboSolutions.DataSource = datasource;
-            cboSolutions.SelectedIndexChanged += new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+            cboSolutions.SelectedIndexChanged += new EventHandler(cboSolutions_SelectedIndexChanged);
         }
 
         
         private void SetCboCatalogDataSource(object datasource)
         {
-            cboCatalog.SelectedIndexChanged -= new EventHandler(cdsCboCatalog_SelectedIndexChanged);
+            cboCatalog.SelectedIndexChanged -= new EventHandler(cboCatalog_SelectedIndexChanged);
             cboCatalog.DataSource = datasource;
-            cboCatalog.SelectedIndexChanged += new EventHandler(cdsCboCatalog_SelectedIndexChanged);
+            cboCatalog.SelectedIndexChanged += new EventHandler(cboCatalog_SelectedIndexChanged);
         }
 
         private void SetGridCategoriesDataSource(object datasource)
         {
-            gridCategories.RecordEnter -= new CRMRecordEventHandler(cdsGridCategories_RecordEnter);
+            gridCategories.RecordEnter -= new CRMRecordEventHandler(gridCategories_RecordEnter);
             gridCategories.DataSource = datasource;
-            gridCategories.RecordEnter += new CRMRecordEventHandler(cdsGridCategories_RecordEnter);
+            gridCategories.RecordEnter += new CRMRecordEventHandler(gridCategories_RecordEnter);
         }
 
         private void SetGridAssignmentsDataSource(object datasource)
         {
-            gridAssignments.RecordEnter -= new CRMRecordEventHandler(cdsGridAssigments_RecordEnter);
+            gridAssignments.RecordEnter -= new CRMRecordEventHandler(gridAssigments_RecordEnter);
             gridAssignments.DataSource = datasource;
-            gridAssignments.RecordEnter += new CRMRecordEventHandler(cdsGridAssigments_RecordEnter);
+            gridAssignments.RecordEnter += new CRMRecordEventHandler(gridAssigments_RecordEnter);
         }
 
 
@@ -552,8 +576,8 @@ namespace Driv.XTB.CatalogManager
             if (_selectedCatalog != null)
             {
                 txtCustomizableWarning.Visible = !_selectedCatalog.CanCustomize;
-                btnEditCustomApi.Enabled = _selectedCatalog.CanCustomize;
-                btnDeleteApi.Enabled = _selectedCatalog.CanCustomize;
+                btnEditCatalog.Enabled = _selectedCatalog.CanCustomize;
+                btnDeleteCatalog.Enabled = _selectedCatalog.CanCustomize;
                 
             }
 
@@ -576,14 +600,26 @@ namespace Driv.XTB.CatalogManager
             txtCategoryDisplayName.Entity = _selectedCategory?.CatalogRow;
             txtCategoryDescription.Entity = _selectedCategory?.CatalogRow;
             txtCategoryIsCustomizable.Entity = _selectedCategory?.CatalogRow;
-
-           
-                
-            btnEditCategory.Enabled = _selectedCategory != null;
-            btnDeleteCategory.Enabled = _selectedCategory != null;
+            txtCategoryIsManaged.Entity = _selectedCategory?.CatalogRow;
 
 
             
+
+
+            if (_selectedCategory != null)
+            {
+                txtCategoryCustomizableWarning.Visible = !_selectedCategory.CanCustomize;
+                btnEditCategory.Enabled = _selectedCategory.CanCustomize;
+                btnDeleteCategory.Enabled = _selectedCategory.CanCustomize;
+
+            }
+            else 
+            {
+                txtCategoryCustomizableWarning.Visible = false;
+                btnEditCategory.Enabled = false;
+                btnDeleteCategory.Enabled = false;
+
+            }
 
 
             LoadAssignments(_selectedCategory?.CatalogRow?.Id ?? Guid.Empty);
@@ -603,13 +639,26 @@ namespace Driv.XTB.CatalogManager
             txtAssignmentObject.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
             txtAssignmentIsCustomizable.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
             txtAssignmentType.Text = _selectedCatalogAssignment?.ObjectType;
+            txtAssignmentIsManaged.Entity = _selectedCatalogAssignment?.CatalogAssignmentRow;
 
             pictTable.Visible = txtAssignmentType.Text == "entity";
             pictAPI.Visible = txtAssignmentType.Text == "customapi";
             pictProcess.Visible = txtAssignmentType.Text == "workflow";
 
-            btnUpdateAssignment.Enabled = _selectedCatalogAssignment != null;
-            btnDeleteAssignment.Enabled = _selectedCatalogAssignment != null;
+            if (_selectedCatalogAssignment != null)
+            {
+                txtAssignmentCustomizableWarning.Visible = !_selectedCatalogAssignment.CanCustomize;
+                btnUpdateAssignment.Enabled = _selectedCategory.CanCustomize;
+                btnDeleteAssignment.Enabled = _selectedCategory.CanCustomize;
+
+            }
+            else
+            {
+                txtAssignmentCustomizableWarning.Visible = false;
+                btnUpdateAssignment.Enabled = false;
+                btnDeleteAssignment.Enabled = false;
+
+            }
 
         }
 
@@ -655,7 +704,9 @@ namespace Driv.XTB.CatalogManager
                         if (assignmentobject != null)
                         {
                             var assignmenttype = assignmentobject.LogicalName;
-                            var assignmentname = $"{((AliasedValue)assignment["assignment_name"])?.Value.ToString()} ({assignmenttype})";
+                            var assignmentname = assignment.Contains("assignment_name") ?
+                                                        $"{((AliasedValue)assignment["assignment_name"])?.Value.ToString()} ({assignmenttype})" :
+                                                         $"_ ({assignmenttype})";
 
                             var assignmentnode = categorynode.Nodes.Add(assignmentname);
                             
@@ -715,6 +766,7 @@ namespace Driv.XTB.CatalogManager
             }
             return index;
         }
+
 
 
         private void CreateCatalogDialog() 
@@ -785,7 +837,7 @@ namespace Driv.XTB.CatalogManager
         private void UpdateCatalogDialog()
         {
 
-            var inputdlg = new UpdateCatalogForm(Service, _selectedCatalog);
+            var inputdlg = new UpdateCatalogForm(Service, _selectedCatalog,null);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -809,7 +861,7 @@ namespace Driv.XTB.CatalogManager
         private void UpdateCategoryDialog()
         {
 
-            var inputdlg = new UpdateCatalogForm(Service, _selectedCategory);
+            var inputdlg = new UpdateCatalogForm(Service, _selectedCategory, _selectedCatalog);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -941,41 +993,20 @@ namespace Driv.XTB.CatalogManager
             CreateCategoryDialog();
         }
 
-        private void cdsGridCategories_RecordEnter(object sender, CRMRecordEventArgs e)
+        private void gridCategories_RecordEnter(object sender, CRMRecordEventArgs e)
         {
             SetSelectedCategory(Service.GetCatalog(e.Entity.Id));
 
         }
 
-        private void btnDeleteCategory_Click(object sender, EventArgs e)
-        {
-            DeleteCategoryDialog();
-        }
+        
 
-        private void btnEditCategory_Click(object sender, EventArgs e)
-        {
-            UpdateCategoryDialog();
-        }
-
-        private void cdsGridAssigments_RecordEnter(object sender, CRMRecordEventArgs e)
+        private void gridAssigments_RecordEnter(object sender, CRMRecordEventArgs e)
         {
             SetSelectedAssignment(Service.GetCatalogAssignment(e.Entity.Id));
 
         }
 
-        private void btnNewAssignment_Click(object sender, EventArgs e)
-        {
-            CreateCategoryAssignmentDialog();
-        }
-
-        private void btnUpdateAssignment_Click(object sender, EventArgs e)
-        {
-            UpdateAssignmentDialog();
-        }
-
-        private void btnDeleteAssignment_Click(object sender, EventArgs e)
-        {
-            DeleteAssignmentDialog();
-        }
+       
     }
 }

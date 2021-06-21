@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteCatalogForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.cdsCustomApiName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCatalogName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.cdsCustomApiName);
+            this.panel2.Controls.Add(this.txtCatalogName);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.lblTitle);
             this.panel2.Controls.Add(this.btnCancel);
@@ -65,20 +65,20 @@
             this.label2.TabIndex = 80;
             this.label2.Text = "Catalog";
             // 
-            // cdsCustomApiName
+            // txtCatalogName
             // 
-            this.cdsCustomApiName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsCustomApiName.DisplayFormat = "{{name}} ({{uniquename}})";
-            this.cdsCustomApiName.Entity = null;
-            this.cdsCustomApiName.EntityReference = null;
-            this.cdsCustomApiName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cdsCustomApiName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsCustomApiName.Location = new System.Drawing.Point(104, 46);
-            this.cdsCustomApiName.LogicalName = "customapi";
-            this.cdsCustomApiName.Name = "cdsCustomApiName";
-            this.cdsCustomApiName.OrganizationService = null;
-            this.cdsCustomApiName.Size = new System.Drawing.Size(317, 20);
-            this.cdsCustomApiName.TabIndex = 79;
+            this.txtCatalogName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCatalogName.DisplayFormat = "{{name}} ({{uniquename}})";
+            this.txtCatalogName.Entity = null;
+            this.txtCatalogName.EntityReference = null;
+            this.txtCatalogName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCatalogName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCatalogName.Location = new System.Drawing.Point(104, 46);
+            this.txtCatalogName.LogicalName = "customapi";
+            this.txtCatalogName.Name = "txtCatalogName";
+            this.txtCatalogName.OrganizationService = null;
+            this.txtCatalogName.Size = new System.Drawing.Size(317, 20);
+            this.txtCatalogName.TabIndex = 79;
             // 
             // textBox1
             // 
@@ -185,6 +185,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCustomApiName;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCatalogName;
     }
 }

@@ -53,20 +53,35 @@
             this.cboCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
-            this.imgGrpRootCatalog = new ImageGroupBoxApplication.ImageGroupBox();
-            this.imgGrpCategories = new ImageGroupBoxApplication.ImageGroupBox();
-            this.imgGrpAssignments = new ImageGroupBoxApplication.ImageGroupBox();
+            this.imgGrpRootCatalog = new Driv.XTB.CatalogManager.ImageGroupBox();
+            this.imgGrpCategories = new Driv.XTB.CatalogManager.ImageGroupBox();
+            this.txtCategoryCustomizableWarning = new System.Windows.Forms.TextBox();
+            this.txtCategoryIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.imgGrpAssignments = new Driv.XTB.CatalogManager.ImageGroupBox();
+            this.txtAssignmentCustomizableWarning = new System.Windows.Forms.TextBox();
+            this.txtAssignmentIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.pictProcess = new System.Windows.Forms.PictureBox();
             this.btnNewAssignment = new System.Windows.Forms.Button();
             this.pictAPI = new System.Windows.Forms.PictureBox();
             this.gridAssignments = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.pictTable = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtAssignmentType = new System.Windows.Forms.TextBox();
             this.txtAssignmentObject = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnDeleteAssignment = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.btnUpdateAssignment = new System.Windows.Forms.Button();
             this.txtAssignmentName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -75,35 +90,26 @@
             this.label8 = new System.Windows.Forms.Label();
             this.gridCategories = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.txtCategoryDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtCategoryIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtCategoryDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.txtCategoryUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtCategoryName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtCatalogIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.treeCatalog = new System.Windows.Forms.TreeView();
             this.txtCatalogDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnEditCustomApi = new System.Windows.Forms.Button();
+            this.btnEditCatalog = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.txtCatalogDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.txtCatalogIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtCatalogUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.txtCustomizableWarning = new System.Windows.Forms.TextBox();
             this.txtCatalogName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnDeleteApi = new System.Windows.Forms.Button();
+            this.btnDeleteCatalog = new System.Windows.Forms.Button();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpFilter.SuspendLayout();
@@ -248,7 +254,7 @@
             this.cboSolutions.OrganizationService = null;
             this.cboSolutions.Size = new System.Drawing.Size(295, 21);
             this.cboSolutions.TabIndex = 40;
-            this.cboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
+            this.cboSolutions.SelectedIndexChanged += new System.EventHandler(this.cboSolutions_SelectedIndexChanged);
             // 
             // rbSolution
             // 
@@ -284,7 +290,7 @@
             this.cboCatalog.OrganizationService = null;
             this.cboCatalog.Size = new System.Drawing.Size(333, 21);
             this.cboCatalog.TabIndex = 24;
-            this.cboCatalog.SelectedIndexChanged += new System.EventHandler(this.cdsCboCatalog_SelectedIndexChanged);
+            this.cboCatalog.SelectedIndexChanged += new System.EventHandler(this.cboCatalog_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -304,6 +310,128 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(263, 114);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 111;
+            this.label11.Text = "Object";
+            this.ttInfo.SetToolTip(this.label11, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(263, 86);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 113;
+            this.label13.Text = "Name";
+            this.ttInfo.SetToolTip(this.label13, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(241, 89);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 95;
+            this.label7.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(243, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 94;
+            this.label5.Text = "Name";
+            this.ttInfo.SetToolTip(this.label5, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(243, 166);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 101;
+            this.label1.Text = "Description";
+            this.ttInfo.SetToolTip(this.label1, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. \r\nFor example, as a ToolTip.");
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(243, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 102;
+            this.label2.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label2, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(28, 266);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 13);
+            this.label14.TabIndex = 107;
+            this.label14.Text = "Catalog Treeview";
+            this.ttInfo.SetToolTip(this.label14, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 90;
+            this.label3.Text = "Description";
+            this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. \r\nFor example, as a ToolTip.");
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Name";
+            this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 126);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.TabIndex = 91;
+            this.label10.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
+            // 
             // imgList
             // 
             this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
@@ -322,7 +450,7 @@
             this.imgGrpRootCatalog.Controls.Add(this.treeCatalog);
             this.imgGrpRootCatalog.Controls.Add(this.txtCatalogDescription);
             this.imgGrpRootCatalog.Controls.Add(this.label23);
-            this.imgGrpRootCatalog.Controls.Add(this.btnEditCustomApi);
+            this.imgGrpRootCatalog.Controls.Add(this.btnEditCatalog);
             this.imgGrpRootCatalog.Controls.Add(this.label28);
             this.imgGrpRootCatalog.Controls.Add(this.txtCatalogDisplayName);
             this.imgGrpRootCatalog.Controls.Add(this.txtCatalogIsCustomizable);
@@ -334,7 +462,7 @@
             this.imgGrpRootCatalog.Controls.Add(this.txtCustomizableWarning);
             this.imgGrpRootCatalog.Controls.Add(this.txtCatalogName);
             this.imgGrpRootCatalog.Controls.Add(this.pictureBox3);
-            this.imgGrpRootCatalog.Controls.Add(this.btnDeleteApi);
+            this.imgGrpRootCatalog.Controls.Add(this.btnDeleteCatalog);
             this.imgGrpRootCatalog.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGrpRootCatalog.Icon")));
             this.imgGrpRootCatalog.Location = new System.Drawing.Point(3, 111);
             this.imgGrpRootCatalog.Name = "imgGrpRootCatalog";
@@ -345,6 +473,9 @@
             // 
             // imgGrpCategories
             // 
+            this.imgGrpCategories.Controls.Add(this.txtCategoryCustomizableWarning);
+            this.imgGrpCategories.Controls.Add(this.txtCategoryIsManaged);
+            this.imgGrpCategories.Controls.Add(this.label15);
             this.imgGrpCategories.Controls.Add(this.imgGrpAssignments);
             this.imgGrpCategories.Controls.Add(this.btnNewCategory);
             this.imgGrpCategories.Controls.Add(this.label8);
@@ -369,8 +500,48 @@
             this.imgGrpCategories.TabStop = false;
             this.imgGrpCategories.Text = "Categories (2nd Level Catalogs)";
             // 
+            // txtCategoryCustomizableWarning
+            // 
+            this.txtCategoryCustomizableWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCategoryCustomizableWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoryCustomizableWarning.Location = new System.Drawing.Point(403, 217);
+            this.txtCategoryCustomizableWarning.Multiline = true;
+            this.txtCategoryCustomizableWarning.Name = "txtCategoryCustomizableWarning";
+            this.txtCategoryCustomizableWarning.ReadOnly = true;
+            this.txtCategoryCustomizableWarning.Size = new System.Drawing.Size(187, 32);
+            this.txtCategoryCustomizableWarning.TabIndex = 109;
+            this.txtCategoryCustomizableWarning.Text = "Warning : Status makes this Catalog not customizable.";
+            this.txtCategoryCustomizableWarning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCategoryCustomizableWarning.Visible = false;
+            // 
+            // txtCategoryIsManaged
+            // 
+            this.txtCategoryIsManaged.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategoryIsManaged.DisplayFormat = "ismanaged";
+            this.txtCategoryIsManaged.Entity = null;
+            this.txtCategoryIsManaged.EntityReference = null;
+            this.txtCategoryIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCategoryIsManaged.Location = new System.Drawing.Point(324, 235);
+            this.txtCategoryIsManaged.LogicalName = "catalog";
+            this.txtCategoryIsManaged.Name = "txtCategoryIsManaged";
+            this.txtCategoryIsManaged.OrganizationService = null;
+            this.txtCategoryIsManaged.Size = new System.Drawing.Size(68, 20);
+            this.txtCategoryIsManaged.TabIndex = 109;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(243, 238);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 13);
+            this.label15.TabIndex = 110;
+            this.label15.Text = "IsManaged";
+            // 
             // imgGrpAssignments
             // 
+            this.imgGrpAssignments.Controls.Add(this.txtAssignmentCustomizableWarning);
+            this.imgGrpAssignments.Controls.Add(this.txtAssignmentIsManaged);
+            this.imgGrpAssignments.Controls.Add(this.label16);
             this.imgGrpAssignments.Controls.Add(this.pictProcess);
             this.imgGrpAssignments.Controls.Add(this.btnNewAssignment);
             this.imgGrpAssignments.Controls.Add(this.pictAPI);
@@ -386,12 +557,49 @@
             this.imgGrpAssignments.Controls.Add(this.label9);
             this.imgGrpAssignments.Controls.Add(this.txtAssignmentIsCustomizable);
             this.imgGrpAssignments.Icon = ((System.Drawing.Icon)(resources.GetObject("imgGrpAssignments.Icon")));
-            this.imgGrpAssignments.Location = new System.Drawing.Point(6, 244);
+            this.imgGrpAssignments.Location = new System.Drawing.Point(6, 255);
             this.imgGrpAssignments.Name = "imgGrpAssignments";
             this.imgGrpAssignments.Size = new System.Drawing.Size(664, 379);
             this.imgGrpAssignments.TabIndex = 109;
             this.imgGrpAssignments.TabStop = false;
             this.imgGrpAssignments.Text = "Catalog Assignments";
+            // 
+            // txtAssignmentCustomizableWarning
+            // 
+            this.txtAssignmentCustomizableWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtAssignmentCustomizableWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAssignmentCustomizableWarning.Location = new System.Drawing.Point(416, 170);
+            this.txtAssignmentCustomizableWarning.Multiline = true;
+            this.txtAssignmentCustomizableWarning.Name = "txtAssignmentCustomizableWarning";
+            this.txtAssignmentCustomizableWarning.ReadOnly = true;
+            this.txtAssignmentCustomizableWarning.Size = new System.Drawing.Size(187, 32);
+            this.txtAssignmentCustomizableWarning.TabIndex = 111;
+            this.txtAssignmentCustomizableWarning.Text = "Warning : Status makes this Catalog not customizable.";
+            this.txtAssignmentCustomizableWarning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAssignmentCustomizableWarning.Visible = false;
+            // 
+            // txtAssignmentIsManaged
+            // 
+            this.txtAssignmentIsManaged.BackColor = System.Drawing.SystemColors.Window;
+            this.txtAssignmentIsManaged.DisplayFormat = "ismanaged";
+            this.txtAssignmentIsManaged.Entity = null;
+            this.txtAssignmentIsManaged.EntityReference = null;
+            this.txtAssignmentIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtAssignmentIsManaged.Location = new System.Drawing.Point(342, 186);
+            this.txtAssignmentIsManaged.LogicalName = "catalogassignment";
+            this.txtAssignmentIsManaged.Name = "txtAssignmentIsManaged";
+            this.txtAssignmentIsManaged.OrganizationService = null;
+            this.txtAssignmentIsManaged.Size = new System.Drawing.Size(68, 20);
+            this.txtAssignmentIsManaged.TabIndex = 111;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(261, 189);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 13);
+            this.label16.TabIndex = 112;
+            this.label16.Text = "IsManaged";
             // 
             // pictProcess
             // 
@@ -474,7 +682,7 @@
             this.gridAssignments.ShowIndexColumn = false;
             this.gridAssignments.Size = new System.Drawing.Size(227, 288);
             this.gridAssignments.TabIndex = 1;
-            this.gridAssignments.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridAssigments_RecordEnter);
+            this.gridAssignments.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.gridAssigments_RecordEnter);
             // 
             // pictTable
             // 
@@ -486,17 +694,6 @@
             this.pictTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictTable.TabIndex = 120;
             this.pictTable.TabStop = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(263, 114);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 111;
-            this.label11.Text = "Object";
-            this.ttInfo.SetToolTip(this.label11, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
-        " to be called in an app.");
             // 
             // txtAssignmentType
             // 
@@ -534,18 +731,6 @@
             this.btnDeleteAssignment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteAssignment.UseVisualStyleBackColor = true;
             this.btnDeleteAssignment.Click += new System.EventHandler(this.btnDeleteAssignment_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(263, 86);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 13);
-            this.label13.TabIndex = 113;
-            this.label13.Text = "Name";
-            this.ttInfo.SetToolTip(this.label13, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
             // 
             // btnUpdateAssignment
             // 
@@ -665,7 +850,7 @@
             this.gridCategories.ShowIndexColumn = false;
             this.gridCategories.Size = new System.Drawing.Size(219, 165);
             this.gridCategories.TabIndex = 0;
-            this.gridCategories.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridCategories_RecordEnter);
+            this.gridCategories.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.gridCategories_RecordEnter);
             // 
             // txtCategoryDescription
             // 
@@ -682,17 +867,6 @@
             this.txtCategoryDescription.Size = new System.Drawing.Size(242, 40);
             this.txtCategoryDescription.TabIndex = 104;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(241, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 13);
-            this.label7.TabIndex = 95;
-            this.label7.Text = "Unique Name";
-            this.ttInfo.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
-            // 
             // txtCategoryIsCustomizable
             // 
             this.txtCategoryIsCustomizable.BackColor = System.Drawing.SystemColors.Window;
@@ -706,17 +880,6 @@
             this.txtCategoryIsCustomizable.OrganizationService = null;
             this.txtCategoryIsCustomizable.Size = new System.Drawing.Size(68, 20);
             this.txtCategoryIsCustomizable.TabIndex = 87;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 115);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 94;
-            this.label5.Text = "Name";
-            this.ttInfo.SetToolTip(this.label5, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
             // 
             // txtCategoryDisplayName
             // 
@@ -747,17 +910,6 @@
             this.txtCategoryUniqueName.Size = new System.Drawing.Size(242, 20);
             this.txtCategoryUniqueName.TabIndex = 97;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(243, 166);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 101;
-            this.label1.Text = "Description";
-            this.ttInfo.SetToolTip(this.label1, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
-        "to be called in an app. \r\nFor example, as a ToolTip.");
-            // 
             // txtCategoryName
             // 
             this.txtCategoryName.BackColor = System.Drawing.SystemColors.Window;
@@ -771,17 +923,6 @@
             this.txtCategoryName.OrganizationService = null;
             this.txtCategoryName.Size = new System.Drawing.Size(242, 20);
             this.txtCategoryName.TabIndex = 98;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 102;
-            this.label2.Text = "Display Name";
-            this.ttInfo.SetToolTip(this.label2, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
-        " to be called in an app.");
             // 
             // btnEditCategory
             // 
@@ -822,17 +963,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(20, 19);
             this.pictureBox1.TabIndex = 99;
             this.pictureBox1.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(28, 266);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 13);
-            this.label14.TabIndex = 107;
-            this.label14.Text = "Catalog Treeview";
-            this.ttInfo.SetToolTip(this.label14, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
             // 
             // txtCatalogIsManaged
             // 
@@ -882,20 +1012,20 @@
             this.label23.TabIndex = 84;
             this.label23.Text = "IsManaged";
             // 
-            // btnEditCustomApi
+            // btnEditCatalog
             // 
-            this.btnEditCustomApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCustomApi.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCustomApi.Image")));
-            this.btnEditCustomApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditCustomApi.Location = new System.Drawing.Point(109, 36);
-            this.btnEditCustomApi.Name = "btnEditCustomApi";
-            this.btnEditCustomApi.Size = new System.Drawing.Size(108, 29);
-            this.btnEditCustomApi.TabIndex = 19;
-            this.btnEditCustomApi.Text = "Edit Catalog";
-            this.btnEditCustomApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditCustomApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditCustomApi.UseVisualStyleBackColor = true;
-            this.btnEditCustomApi.Click += new System.EventHandler(this.btnEditCustomApi_Click);
+            this.btnEditCatalog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCatalog.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCatalog.Image")));
+            this.btnEditCatalog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditCatalog.Location = new System.Drawing.Point(109, 36);
+            this.btnEditCatalog.Name = "btnEditCatalog";
+            this.btnEditCatalog.Size = new System.Drawing.Size(108, 29);
+            this.btnEditCatalog.TabIndex = 19;
+            this.btnEditCatalog.Text = "Edit Catalog";
+            this.btnEditCatalog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditCatalog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditCatalog.UseVisualStyleBackColor = true;
+            this.btnEditCatalog.Click += new System.EventHandler(this.btnEditCatalog_Click);
             // 
             // label28
             // 
@@ -933,50 +1063,6 @@
             this.txtCatalogIsCustomizable.OrganizationService = null;
             this.txtCatalogIsCustomizable.Size = new System.Drawing.Size(68, 20);
             this.txtCatalogIsCustomizable.TabIndex = 85;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Unique Name";
-            this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 152);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 90;
-            this.label3.Text = "Description";
-            this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
-        "to be called in an app. \r\nFor example, as a ToolTip.");
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Name";
-            this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 126);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 13);
-            this.label10.TabIndex = 91;
-            this.label10.Text = "Display Name";
-            this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
-        " to be called in an app.");
             // 
             // txtCatalogUniqueName
             // 
@@ -1031,20 +1117,20 @@
             this.pictureBox3.TabIndex = 54;
             this.pictureBox3.TabStop = false;
             // 
-            // btnDeleteApi
+            // btnDeleteCatalog
             // 
-            this.btnDeleteApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteApi.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteApi.Image")));
-            this.btnDeleteApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteApi.Location = new System.Drawing.Point(233, 36);
-            this.btnDeleteApi.Name = "btnDeleteApi";
-            this.btnDeleteApi.Size = new System.Drawing.Size(118, 29);
-            this.btnDeleteApi.TabIndex = 82;
-            this.btnDeleteApi.Text = "Delete Catalog";
-            this.btnDeleteApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteApi.UseVisualStyleBackColor = true;
-            this.btnDeleteApi.Click += new System.EventHandler(this.btnDeleteApi_Click);
+            this.btnDeleteCatalog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCatalog.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCatalog.Image")));
+            this.btnDeleteCatalog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteCatalog.Location = new System.Drawing.Point(233, 36);
+            this.btnDeleteCatalog.Name = "btnDeleteCatalog";
+            this.btnDeleteCatalog.Size = new System.Drawing.Size(118, 29);
+            this.btnDeleteCatalog.TabIndex = 82;
+            this.btnDeleteCatalog.Text = "Delete Catalog";
+            this.btnDeleteCatalog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteCatalog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteCatalog.UseVisualStyleBackColor = true;
+            this.btnDeleteCatalog.Click += new System.EventHandler(this.btnDeleteCatalog_Click);
             // 
             // CatalogManagerControl
             // 
@@ -1060,7 +1146,7 @@
             this.Size = new System.Drawing.Size(1106, 793);
             this.ttInfo.SetToolTip(this, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
         " to be called in an app.");
-            this.Load += new System.EventHandler(this.CustomApiManagerControl_Load);
+            this.Load += new System.EventHandler(this.CatalogManagerControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1090,7 +1176,7 @@
         private System.Windows.Forms.ToolStripLabel tslAbout;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnEditCustomApi;
+        private System.Windows.Forms.Button btnEditCatalog;
         private System.Windows.Forms.GroupBox grpFilter;
         private System.Windows.Forms.Label label12;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cboCatalog;
@@ -1099,7 +1185,7 @@
         private System.Windows.Forms.Label lblInfoLock;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button btnDeleteApi;
+        private System.Windows.Forms.Button btnDeleteCatalog;
         private System.Windows.Forms.Button btnNewApi;
         private System.Windows.Forms.ToolStripButton menuRefresh;
         private System.Windows.Forms.RadioButton rbAll;
@@ -1149,9 +1235,15 @@
         private System.Windows.Forms.PictureBox pictProcess;
         private System.Windows.Forms.PictureBox pictAPI;
         private System.Windows.Forms.PictureBox pictTable;
-        private ImageGroupBoxApplication.ImageGroupBox imgGrpRootCatalog;
+        private Driv.XTB.CatalogManager.ImageGroupBox imgGrpRootCatalog;
         private System.Windows.Forms.Label label14;
-        private ImageGroupBoxApplication.ImageGroupBox imgGrpCategories;
-        private ImageGroupBoxApplication.ImageGroupBox imgGrpAssignments;
+        private Driv.XTB.CatalogManager.ImageGroupBox imgGrpCategories;
+        private Driv.XTB.CatalogManager.ImageGroupBox imgGrpAssignments;
+        private System.Windows.Forms.TextBox txtCategoryCustomizableWarning;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCategoryIsManaged;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtAssignmentCustomizableWarning;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtAssignmentIsManaged;
+        private System.Windows.Forms.Label label16;
     }
 }

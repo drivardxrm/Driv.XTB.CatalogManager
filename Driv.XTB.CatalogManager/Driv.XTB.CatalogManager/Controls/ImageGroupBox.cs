@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Windows.Forms.VisualStyles;
 using System.ComponentModel;
 
-namespace ImageGroupBoxApplication
+namespace Driv.XTB.CatalogManager
 {
 	public class ImageGroupBox : GroupBox
 	{
@@ -152,5 +152,15 @@ namespace ImageGroupBoxApplication
 			else m_Renderer.SetParameters(visualstyleelement.ClassName,visualstyleelement.Part,state);
 		}
 
-	}
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // ImageGroupBox
+            // 
+            this.Text = "7";
+            this.ResumeLayout(false);
+
+        }
+    }
 }

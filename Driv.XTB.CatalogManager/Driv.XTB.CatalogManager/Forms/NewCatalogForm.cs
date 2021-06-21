@@ -78,7 +78,7 @@ namespace Driv.XTB.CatalogManager.Forms
                 {
                     Target = CatalogToCreate()
                 };
-                //createRequest["SolutionUniqueName"] = "CatalogTest"; //todo replace
+                //createRequest["SolutionUniqueName"] = "SOLUTIONNAME"; //todo add solution name
 
                 var createResponse = (CreateResponse)_service.Execute(createRequest);
 

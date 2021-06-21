@@ -22,7 +22,7 @@ namespace Driv.XTB.CatalogManager.Forms
 
         #region Public Constructors
 
-        public UpdateCatalogForm(IOrganizationService service, CatalogProxy catalogtoupdate)
+        public UpdateCatalogForm(IOrganizationService service, CatalogProxy catalogtoupdate, CatalogProxy parentcatalog)
         {
             InitializeComponent();
             _service = service;
@@ -33,6 +33,19 @@ namespace Driv.XTB.CatalogManager.Forms
             txtName.Text = _catalogproxy.Name;
             txtDisplayName.Text = _catalogproxy.DisplayName;
             txtDescription.Text = _catalogproxy.Description;
+
+            if (parentcatalog != null)
+            {
+                txtParentCatalog.OrganizationService = service;
+                txtParentCatalog.Entity = parentcatalog.CatalogRow;
+            }
+            else
+            {
+                lblParentCatalog.Visible = false;
+                txtParentCatalog.Visible = false;
+                pictParentCatalog.Visible = false;
+
+            }
 
         }
 

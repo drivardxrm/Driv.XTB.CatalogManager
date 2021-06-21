@@ -30,11 +30,11 @@ namespace Driv.XTB.CatalogManager.Forms
             _service = service;
 
             
-            cdsTextParentCatalog.OrganizationService = service;
-            cdsTextParentCatalog.Entity = parentcatalog.CatalogRow;
+            txtParentCatalog.OrganizationService = service;
+            txtParentCatalog.Entity = parentcatalog.CatalogRow;
 
-            cdsTextCategory.OrganizationService = service;
-            cdsTextCategory.Entity = catalog.CatalogRow;
+            txtCategory.OrganizationService = service;
+            txtCategory.Entity = catalog.CatalogRow;
 
             txtLookupCustomAPI.OrganizationService = service;
             dlgCustomAPI.Service = service;
@@ -74,7 +74,7 @@ namespace Driv.XTB.CatalogManager.Forms
                 {
                     Target = CatalogAssignmentToCreate()
                 };
-                //createRequest["SolutionUniqueName"] = "CatalogTest"; //todo replace
+                //createRequest["SolutionUniqueName"] = "SOLUTIONNAME"; //todo add solution name
 
                 var createResponse = (CreateResponse)_service.Execute(createRequest);
 
@@ -117,7 +117,7 @@ namespace Driv.XTB.CatalogManager.Forms
 
 
             catalogassignment[CatalogAssignment.PrimaryName] = txtName.Text;
-            catalogassignment[CatalogAssignment.catalog] = cdsTextCategory.EntityReference;
+            catalogassignment[CatalogAssignment.catalog] = txtCategory.EntityReference;
 
             catalogassignment[CatalogAssignment.IsCustomizable] = chkIsCustomizable.Checked;
 

@@ -48,13 +48,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.txtParentCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.lblParentCatalog = new System.Windows.Forms.Label();
+            this.pictParentCatalog = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictParentCatalog)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictParentCatalog);
+            this.panel2.Controls.Add(this.txtParentCatalog);
+            this.panel2.Controls.Add(this.lblParentCatalog);
             this.panel2.Controls.Add(this.lblCustomizable);
             this.panel2.Controls.Add(this.chkIsCustomizable);
             this.panel2.Controls.Add(this.label17);
@@ -80,7 +87,7 @@
             // lblCustomizable
             // 
             this.lblCustomizable.AutoSize = true;
-            this.lblCustomizable.Location = new System.Drawing.Point(26, 182);
+            this.lblCustomizable.Location = new System.Drawing.Point(26, 198);
             this.lblCustomizable.Name = "lblCustomizable";
             this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
             this.lblCustomizable.TabIndex = 102;
@@ -90,7 +97,7 @@
             // chkIsCustomizable
             // 
             this.chkIsCustomizable.AutoSize = true;
-            this.chkIsCustomizable.Location = new System.Drawing.Point(104, 182);
+            this.chkIsCustomizable.Location = new System.Drawing.Point(104, 198);
             this.chkIsCustomizable.Name = "chkIsCustomizable";
             this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
             this.chkIsCustomizable.TabIndex = 101;
@@ -132,7 +139,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(383, 196);
+            this.btnCancel.Location = new System.Drawing.Point(383, 212);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 1;
@@ -147,7 +154,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(299, 196);
+            this.btnOk.Location = new System.Drawing.Point(299, 212);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
             this.btnOk.TabIndex = 72;
@@ -160,7 +167,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(465, 49);
+            this.pictureBox3.Location = new System.Drawing.Point(465, 65);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 19);
             this.pictureBox3.TabIndex = 64;
@@ -169,7 +176,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(26, 104);
+            this.label10.Location = new System.Drawing.Point(26, 120);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 52;
@@ -179,7 +186,7 @@
             // 
             // txtDisplayName
             // 
-            this.txtDisplayName.Location = new System.Drawing.Point(104, 101);
+            this.txtDisplayName.Location = new System.Drawing.Point(104, 117);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(359, 20);
             this.txtDisplayName.TabIndex = 51;
@@ -187,7 +194,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 52);
+            this.label6.Location = new System.Drawing.Point(26, 68);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 46;
@@ -198,7 +205,7 @@
             // 
             this.txtUniqueName.Enabled = false;
             this.txtUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUniqueName.Location = new System.Drawing.Point(104, 49);
+            this.txtUniqueName.Location = new System.Drawing.Point(104, 65);
             this.txtUniqueName.Name = "txtUniqueName";
             this.txtUniqueName.Size = new System.Drawing.Size(359, 20);
             this.txtUniqueName.TabIndex = 45;
@@ -206,7 +213,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 78);
+            this.label4.Location = new System.Drawing.Point(26, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 41;
@@ -216,7 +223,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(104, 75);
+            this.txtName.Location = new System.Drawing.Point(104, 91);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(359, 20);
             this.txtName.TabIndex = 40;
@@ -224,7 +231,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 130);
+            this.label3.Location = new System.Drawing.Point(26, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 39;
@@ -234,7 +241,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(104, 127);
+            this.txtDescription.Location = new System.Drawing.Point(104, 143);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(359, 49);
@@ -247,6 +254,40 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
+            // 
+            // txtParentCatalog
+            // 
+            this.txtParentCatalog.BackColor = System.Drawing.SystemColors.Window;
+            this.txtParentCatalog.DisplayFormat = "{{name}} - ({{uniquename}})";
+            this.txtParentCatalog.Entity = null;
+            this.txtParentCatalog.EntityReference = null;
+            this.txtParentCatalog.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtParentCatalog.Location = new System.Drawing.Point(104, 38);
+            this.txtParentCatalog.LogicalName = "catalog";
+            this.txtParentCatalog.Name = "txtParentCatalog";
+            this.txtParentCatalog.OrganizationService = null;
+            this.txtParentCatalog.Size = new System.Drawing.Size(232, 20);
+            this.txtParentCatalog.TabIndex = 104;
+            // 
+            // lblParentCatalog
+            // 
+            this.lblParentCatalog.AutoSize = true;
+            this.lblParentCatalog.Location = new System.Drawing.Point(26, 42);
+            this.lblParentCatalog.Name = "lblParentCatalog";
+            this.lblParentCatalog.Size = new System.Drawing.Size(77, 13);
+            this.lblParentCatalog.TabIndex = 103;
+            this.lblParentCatalog.Text = "Parent Catalog";
+            this.ttInfo.SetToolTip(this.lblParentCatalog, "The primary name of the catalog");
+            // 
+            // pictParentCatalog
+            // 
+            this.pictParentCatalog.Image = ((System.Drawing.Image)(resources.GetObject("pictParentCatalog.Image")));
+            this.pictParentCatalog.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictParentCatalog.InitialImage")));
+            this.pictParentCatalog.Location = new System.Drawing.Point(342, 39);
+            this.pictParentCatalog.Name = "pictParentCatalog";
+            this.pictParentCatalog.Size = new System.Drawing.Size(20, 19);
+            this.pictParentCatalog.TabIndex = 105;
+            this.pictParentCatalog.TabStop = false;
             // 
             // UpdateCatalogForm
             // 
@@ -268,6 +309,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictParentCatalog)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,5 +333,8 @@
         private System.Windows.Forms.ToolTip ttInfo;
         private System.Windows.Forms.Label lblCustomizable;
         private System.Windows.Forms.CheckBox chkIsCustomizable;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtParentCatalog;
+        private System.Windows.Forms.Label lblParentCatalog;
+        private System.Windows.Forms.PictureBox pictParentCatalog;
     }
 }

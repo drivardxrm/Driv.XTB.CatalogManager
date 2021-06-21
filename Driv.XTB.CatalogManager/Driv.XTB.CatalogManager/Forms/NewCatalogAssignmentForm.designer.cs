@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCatalogAssignmentForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCustomizable = new System.Windows.Forms.Label();
             this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
@@ -45,9 +48,9 @@
             this.cboEntities = new xrmtb.XrmToolBox.Controls.EntitiesDropdownControl();
             this.label4 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.cdsTextCategory = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtCategory = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cdsTextParentCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.txtParentCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.lblParentCatalog = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -57,15 +60,12 @@
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.dlgCustomAPI = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgProcess = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -87,9 +87,9 @@
             this.panel2.Controls.Add(this.cboEntities);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtName);
-            this.panel2.Controls.Add(this.cdsTextCategory);
+            this.panel2.Controls.Add(this.txtCategory);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.cdsTextParentCatalog);
+            this.panel2.Controls.Add(this.txtParentCatalog);
             this.panel2.Controls.Add(this.lblParentCatalog);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.pictureBox13);
@@ -101,6 +101,36 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(559, 275);
             this.panel2.TabIndex = 5;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(17, 224);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(23, 21);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 102;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(17, 197);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(23, 21);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 101;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(17, 169);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(23, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 100;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -263,19 +293,19 @@
             this.txtName.Size = new System.Drawing.Size(232, 20);
             this.txtName.TabIndex = 83;
             // 
-            // cdsTextCategory
+            // txtCategory
             // 
-            this.cdsTextCategory.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTextCategory.DisplayFormat = "{{name}} - ({{uniquename}})";
-            this.cdsTextCategory.Entity = null;
-            this.cdsTextCategory.EntityReference = null;
-            this.cdsTextCategory.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTextCategory.Location = new System.Drawing.Point(104, 72);
-            this.cdsTextCategory.LogicalName = "catalog";
-            this.cdsTextCategory.Name = "cdsTextCategory";
-            this.cdsTextCategory.OrganizationService = null;
-            this.cdsTextCategory.Size = new System.Drawing.Size(232, 20);
-            this.cdsTextCategory.TabIndex = 80;
+            this.txtCategory.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCategory.DisplayFormat = "{{name}} - ({{uniquename}})";
+            this.txtCategory.Entity = null;
+            this.txtCategory.EntityReference = null;
+            this.txtCategory.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtCategory.Location = new System.Drawing.Point(104, 72);
+            this.txtCategory.LogicalName = "catalog";
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.OrganizationService = null;
+            this.txtCategory.Size = new System.Drawing.Size(232, 20);
+            this.txtCategory.TabIndex = 80;
             // 
             // label1
             // 
@@ -287,19 +317,19 @@
             this.label1.Text = "Category";
             this.ttInfo.SetToolTip(this.label1, "The primary name of the catalog");
             // 
-            // cdsTextParentCatalog
+            // txtParentCatalog
             // 
-            this.cdsTextParentCatalog.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTextParentCatalog.DisplayFormat = "{{name}} - ({{uniquename}})";
-            this.cdsTextParentCatalog.Entity = null;
-            this.cdsTextParentCatalog.EntityReference = null;
-            this.cdsTextParentCatalog.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTextParentCatalog.Location = new System.Drawing.Point(104, 51);
-            this.cdsTextParentCatalog.LogicalName = "catalog";
-            this.cdsTextParentCatalog.Name = "cdsTextParentCatalog";
-            this.cdsTextParentCatalog.OrganizationService = null;
-            this.cdsTextParentCatalog.Size = new System.Drawing.Size(232, 20);
-            this.cdsTextParentCatalog.TabIndex = 78;
+            this.txtParentCatalog.BackColor = System.Drawing.SystemColors.Window;
+            this.txtParentCatalog.DisplayFormat = "{{name}} - ({{uniquename}})";
+            this.txtParentCatalog.Entity = null;
+            this.txtParentCatalog.EntityReference = null;
+            this.txtParentCatalog.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.txtParentCatalog.Location = new System.Drawing.Point(104, 51);
+            this.txtParentCatalog.LogicalName = "catalog";
+            this.txtParentCatalog.Name = "txtParentCatalog";
+            this.txtParentCatalog.OrganizationService = null;
+            this.txtParentCatalog.Size = new System.Drawing.Size(232, 20);
+            this.txtParentCatalog.TabIndex = 78;
             // 
             // lblParentCatalog
             // 
@@ -397,36 +427,6 @@
             this.dlgProcess.Service = null;
             this.dlgProcess.Title = "Process";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(17, 169);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(23, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 100;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(17, 197);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(23, 21);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 101;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(17, 224);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(23, 21);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 102;
-            this.pictureBox4.TabStop = false;
-            // 
             // NewCatalogAssignmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,11 +445,11 @@
             this.Text = "Catalog Manager";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,8 +463,8 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.ToolTip ttInfo;
         private System.Windows.Forms.Label lblParentCatalog;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTextParentCatalog;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTextCategory;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtParentCatalog;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtName;

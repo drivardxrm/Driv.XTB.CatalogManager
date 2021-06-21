@@ -21,7 +21,7 @@ namespace Driv.XTB.CatalogManager.Forms
             _service = service;
             _catalogtodelete = catalogtodelete;
 
-            cdsCustomApiName.Entity = catalogtodelete.CatalogRow;
+            txtCatalogName.Entity = catalogtodelete.CatalogRow;
 
         }
 

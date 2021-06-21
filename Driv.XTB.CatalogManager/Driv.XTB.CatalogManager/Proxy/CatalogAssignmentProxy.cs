@@ -44,7 +44,13 @@ namespace Driv.XTB.CatalogManager.Proxy
                                    ((BooleanManagedProperty)CatalogAssignmentRow[CatalogAssignment.IsCustomizable]).Value;
 
 
+        public bool IsManaged => CatalogAssignmentRow.Attributes.Contains(CatalogAssignment.IsManaged) &&
+                                    (bool)CatalogAssignmentRow[CatalogAssignment.IsManaged];
+
         
+
+
+        public bool CanCustomize => !IsManaged || IsManaged && IsCustomizable;
 
 
     }

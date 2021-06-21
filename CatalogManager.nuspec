@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <package >
   <metadata>
     <id>Driv.XTB.CatalogManager</id>
@@ -7,7 +7,7 @@
     <authors>David Rivard</authors>
     <owners>drivardxrm</owners>
     <projectUrl>https://github.com/drivardxrm/Driv.XTB.CatalogManager</projectUrl>
-    <iconUrl>https://github.com/drivardxrm/XTB.CustomApiManager/blob/main/XTB.CustomApiManager/Resources/hub-80.png?raw=true</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/drivardxrm/Driv.XTB.CatalogManager/main/images/catalogmanager_logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Management tool for Dataverse Business Events Catalogs.</summary>
     <description>

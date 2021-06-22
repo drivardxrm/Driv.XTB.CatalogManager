@@ -4,10 +4,11 @@
     <id>Driv.XTB.CatalogManager</id>
     <version>1.0.0</version>
     <title>Dataverse Catalog Manager for XrmToolBox</title>
+    <license type="expression">MIT</license>
     <authors>David Rivard</authors>
     <owners>drivardxrm</owners>
     <projectUrl>https://github.com/drivardxrm/Driv.XTB.CatalogManager</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/drivardxrm/Driv.XTB.CatalogManager/main/images/catalogmanager_logo.png</iconUrl>
+    <icon>https://raw.githubusercontent.com/drivardxrm/Driv.XTB.CatalogManager/main/images/catalogmanager_logo.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Management tool for Dataverse Business Events Catalogs.</summary>
     <description>

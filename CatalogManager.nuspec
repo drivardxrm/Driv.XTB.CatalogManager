@@ -7,7 +7,7 @@
     <authors>David Rivard</authors>
     <owners>drivardxrm</owners>
     <projectUrl>https://github.com/drivardxrm/Driv.XTB.CatalogManager</projectUrl>
-    <icon>https://raw.githubusercontent.com/drivardxrm/Driv.XTB.CatalogManager/main/images/catalogmanager_logo.png</icon>
+    <iconUrl>https://raw.githubusercontent.com/drivardxrm/Driv.XTB.CatalogManager/main/images/catalogmanager_logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Management tool for Dataverse Business Events Catalogs.</summary>
     <description>

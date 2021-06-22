@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Driv.XTB.CatalogManager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("David Rivard")]
 [assembly: AssemblyProduct("Driv.XTB.CatalogManager")]
 [assembly: AssemblyCopyright("Copyright © 2021")]
 [assembly: AssemblyTrademark("")]

@@ -33,6 +33,7 @@ namespace Driv.XTB.CatalogManager.Forms
             txtName.Text = _catalogproxy.Name;
             txtDisplayName.Text = _catalogproxy.DisplayName;
             txtDescription.Text = _catalogproxy.Description;
+            chkIsCustomizable.Checked = _catalogproxy.IsCustomizable;
 
             if (parentcatalog != null)
             {

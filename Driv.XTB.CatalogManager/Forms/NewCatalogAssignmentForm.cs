@@ -148,7 +148,11 @@ namespace Driv.XTB.CatalogManager.Forms
             switch (dlgCustomAPI.ShowDialog(this))
             {
                 case DialogResult.OK:
-                    txtLookupCustomAPI.Entity = dlgCustomAPI.Entity;
+
+                    txtLookupCustomAPI.Entity = dlgCustomAPI.Entity?.Id != null ? 
+                                                _service.GetCustomApi(dlgCustomAPI.Entity.Id) : 
+                                                null;
+
 
                     break;
                 case DialogResult.Abort:

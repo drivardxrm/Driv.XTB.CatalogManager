@@ -55,6 +55,8 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -62,6 +64,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.cdsCboSolutions);
             this.panel2.Controls.Add(this.lblCustomizable);
             this.panel2.Controls.Add(this.chkIsCustomizable);
             this.panel2.Controls.Add(this.cdsTextParentCatalog);
@@ -169,7 +173,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(385, 252);
+            this.btnCancel.Location = new System.Drawing.Point(385, 267);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 1;
@@ -184,7 +188,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(278, 252);
+            this.btnOk.Location = new System.Drawing.Point(301, 267);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
             this.btnOk.TabIndex = 72;
@@ -337,6 +341,29 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(20, 262);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(182, 13);
+            this.label12.TabIndex = 106;
+            this.label12.Text = "Add to unmanaged solution (optional)";
+            this.ttInfo.SetToolTip(this.label12, "Controls whether the Custom API can be customized or deleted when deployed as man" +
+        "aged.");
+            // 
+            // cdsCboSolutions
+            // 
+            this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
+            this.cdsCboSolutions.FormattingEnabled = true;
+            this.cdsCboSolutions.Location = new System.Drawing.Point(23, 278);
+            this.cdsCboSolutions.Name = "cdsCboSolutions";
+            this.cdsCboSolutions.OrganizationService = null;
+            this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
+            this.cdsCboSolutions.TabIndex = 105;
+            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
+            this.cdsCboSolutions.TextUpdate += new System.EventHandler(this.cdsCboSolutions_TextUpdate);
+            // 
             // NewCatalogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,5 +414,7 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTextParentCatalog;
         private System.Windows.Forms.Label lblCustomizable;
         private System.Windows.Forms.CheckBox chkIsCustomizable;
+        private System.Windows.Forms.Label label12;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboSolutions;
     }
 }

@@ -18,7 +18,7 @@ namespace Driv.XTB.CatalogManager.Forms
 
         //private Control focus;
         private IOrganizationService _service;
-        
+        private SolutionProxy _selectedSolution;
 
         #endregion Private Fields
 
@@ -43,7 +43,15 @@ namespace Driv.XTB.CatalogManager.Forms
                 cdsTextParentCatalog.Visible = false;
             
             }
-            
+
+            cdsCboSolutions.OrganizationService = service;
+
+            var unmanagedsolutions = _service.GetUnmanagedSolutions();
+            cdsCboSolutions.SelectedIndexChanged -= new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+            cdsCboSolutions.DataSource = unmanagedsolutions;
+            cdsCboSolutions.SelectedIndexChanged += new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+
+            cdsCboSolutions.SelectedIndex = unmanagedsolutions.Entities.Select(e => e.Id).ToList().IndexOf(solution?.SolutionRow?.Id ?? Guid.Empty);
 
             if (solution?.PublisherRef != null)
             {
@@ -78,7 +86,10 @@ namespace Driv.XTB.CatalogManager.Forms
                 {
                     Target = CatalogToCreate()
                 };
-                //createRequest["SolutionUniqueName"] = "SOLUTIONNAME"; //todo add solution name
+                if (_selectedSolution != null)
+                {
+                    createRequest["SolutionUniqueName"] = _selectedSolution.UniqueName;
+                }
 
                 var createResponse = (CreateResponse)_service.Execute(createRequest);
 
@@ -179,10 +190,20 @@ namespace Driv.XTB.CatalogManager.Forms
             return !string.IsNullOrEmpty(txtLookupPublisher.Text);
         }
 
-        
+        private void cdsCboSolutions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedSolution = cdsCboSolutions.SelectedIndex != -1 ?
+                                            new SolutionProxy(cdsCboSolutions.SelectedEntity) :
+                                            null;
 
+        }
 
-
-
+        private void cdsCboSolutions_TextUpdate(object sender, EventArgs e)
+        {
+            if (cdsCboSolutions.SelectedText == "")
+            {
+                cdsCboSolutions.SelectedIndex = -1;
+            }
+        }
     }
 }

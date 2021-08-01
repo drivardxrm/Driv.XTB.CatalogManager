@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCatalogAssignmentForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -70,6 +72,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.cdsCboSolutions);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -99,8 +103,31 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(559, 275);
+            this.panel2.Size = new System.Drawing.Size(549, 322);
             this.panel2.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 265);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(182, 13);
+            this.label12.TabIndex = 108;
+            this.label12.Text = "Add to unmanaged solution (optional)";
+            this.ttInfo.SetToolTip(this.label12, "Controls whether the Custom API can be customized or deleted when deployed as man" +
+        "aged.");
+            // 
+            // cdsCboSolutions
+            // 
+            this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
+            this.cdsCboSolutions.FormattingEnabled = true;
+            this.cdsCboSolutions.Location = new System.Drawing.Point(22, 281);
+            this.cdsCboSolutions.Name = "cdsCboSolutions";
+            this.cdsCboSolutions.OrganizationService = null;
+            this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
+            this.cdsCboSolutions.TabIndex = 107;
+            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
+            this.cdsCboSolutions.TextUpdate += new System.EventHandler(this.cdsCboSolutions_TextUpdate);
             // 
             // pictureBox4
             // 
@@ -377,7 +404,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(459, 224);
+            this.btnCancel.Location = new System.Drawing.Point(393, 270);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 1;
@@ -392,7 +419,7 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(459, 186);
+            this.btnOk.Location = new System.Drawing.Point(309, 270);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
             this.btnOk.TabIndex = 72;
@@ -433,7 +460,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(559, 269);
+            this.ClientSize = new System.Drawing.Size(549, 334);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -485,5 +512,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label12;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboSolutions;
     }
 }

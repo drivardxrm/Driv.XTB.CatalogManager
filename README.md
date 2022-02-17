@@ -1,5 +1,6 @@
 # Driv.XTB.CatalogManager
- Dataverse Catalog Manager for XrmToolBox
+### Dataverse Catalog Manager for XrmToolBox
+![Nuget](https://img.shields.io/nuget/dt/Driv.XTB.CatalogManager) ![Nuget](https://img.shields.io/nuget/v/Driv.XTB.CatalogManager)
 
 Management tool that provides 360° View of Dataverse Business Events Catalogs.
 Provides CRUD operations on Catalogs and Catalog Assignments.

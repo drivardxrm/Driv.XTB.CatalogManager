@@ -15,5 +15,7 @@ namespace Driv.XTB.CatalogManager
     public class Settings
     {
         public string LastUsedOrganizationWebappUrl { get; set; }
+
+        public Guid DefaultPublisherId { get; set; } // connection based setting
     }
 }

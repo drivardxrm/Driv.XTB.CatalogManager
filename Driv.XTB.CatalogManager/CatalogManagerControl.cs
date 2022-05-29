@@ -25,7 +25,9 @@ namespace Driv.XTB.CatalogManager
 {
     public partial class CatalogManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin
     {
-        private Settings mySettings;
+        private Settings _globalsettings;
+
+        private Settings _connectionsettings;
 
         private SolutionProxy _selectedSolution;
 
@@ -54,18 +56,9 @@ namespace Driv.XTB.CatalogManager
 
         private void CatalogManagerControl_Load(object sender, EventArgs e)
         {
-            
-            // Loads or creates the settings for the plugin
-            if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
-            {
-                mySettings = new Settings();
 
-                LogWarning("Settings not found => a new settings file has been created!");
-            }
-            else
-            {
-                LogInfo("Settings found and loaded");
-            }
+            LoadGlobalSettings();
+            LoadConnectionSettings();
 
             ExecuteMethod(InitializeService);
 
@@ -73,6 +66,35 @@ namespace Driv.XTB.CatalogManager
             rbAll.Checked = true;
 
             cboCatalog.Select();
+        }
+
+        private void LoadConnectionSettings()
+        {
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _connectionsettings, ConnectionDetail.ConnectionId.ToString()))
+            {
+                _connectionsettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
+        }
+
+        private void LoadGlobalSettings()
+        {
+            // Loads or creates the settings for the plugin
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _globalsettings))
+            {
+                _globalsettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
         }
 
         private void InitializeService()
@@ -135,7 +157,7 @@ namespace Driv.XTB.CatalogManager
         private void CustomApiManagerControl_OnCloseTool(object sender, EventArgs e)
         {
             // Before leaving, save the settings
-            SettingsManager.Instance.Save(GetType(), mySettings);
+            SettingsManager.Instance.Save(GetType(), _globalsettings);
         }
 
         /// <summary>
@@ -146,9 +168,11 @@ namespace Driv.XTB.CatalogManager
             base.UpdateConnection(newService, detail, actionName, parameter);
             
 
-            if (mySettings != null && detail != null)
+            if (_globalsettings != null && detail != null)
             {
-                mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
+                LoadConnectionSettings();
+
+                _globalsettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 SetCboCatalogDataSource(null);
@@ -177,7 +201,12 @@ namespace Driv.XTB.CatalogManager
         {
             CreateCatalogDialog();
         }
-        
+
+        private void menuSettings_Click(object sender, EventArgs e)
+        {
+            SettingsDialog();
+        }
+
 
         private void btnNewApi_Click(object sender, EventArgs e)
         {
@@ -742,7 +771,12 @@ namespace Driv.XTB.CatalogManager
 
 
 
+        private void SettingsDialog()
+        {
+            var inputdlg = new SettingsForm(Service, ConnectionDetail, _globalsettings, _connectionsettings);
+            var dlgresult = inputdlg.ShowDialog();
 
+        }
 
 
 
@@ -1007,6 +1041,6 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-       
+        
     }
 }

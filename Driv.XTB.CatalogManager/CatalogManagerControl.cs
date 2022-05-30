@@ -805,7 +805,7 @@ namespace Driv.XTB.CatalogManager
 
         private void CreateCatalogDialog() 
         {
-            var inputdlg = new NewCatalogForm(Service, _selectedSolution, null);
+            var inputdlg = new NewCatalogForm(Service, _selectedSolution, null, _connectionsettings);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -826,7 +826,7 @@ namespace Driv.XTB.CatalogManager
 
         private void CreateCategoryDialog()
         {
-            var inputdlg = new NewCatalogForm(Service, _selectedSolution, _selectedCatalog);
+            var inputdlg = new NewCatalogForm(Service, _selectedSolution, _selectedCatalog, _connectionsettings);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -1041,6 +1041,16 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-        
+        private void btnOpenInCustomApiManager_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Manager") { TargetArgument = _selectedCatalogAssignment.Object.Id.ToString() });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
     }
 }

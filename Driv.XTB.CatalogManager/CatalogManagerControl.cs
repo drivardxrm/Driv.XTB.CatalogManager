@@ -675,6 +675,7 @@ namespace Driv.XTB.CatalogManager
             pictProcess.Visible = txtAssignmentType.Text == "workflow";
 
             btnOpenInCustomApiManager.Visible = txtAssignmentType.Text == "customapi";
+            btnOpenInCustomApiTester.Visible = txtAssignmentType.Text == "customapi";
 
             if (_selectedCatalogAssignment != null)
             {
@@ -1048,6 +1049,18 @@ namespace Driv.XTB.CatalogManager
             try
             {
                 OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Manager") { TargetArgument = _selectedCatalogAssignment.Object.Id.ToString() });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void btnOpenInCustomApiTester_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Tester") { TargetArgument = _selectedCatalogAssignment.Object.Id.ToString() });
             }
             catch (Exception ex)
             {

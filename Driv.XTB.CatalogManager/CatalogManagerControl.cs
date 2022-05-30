@@ -674,6 +674,8 @@ namespace Driv.XTB.CatalogManager
             pictAPI.Visible = txtAssignmentType.Text == "customapi";
             pictProcess.Visible = txtAssignmentType.Text == "workflow";
 
+            btnOpenInCustomApiManager.Visible = txtAssignmentType.Text == "customapi";
+
             if (_selectedCatalogAssignment != null)
             {
                 txtAssignmentCustomizableWarning.Visible = !_selectedCatalogAssignment.CanCustomize;

@@ -19,16 +19,18 @@ namespace Driv.XTB.CatalogManager.Forms
         //private Control focus;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
+        private Settings _connectionsettings;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public NewCatalogForm(IOrganizationService service, SolutionProxy solution, CatalogProxy parentcatalog)
+        public NewCatalogForm(IOrganizationService service, SolutionProxy solution, CatalogProxy parentcatalog, Settings connectionsettings)
         {
             InitializeComponent();
             _service = service;
-            
+            _connectionsettings = connectionsettings;
+
 
             dlgLookupPublisher.Service = service;
 
@@ -53,7 +55,19 @@ namespace Driv.XTB.CatalogManager.Forms
 
             cdsCboSolutions.SelectedIndex = unmanagedsolutions.Entities.Select(e => e.Id).ToList().IndexOf(solution?.SolutionRow?.Id ?? Guid.Empty);
 
-            if (solution?.PublisherRef != null)
+            // Set default publisher, Takes it from Settings file or from the solution
+            if (_connectionsettings.DefaultPublisherId != Guid.Empty)
+            {
+                var publisher = _service.GetPublisher(_connectionsettings.DefaultPublisherId);
+                if (publisher != null) 
+                {
+                    txtLookupPublisher.EntityReference = new EntityReference(Publisher.EntityName, _connectionsettings.DefaultPublisherId);
+                    txtLookupPublisher.Text = publisher.Attributes[Publisher.Name].ToString();
+                    txtPrefix.Text = $"{publisher.Attributes[Publisher.Prefix]}_";
+                }
+                
+            }
+            else if (solution?.PublisherRef != null)
             {
                 txtLookupPublisher.EntityReference = solution.PublisherRef;
                 txtLookupPublisher.Text = solution.PublisherRef.Name;

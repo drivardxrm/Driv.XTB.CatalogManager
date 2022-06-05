@@ -65,6 +65,20 @@ namespace Driv.XTB.CatalogManager.Helpers
                                 <attribute name='modifiedonbehalfbyname' />
                                 <attribute name='objectidtype' />
                                 <attribute name='overriddencreatedon' />
+                                <link-entity name='customapi' from='customapiid' to='object' link-type='outer' alias='customapi'>
+                                  <attribute name='name' />
+                                  <attribute name='customapiid' />
+                                  <attribute name='displayname' />
+                                </link-entity>
+                                <link-entity name='entity' from='entityid' to='object' link-type='outer' alias='entity'>
+                                  <attribute name='logicalname' />
+                                  <attribute name='name' />
+                                  <attribute name='entityid' />
+                                </link-entity>
+                                <link-entity name='workflow' from='workflowid' to='object' link-type='outer' alias='workflow'>
+                                  <attribute name='name' />
+                                  <attribute name='workflowid' />
+                                </link-entity>
                                 <filter>
                                   <condition attribute='catalogid' operator='eq' value='{catalogid}'/>
                                 </filter>
@@ -73,7 +87,44 @@ namespace Driv.XTB.CatalogManager.Helpers
 
 
             var fetch = new FetchExpression(fetchXml);
-            return service.RetrieveMultiple(fetch);
+            
+            var fetchresult = service.RetrieveMultiple(fetch);
+            // Enrich data
+            if (fetchresult != null && fetchresult.Entities.Any()) {
+                foreach (var assignment in fetchresult.Entities)
+                {
+                    if (assignment.Attributes.Contains("entity.entityid") && assignment["entity.entityid"] != null)
+                    {
+                        assignment["Type"] = "entity";
+                        if (!assignment.Contains("name") || string.IsNullOrEmpty(assignment["name"].ToString())){
+                            assignment["name"] = $"({(string)((AliasedValue)assignment["entity.name"]).Value})";
+                        }
+                    }
+                    else if (assignment.Attributes.Contains("customapi.customapiid") && assignment["customapi.customapiid"] != null)
+                    {
+                        assignment["Type"] = "customapi";
+                        if (!assignment.Contains("name") || string.IsNullOrEmpty(assignment["name"].ToString()))
+                        {
+                            assignment["name"] = $"({(string)((AliasedValue)assignment["customapi.name"]).Value})";
+                        }
+                    }
+                    else 
+                    {
+                        assignment["Type"] = "workflow";
+                        if (!assignment.Contains("name") || string.IsNullOrEmpty(assignment["name"].ToString()))
+                        {
+                            assignment["name"] = $"({(string)((AliasedValue)assignment["workflow.name"]).Value})";
+                        }
+                    }
+
+                }
+            }
+            foreach (var item in fetchresult.Entities)
+            {
+
+            }
+
+            return fetchresult;
         }
 
         

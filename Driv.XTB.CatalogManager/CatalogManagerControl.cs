@@ -25,7 +25,9 @@ namespace Driv.XTB.CatalogManager
 {
     public partial class CatalogManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin
     {
-        private Settings mySettings;
+        private Settings _globalsettings;
+
+        private Settings _connectionsettings;
 
         private SolutionProxy _selectedSolution;
 
@@ -54,18 +56,9 @@ namespace Driv.XTB.CatalogManager
 
         private void CatalogManagerControl_Load(object sender, EventArgs e)
         {
-            
-            // Loads or creates the settings for the plugin
-            if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
-            {
-                mySettings = new Settings();
 
-                LogWarning("Settings not found => a new settings file has been created!");
-            }
-            else
-            {
-                LogInfo("Settings found and loaded");
-            }
+            LoadGlobalSettings();
+            LoadConnectionSettings();
 
             ExecuteMethod(InitializeService);
 
@@ -73,6 +66,35 @@ namespace Driv.XTB.CatalogManager
             rbAll.Checked = true;
 
             cboCatalog.Select();
+        }
+
+        private void LoadConnectionSettings()
+        {
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _connectionsettings, ConnectionDetail.ConnectionId.ToString()))
+            {
+                _connectionsettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
+        }
+
+        private void LoadGlobalSettings()
+        {
+            // Loads or creates the settings for the plugin
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _globalsettings))
+            {
+                _globalsettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
         }
 
         private void InitializeService()
@@ -135,7 +157,7 @@ namespace Driv.XTB.CatalogManager
         private void CustomApiManagerControl_OnCloseTool(object sender, EventArgs e)
         {
             // Before leaving, save the settings
-            SettingsManager.Instance.Save(GetType(), mySettings);
+            SettingsManager.Instance.Save(GetType(), _globalsettings);
         }
 
         /// <summary>
@@ -146,9 +168,11 @@ namespace Driv.XTB.CatalogManager
             base.UpdateConnection(newService, detail, actionName, parameter);
             
 
-            if (mySettings != null && detail != null)
+            if (_globalsettings != null && detail != null)
             {
-                mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
+                LoadConnectionSettings();
+
+                _globalsettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 SetCboCatalogDataSource(null);
@@ -177,7 +201,12 @@ namespace Driv.XTB.CatalogManager
         {
             CreateCatalogDialog();
         }
-        
+
+        private void menuSettings_Click(object sender, EventArgs e)
+        {
+            SettingsDialog();
+        }
+
 
         private void btnNewApi_Click(object sender, EventArgs e)
         {
@@ -488,6 +517,7 @@ namespace Driv.XTB.CatalogManager
                 Message = "Loading assignments...",
                 Work = (worker, args) =>
                 {
+                    
                     args.Result = Service.GetCatalogAssignmentsFor(_selectedCategory?.CatalogRow.Id ?? Guid.Empty);
 
                 },
@@ -645,6 +675,9 @@ namespace Driv.XTB.CatalogManager
             pictAPI.Visible = txtAssignmentType.Text == "customapi";
             pictProcess.Visible = txtAssignmentType.Text == "workflow";
 
+            btnOpenInCustomApiManager.Visible = txtAssignmentType.Text == "customapi";
+            btnOpenInCustomApiTester.Visible = txtAssignmentType.Text == "customapi";
+
             if (_selectedCatalogAssignment != null)
             {
                 txtAssignmentCustomizableWarning.Visible = !_selectedCatalogAssignment.CanCustomize;
@@ -704,9 +737,32 @@ namespace Driv.XTB.CatalogManager
                         if (assignmentobject != null)
                         {
                             var assignmenttype = assignmentobject.LogicalName;
-                            var assignmentname = assignment.Contains("assignment_name") ?
-                                                        $"{((AliasedValue)assignment["assignment_name"])?.Value.ToString()} ({assignmenttype})" :
-                                                         $"_ ({assignmenttype})";
+
+                            var primaryname = string.Empty;
+                            if (!assignment.Contains("assignment_name"))
+                            {
+                                switch (assignmenttype)
+                                {
+                                    case "entity":
+                                        primaryname = $"_{((AliasedValue)assignment["assignment_entity_name"])?.Value.ToString()}";
+                                        break;
+                                    case "customapi":
+                                        primaryname = $"_{((AliasedValue)assignment["assignment_customapi_name"])?.Value.ToString()}";
+                                        break;
+                                    case "workflow":
+                                        primaryname = $"_{((AliasedValue)assignment["assignment_workflow_name"])?.Value.ToString()}";
+                                        break;
+
+                                }
+                            }
+                            else 
+                            {
+                                primaryname = ((AliasedValue)assignment["assignment_name"])?.Value.ToString();
+                            }
+
+
+
+                            var assignmentname = $"{primaryname} ({assignmenttype})";
 
                             var assignmentnode = categorynode.Nodes.Add(assignmentname);
                             
@@ -742,7 +798,12 @@ namespace Driv.XTB.CatalogManager
 
 
 
+        private void SettingsDialog()
+        {
+            var inputdlg = new SettingsForm(Service, ConnectionDetail, _globalsettings, _connectionsettings);
+            var dlgresult = inputdlg.ShowDialog();
 
+        }
 
 
 
@@ -771,7 +832,7 @@ namespace Driv.XTB.CatalogManager
 
         private void CreateCatalogDialog() 
         {
-            var inputdlg = new NewCatalogForm(Service, _selectedSolution, null);
+            var inputdlg = new NewCatalogForm(Service, _selectedSolution, null, _connectionsettings);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -792,7 +853,7 @@ namespace Driv.XTB.CatalogManager
 
         private void CreateCategoryDialog()
         {
-            var inputdlg = new NewCatalogForm(Service, _selectedSolution, _selectedCatalog);
+            var inputdlg = new NewCatalogForm(Service, _selectedSolution, _selectedCatalog, _connectionsettings);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -1007,6 +1068,28 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-       
+        private void btnOpenInCustomApiManager_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Manager") { TargetArgument = _selectedCatalogAssignment.Object.Id.ToString() });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void btnOpenInCustomApiTester_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Tester") { TargetArgument = _selectedCatalogAssignment.Object.Id.ToString() });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
     }
 }

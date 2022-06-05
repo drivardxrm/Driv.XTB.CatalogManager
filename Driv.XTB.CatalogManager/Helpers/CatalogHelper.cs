@@ -274,12 +274,23 @@ namespace Driv.XTB.CatalogManager.Helpers
                                   <attribute name='description' alias='category_description' />
                                   <attribute name='iscustomizable' alias='category_iscustomizable' />
                                   <attribute name='ismanaged' alias='category_ismanaged' />
-                                  <link-entity name='catalogassignment' from='catalogid' to='catalogid' link-type='outer'>
+                                  <link-entity name='catalogassignment' from='catalogid' to='catalogid' link-type='outer' alias='assignment'>
                                     <attribute name='catalogassignmentid' alias='assignment_catalogassignmentid' />
                                     <attribute name='name' alias='assignment_name' />
                                     <attribute name='object' alias='assignment_object' />
                                     <attribute name='iscustomizable' alias='assignment_iscustomizable' />
                                     <attribute name='ismanaged' alias='assignment_ismanaged' />
+                                    <link-entity name='customapi' from='customapiid' to='object' link-type='outer' alias='customapi'>
+                                      <attribute name='name' alias='assignment_customapi_name'/>
+                                      <attribute name='displayname' alias='assignment_customapi_displayname'/>
+                                    </link-entity>
+                                    <link-entity name='entity' from='entityid' to='object' link-type='outer' alias='entity'>
+                                      <attribute name='logicalname' alias='assignment_entity_logicalname'/>
+                                      <attribute name='name' alias='assignment_entity_name'/>
+                                    </link-entity>
+                                    <link-entity name='workflow' from='workflowid' to='object' link-type='outer' alias='workflow'>
+                                      <attribute name='name' alias='assignment_workflow_name'/>
+                                    </link-entity>
                                   </link-entity>
                                 </link-entity>
                               </entity>

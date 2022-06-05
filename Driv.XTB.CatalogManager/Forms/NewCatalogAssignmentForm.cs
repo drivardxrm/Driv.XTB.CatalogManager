@@ -165,6 +165,11 @@ namespace Driv.XTB.CatalogManager.Forms
                                                 _service.GetCustomApi(dlgCustomAPI.Entity.Id) : 
                                                 null;
 
+                    if (string.IsNullOrEmpty(txtName.Text)) 
+                    {
+                        txtName.Text = txtLookupCustomAPI.Entity[CustomAPI.PrimaryName].ToString();
+                    }
+
 
                     break;
                 case DialogResult.Abort:
@@ -183,6 +188,10 @@ namespace Driv.XTB.CatalogManager.Forms
             {
                 case DialogResult.OK:
                     txtLookupProcess.Entity = dlgProcess.Entity;
+                    if (string.IsNullOrEmpty(txtName.Text))
+                    {
+                        txtName.Text = txtLookupProcess.Entity[Process.PrimaryName].ToString();
+                    }
 
                     break;
                 case DialogResult.Abort:
@@ -230,6 +239,7 @@ namespace Driv.XTB.CatalogManager.Forms
                 btnLookupProcess.Enabled = false;
 
                 cboEntities.Enabled = false;
+                cboEntities.ClearData();
                 
 
             }
@@ -249,6 +259,7 @@ namespace Driv.XTB.CatalogManager.Forms
                 btnLookupProcess.Enabled = true;
 
                 cboEntities.Enabled = false;
+                cboEntities.ClearData();
 
 
             }

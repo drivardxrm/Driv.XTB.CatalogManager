@@ -30,17 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CatalogManagerControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
+            this.menuSettings = new System.Windows.Forms.ToolStripButton();
             this.lblInfoLock = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.grpFilter = new System.Windows.Forms.GroupBox();
@@ -53,17 +54,6 @@
             this.cboCatalog = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.imgGrpRootCatalog = new Driv.XTB.CatalogManager.ImageGroupBox();
             this.imgGrpCategories = new Driv.XTB.CatalogManager.ImageGroupBox();
@@ -71,6 +61,8 @@
             this.txtCategoryIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.imgGrpAssignments = new Driv.XTB.CatalogManager.ImageGroupBox();
+            this.btnOpenInCustomApiTester = new System.Windows.Forms.Button();
+            this.btnOpenInCustomApiManager = new System.Windows.Forms.Button();
             this.txtAssignmentCustomizableWarning = new System.Windows.Forms.TextBox();
             this.txtAssignmentIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -79,9 +71,11 @@
             this.pictAPI = new System.Windows.Forms.PictureBox();
             this.gridAssignments = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.pictTable = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtAssignmentType = new System.Windows.Forms.TextBox();
             this.txtAssignmentObject = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnDeleteAssignment = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.btnUpdateAssignment = new System.Windows.Forms.Button();
             this.txtAssignmentName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -90,13 +84,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.gridCategories = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.txtCategoryDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtCategoryIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtCategoryDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.txtCategoryUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtCategoryName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtCatalogIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.treeCatalog = new System.Windows.Forms.TreeView();
             this.txtCatalogDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -105,6 +104,10 @@
             this.label28 = new System.Windows.Forms.Label();
             this.txtCatalogDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.txtCatalogIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtCatalogUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.txtCustomizableWarning = new System.Windows.Forms.TextBox();
             this.txtCatalogName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -132,7 +135,8 @@
             this.menuRefresh,
             this.menuNewApi,
             this.tssSeparator1,
-            this.tslAbout});
+            this.tslAbout,
+            this.menuSettings});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(1106, 31);
@@ -171,6 +175,15 @@
             this.tslAbout.Size = new System.Drawing.Size(113, 28);
             this.tslAbout.Text = "by David Rivard";
             this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
+            // 
+            // menuSettings
+            // 
+            this.menuSettings.Image = ((System.Drawing.Image)(resources.GetObject("menuSettings.Image")));
+            this.menuSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuSettings.Name = "menuSettings";
+            this.menuSettings.Size = new System.Drawing.Size(77, 28);
+            this.menuSettings.Text = "Settings";
+            this.menuSettings.Click += new System.EventHandler(this.menuSettings_Click);
             // 
             // lblInfoLock
             // 
@@ -310,128 +323,6 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(263, 114);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 111;
-            this.label11.Text = "Object";
-            this.ttInfo.SetToolTip(this.label11, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
-        " to be called in an app.");
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(263, 86);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 13);
-            this.label13.TabIndex = 113;
-            this.label13.Text = "Name";
-            this.ttInfo.SetToolTip(this.label13, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(241, 89);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 13);
-            this.label7.TabIndex = 95;
-            this.label7.Text = "Unique Name";
-            this.ttInfo.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 115);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 94;
-            this.label5.Text = "Name";
-            this.ttInfo.SetToolTip(this.label5, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(243, 166);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 101;
-            this.label1.Text = "Description";
-            this.ttInfo.SetToolTip(this.label1, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
-        "to be called in an app. \r\nFor example, as a ToolTip.");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 102;
-            this.label2.Text = "Display Name";
-            this.ttInfo.SetToolTip(this.label2, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
-        " to be called in an app.");
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(28, 266);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 13);
-            this.label14.TabIndex = 107;
-            this.label14.Text = "Catalog Treeview";
-            this.ttInfo.SetToolTip(this.label14, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Unique Name";
-            this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 152);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 90;
-            this.label3.Text = "Description";
-            this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
-        "to be called in an app. \r\nFor example, as a ToolTip.");
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Name";
-            this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 126);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 13);
-            this.label10.TabIndex = 91;
-            this.label10.Text = "Display Name";
-            this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
-        " to be called in an app.");
-            // 
             // imgList
             // 
             this.imgList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgList.ImageStream")));
@@ -539,6 +430,8 @@
             // 
             // imgGrpAssignments
             // 
+            this.imgGrpAssignments.Controls.Add(this.btnOpenInCustomApiTester);
+            this.imgGrpAssignments.Controls.Add(this.btnOpenInCustomApiManager);
             this.imgGrpAssignments.Controls.Add(this.txtAssignmentCustomizableWarning);
             this.imgGrpAssignments.Controls.Add(this.txtAssignmentIsManaged);
             this.imgGrpAssignments.Controls.Add(this.label16);
@@ -563,6 +456,38 @@
             this.imgGrpAssignments.TabIndex = 109;
             this.imgGrpAssignments.TabStop = false;
             this.imgGrpAssignments.Text = "Catalog Assignments";
+            // 
+            // btnOpenInCustomApiTester
+            // 
+            this.btnOpenInCustomApiTester.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenInCustomApiTester.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenInCustomApiTester.Image")));
+            this.btnOpenInCustomApiTester.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenInCustomApiTester.Location = new System.Drawing.Point(342, 247);
+            this.btnOpenInCustomApiTester.Name = "btnOpenInCustomApiTester";
+            this.btnOpenInCustomApiTester.Size = new System.Drawing.Size(208, 30);
+            this.btnOpenInCustomApiTester.TabIndex = 124;
+            this.btnOpenInCustomApiTester.Text = "Open in Custom API Tester";
+            this.btnOpenInCustomApiTester.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenInCustomApiTester.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOpenInCustomApiTester.UseVisualStyleBackColor = true;
+            this.btnOpenInCustomApiTester.Visible = false;
+            this.btnOpenInCustomApiTester.Click += new System.EventHandler(this.btnOpenInCustomApiTester_Click);
+            // 
+            // btnOpenInCustomApiManager
+            // 
+            this.btnOpenInCustomApiManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenInCustomApiManager.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenInCustomApiManager.Image")));
+            this.btnOpenInCustomApiManager.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenInCustomApiManager.Location = new System.Drawing.Point(342, 212);
+            this.btnOpenInCustomApiManager.Name = "btnOpenInCustomApiManager";
+            this.btnOpenInCustomApiManager.Size = new System.Drawing.Size(208, 30);
+            this.btnOpenInCustomApiManager.TabIndex = 123;
+            this.btnOpenInCustomApiManager.Text = "Open in Custom API Manager";
+            this.btnOpenInCustomApiManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenInCustomApiManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOpenInCustomApiManager.UseVisualStyleBackColor = true;
+            this.btnOpenInCustomApiManager.Visible = false;
+            this.btnOpenInCustomApiManager.Click += new System.EventHandler(this.btnOpenInCustomApiManager_Click);
             // 
             // txtAssignmentCustomizableWarning
             // 
@@ -643,38 +568,38 @@
             this.gridAssignments.AllowUserToOrderColumns = true;
             this.gridAssignments.AllowUserToResizeRows = false;
             this.gridAssignments.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAssignments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAssignments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridAssignments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridAssignments.ColumnOrder = "name";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridAssignments.DefaultCellStyle = dataGridViewCellStyle8;
+            this.gridAssignments.ColumnOrder = "name, Type";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridAssignments.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridAssignments.EntityReferenceClickable = true;
             this.gridAssignments.FilterColumns = "";
             this.gridAssignments.Location = new System.Drawing.Point(20, 73);
             this.gridAssignments.MultiSelect = false;
             this.gridAssignments.Name = "gridAssignments";
             this.gridAssignments.OrganizationService = null;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridAssignments.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridAssignments.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridAssignments.ShowAllColumnsInColumnOrder = true;
             this.gridAssignments.ShowColumnsNotInColumnOrder = false;
             this.gridAssignments.ShowFriendlyNames = true;
@@ -694,6 +619,17 @@
             this.pictTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictTable.TabIndex = 120;
             this.pictTable.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(263, 114);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 111;
+            this.label11.Text = "Object";
+            this.ttInfo.SetToolTip(this.label11, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
             // 
             // txtAssignmentType
             // 
@@ -731,6 +667,18 @@
             this.btnDeleteAssignment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteAssignment.UseVisualStyleBackColor = true;
             this.btnDeleteAssignment.Click += new System.EventHandler(this.btnDeleteAssignment_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(263, 86);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 13);
+            this.label13.TabIndex = 113;
+            this.label13.Text = "Name";
+            this.ttInfo.SetToolTip(this.label13, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
             // 
             // btnUpdateAssignment
             // 
@@ -813,37 +761,37 @@
             this.gridCategories.AllowUserToOrderColumns = true;
             this.gridCategories.AllowUserToResizeRows = false;
             this.gridCategories.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCategories.ColumnOrder = "name";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridCategories.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridCategories.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridCategories.FilterColumns = "";
             this.gridCategories.Location = new System.Drawing.Point(18, 73);
             this.gridCategories.MultiSelect = false;
             this.gridCategories.Name = "gridCategories";
             this.gridCategories.OrganizationService = null;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridCategories.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCategories.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridCategories.ShowAllColumnsInColumnOrder = true;
             this.gridCategories.ShowColumnsNotInColumnOrder = false;
             this.gridCategories.ShowIdColumn = false;
@@ -867,6 +815,17 @@
             this.txtCategoryDescription.Size = new System.Drawing.Size(242, 40);
             this.txtCategoryDescription.TabIndex = 104;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(241, 89);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 95;
+            this.label7.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
+            // 
             // txtCategoryIsCustomizable
             // 
             this.txtCategoryIsCustomizable.BackColor = System.Drawing.SystemColors.Window;
@@ -880,6 +839,17 @@
             this.txtCategoryIsCustomizable.OrganizationService = null;
             this.txtCategoryIsCustomizable.Size = new System.Drawing.Size(68, 20);
             this.txtCategoryIsCustomizable.TabIndex = 87;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(243, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 94;
+            this.label5.Text = "Name";
+            this.ttInfo.SetToolTip(this.label5, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
             // 
             // txtCategoryDisplayName
             // 
@@ -910,6 +880,17 @@
             this.txtCategoryUniqueName.Size = new System.Drawing.Size(242, 20);
             this.txtCategoryUniqueName.TabIndex = 97;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(243, 166);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 101;
+            this.label1.Text = "Description";
+            this.ttInfo.SetToolTip(this.label1, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. \r\nFor example, as a ToolTip.");
+            // 
             // txtCategoryName
             // 
             this.txtCategoryName.BackColor = System.Drawing.SystemColors.Window;
@@ -923,6 +904,17 @@
             this.txtCategoryName.OrganizationService = null;
             this.txtCategoryName.Size = new System.Drawing.Size(242, 20);
             this.txtCategoryName.TabIndex = 98;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(243, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 102;
+            this.label2.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label2, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
             // 
             // btnEditCategory
             // 
@@ -963,6 +955,17 @@
             this.pictureBox1.Size = new System.Drawing.Size(20, 19);
             this.pictureBox1.TabIndex = 99;
             this.pictureBox1.TabStop = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(28, 266);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 13);
+            this.label14.TabIndex = 107;
+            this.label14.Text = "Catalog Treeview";
+            this.ttInfo.SetToolTip(this.label14, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
             // 
             // txtCatalogIsManaged
             // 
@@ -1063,6 +1066,50 @@
             this.txtCatalogIsCustomizable.OrganizationService = null;
             this.txtCatalogIsCustomizable.Size = new System.Drawing.Size(68, 20);
             this.txtCatalogIsCustomizable.TabIndex = 85;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(26, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 90;
+            this.label3.Text = "Description";
+            this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. \r\nFor example, as a ToolTip.");
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Name";
+            this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 126);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.TabIndex = 91;
+            this.label10.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
             // 
             // txtCatalogUniqueName
             // 
@@ -1245,5 +1292,8 @@
         private System.Windows.Forms.TextBox txtAssignmentCustomizableWarning;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtAssignmentIsManaged;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ToolStripButton menuSettings;
+        private System.Windows.Forms.Button btnOpenInCustomApiManager;
+        private System.Windows.Forms.Button btnOpenInCustomApiTester;
     }
 }

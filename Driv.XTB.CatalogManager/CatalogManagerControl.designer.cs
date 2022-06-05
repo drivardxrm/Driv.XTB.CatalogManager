@@ -61,6 +61,7 @@
             this.txtCategoryIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.imgGrpAssignments = new Driv.XTB.CatalogManager.ImageGroupBox();
+            this.btnOpenInCustomApiTester = new System.Windows.Forms.Button();
             this.btnOpenInCustomApiManager = new System.Windows.Forms.Button();
             this.txtAssignmentCustomizableWarning = new System.Windows.Forms.TextBox();
             this.txtAssignmentIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -112,7 +113,6 @@
             this.txtCatalogName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnDeleteCatalog = new System.Windows.Forms.Button();
-            this.btnOpenInCustomApiTester = new System.Windows.Forms.Button();
             this.toolStripMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grpFilter.SuspendLayout();
@@ -457,6 +457,22 @@
             this.imgGrpAssignments.TabStop = false;
             this.imgGrpAssignments.Text = "Catalog Assignments";
             // 
+            // btnOpenInCustomApiTester
+            // 
+            this.btnOpenInCustomApiTester.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenInCustomApiTester.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenInCustomApiTester.Image")));
+            this.btnOpenInCustomApiTester.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenInCustomApiTester.Location = new System.Drawing.Point(342, 247);
+            this.btnOpenInCustomApiTester.Name = "btnOpenInCustomApiTester";
+            this.btnOpenInCustomApiTester.Size = new System.Drawing.Size(208, 30);
+            this.btnOpenInCustomApiTester.TabIndex = 124;
+            this.btnOpenInCustomApiTester.Text = "Open in Custom API Tester";
+            this.btnOpenInCustomApiTester.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpenInCustomApiTester.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOpenInCustomApiTester.UseVisualStyleBackColor = true;
+            this.btnOpenInCustomApiTester.Visible = false;
+            this.btnOpenInCustomApiTester.Click += new System.EventHandler(this.btnOpenInCustomApiTester_Click);
+            // 
             // btnOpenInCustomApiManager
             // 
             this.btnOpenInCustomApiManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -561,7 +577,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.gridAssignments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridAssignments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridAssignments.ColumnOrder = "name";
+            this.gridAssignments.ColumnOrder = "name, Type";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1162,22 +1178,6 @@
             this.btnDeleteCatalog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteCatalog.UseVisualStyleBackColor = true;
             this.btnDeleteCatalog.Click += new System.EventHandler(this.btnDeleteCatalog_Click);
-            // 
-            // btnOpenInCustomApiTester
-            // 
-            this.btnOpenInCustomApiTester.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenInCustomApiTester.Image = ((System.Drawing.Image)(resources.GetObject("btnOpenInCustomApiTester.Image")));
-            this.btnOpenInCustomApiTester.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenInCustomApiTester.Location = new System.Drawing.Point(342, 247);
-            this.btnOpenInCustomApiTester.Name = "btnOpenInCustomApiTester";
-            this.btnOpenInCustomApiTester.Size = new System.Drawing.Size(208, 30);
-            this.btnOpenInCustomApiTester.TabIndex = 124;
-            this.btnOpenInCustomApiTester.Text = "Open in Custom API Tester";
-            this.btnOpenInCustomApiTester.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenInCustomApiTester.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOpenInCustomApiTester.UseVisualStyleBackColor = true;
-            this.btnOpenInCustomApiTester.Visible = false;
-            this.btnOpenInCustomApiTester.Click += new System.EventHandler(this.btnOpenInCustomApiTester_Click);
             // 
             // CatalogManagerControl
             // 

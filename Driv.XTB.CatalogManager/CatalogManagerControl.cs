@@ -517,6 +517,7 @@ namespace Driv.XTB.CatalogManager
                 Message = "Loading assignments...",
                 Work = (worker, args) =>
                 {
+                    
                     args.Result = Service.GetCatalogAssignmentsFor(_selectedCategory?.CatalogRow.Id ?? Guid.Empty);
 
                 },
@@ -736,9 +737,32 @@ namespace Driv.XTB.CatalogManager
                         if (assignmentobject != null)
                         {
                             var assignmenttype = assignmentobject.LogicalName;
-                            var assignmentname = assignment.Contains("assignment_name") ?
-                                                        $"{((AliasedValue)assignment["assignment_name"])?.Value.ToString()} ({assignmenttype})" :
-                                                         $"_ ({assignmenttype})";
+
+                            var primaryname = string.Empty;
+                            if (!assignment.Contains("assignment_name"))
+                            {
+                                switch (assignmenttype)
+                                {
+                                    case "entity":
+                                        primaryname = $"_{((AliasedValue)assignment["assignment_entity_name"])?.Value.ToString()}";
+                                        break;
+                                    case "customapi":
+                                        primaryname = $"_{((AliasedValue)assignment["assignment_customapi_name"])?.Value.ToString()}";
+                                        break;
+                                    case "workflow":
+                                        primaryname = $"_{((AliasedValue)assignment["assignment_workflow_name"])?.Value.ToString()}";
+                                        break;
+
+                                }
+                            }
+                            else 
+                            {
+                                primaryname = ((AliasedValue)assignment["assignment_name"])?.Value.ToString();
+                            }
+
+
+
+                            var assignmentname = $"{primaryname} ({assignmenttype})";
 
                             var assignmentnode = categorynode.Nodes.Add(assignmentname);
                             

@@ -136,15 +136,41 @@ namespace Driv.XTB.CatalogManager
         }
 
         //If Plugin is opened from Integration with another plugin
-        //TargetArgumet = GUID of Catalog to display (string format)	Id
+        //TargetArgumet = GUID of Catalog, Category or CatalogAssignment to display
         public void OnIncomingMessage(MessageBusEventArgs message)
         {
             
             if (message.TargetArgument is string arg && Guid.TryParse(arg, out Guid argid))
             {
-                var catalog = Service.GetCatalog(argid);
-                SetSelectedCatalog(catalog);
-                
+                var catalogAssignment = Service.GetCatalogAssignment(argid);
+                if (catalogAssignment != null)
+                {
+                    var catalogAssignmentProxy = new CatalogAssignmentProxy(catalogAssignment);
+                    var catalog = Service.GetCatalog(catalogAssignmentProxy.CatalogRef.Id);
+                    var catalogProxy = new CatalogProxy(catalog);
+                    var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
+
+                    SetSelectedCatalog(parentcatalog);
+                    SetSelectedCategory(catalog);
+                    SetSelectedAssignment(catalogAssignment);
+                }
+                else 
+                {
+                    var catalog = Service.GetCatalog(argid);
+                    var catalogProxy = new CatalogProxy(catalog);
+
+                    if (catalogProxy.ParentCatalogRef != null)
+                    {
+                        var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
+
+                        SetSelectedCatalog(parentcatalog);
+                        SetSelectedCategory(catalog);
+                    }
+                    else
+                    {
+                        SetSelectedCatalog(catalog);
+                    }
+                }          
             }
         }
 

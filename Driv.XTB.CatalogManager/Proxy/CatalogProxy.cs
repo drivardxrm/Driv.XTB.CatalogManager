@@ -51,6 +51,10 @@ namespace Driv.XTB.CatalogManager.Proxy
 
         public bool CanCustomize => !IsManaged || IsManaged && IsCustomizable;
 
+        public EntityReference ParentCatalogRef => CatalogRow.Attributes.Contains(Catalog.ParentCatalog) ?
+                                                    (EntityReference)CatalogRow[Catalog.ParentCatalog] :
+                                                    null;
+
 
     }
 }

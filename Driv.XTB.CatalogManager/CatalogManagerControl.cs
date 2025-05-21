@@ -151,8 +151,8 @@ namespace Driv.XTB.CatalogManager
                     var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
 
                     SetSelectedCatalog(parentcatalog);
-                    SetSelectedCategory(catalog);
-                    SetSelectedAssignment(catalogAssignment);
+                    SetSelectedCategory(catalog, catalogAssignment);
+                    //SetSelectedAssignment(catalogAssignment);
                 }
                 else 
                 {
@@ -645,7 +645,7 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-        private void SetSelectedCategory(Entity catalog)
+        private void SetSelectedCategory(Entity catalog, Entity catalogAssignment = null)
         {
             _selectedCategory = catalog != null ? new CatalogProxy(catalog) : null;
 
@@ -678,7 +678,7 @@ namespace Driv.XTB.CatalogManager
             }
 
 
-            LoadAssignments(_selectedCategory?.CatalogRow?.Id ?? Guid.Empty);
+            LoadAssignments(catalogAssignment?.Id ?? Guid.Empty);
 
 
             imgGrpAssignments.Enabled = _selectedCategory != null;

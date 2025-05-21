@@ -1090,7 +1090,15 @@ namespace Driv.XTB.CatalogManager
 
         private void gridAssigments_RecordEnter(object sender, CRMRecordEventArgs e)
         {
-            SetSelectedAssignment(Service.GetCatalogAssignment(e.Entity.Id));
+            if (e?.Entity == null)
+            {
+                SetSelectedAssignment(null);
+            }
+            else 
+            {
+                SetSelectedAssignment(Service.GetCatalogAssignment(e.Entity.Id));
+            }
+                
 
         }
 

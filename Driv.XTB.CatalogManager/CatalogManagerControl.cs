@@ -149,9 +149,18 @@ namespace Driv.XTB.CatalogManager
                     var catalog = Service.GetCatalog(catalogAssignmentProxy.CatalogRef.Id);
                     var catalogProxy = new CatalogProxy(catalog);
                     var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
+                    var parentCatalogProxy = new CatalogProxy(parentcatalog);
 
-                    SetSelectedCatalog(parentcatalog);
-                    SetSelectedCategory(catalog, catalogAssignment);
+                    _selectedCatalog = parentCatalogProxy;
+                    _selectedCategory = catalogProxy;
+                    _selectedCatalogAssignment = catalogAssignmentProxy;
+
+                    LoadRootCatalogs();
+                    LoadCategories(_selectedCategory.CatalogRow.Id);
+                    LoadAssignments(_selectedCatalogAssignment.CatalogAssignmentRow.Id);
+
+                    //SetSelectedCatalog(parentcatalog);
+                    //SetSelectedCategory(catalog, catalogAssignment);
                     //SetSelectedAssignment(catalogAssignment);
                 }
                 else 
@@ -162,13 +171,18 @@ namespace Driv.XTB.CatalogManager
                     if (catalogProxy.ParentCatalogRef != null)
                     {
                         var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
+                        var parentCatalogProxy = new CatalogProxy(parentcatalog);
 
-                        SetSelectedCatalog(parentcatalog);
-                        SetSelectedCategory(catalog);
+                        _selectedCatalog = parentCatalogProxy;
+                        _selectedCategory = catalogProxy;
+
+                        LoadRootCatalogs();
+                        LoadCategories(_selectedCategory.CatalogRow.Id);
                     }
                     else
                     {
-                        SetSelectedCatalog(catalog);
+                        _selectedCatalog = catalogProxy;
+                        LoadRootCatalogs();
                     }
                 }          
             }
@@ -455,11 +469,11 @@ namespace Driv.XTB.CatalogManager
                         if (args.Result is EntityCollection)
                         {
 
-                            var customapis = (EntityCollection)args.Result;
-                            //Find the index of the selected API in the list
-                            var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCatalog?.CatalogRow.Id ?? Guid.Empty);
+                            var catalogs = (EntityCollection)args.Result;
+                            //Find the index of the selected Catalog in the list
+                            var index = catalogs.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCatalog?.CatalogRow.Id ?? Guid.Empty);
 
-                            SetCboCatalogDataSource(customapis);
+                            SetCboCatalogDataSource(catalogs);
                             
                             //hack to force a refresh... must be a better way
                             if (cboCatalog.SelectedIndex == index) 

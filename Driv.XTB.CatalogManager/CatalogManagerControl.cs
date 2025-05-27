@@ -1,25 +1,24 @@
-﻿using System;
+﻿using Driv.XTB.CatalogManager.Forms;
+using Driv.XTB.CatalogManager.Helpers;
+using Driv.XTB.CatalogManager.Proxy;
+using McTools.Xrm.Connection;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
-using XrmToolBox.Extensibility;
-using Microsoft.Xrm.Sdk.Query;
-using Microsoft.Xrm.Sdk;
-using McTools.Xrm.Connection;
-using System.Reflection;
-
-using xrmtb.XrmToolBox.Controls.Controls;
 using xrmtb.XrmToolBox.Controls;
-
+using xrmtb.XrmToolBox.Controls.Controls;
+using XrmToolBox.Extensibility;
 using XrmToolBox.Extensibility.Interfaces;
-using Driv.XTB.CatalogManager.Proxy;
-using Driv.XTB.CatalogManager.Helpers;
-using Driv.XTB.CatalogManager.Forms;
 
 namespace Driv.XTB.CatalogManager
 {
@@ -151,17 +150,13 @@ namespace Driv.XTB.CatalogManager
                     var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
                     var parentCatalogProxy = new CatalogProxy(parentcatalog);
 
-                    _selectedCatalog = parentCatalogProxy;
-                    _selectedCategory = catalogProxy;
-                    _selectedCatalogAssignment = catalogAssignmentProxy;
+                    SetSelectedCatalog(parentcatalog);
+                    SetSelectedCategory(catalog);
+                    SetSelectedAssignment(catalogAssignment);
 
-                    LoadRootCatalogs();
-                    LoadCategories(_selectedCategory.CatalogRow.Id);
-                    LoadAssignments(_selectedCatalogAssignment.CatalogAssignmentRow.Id);
+                    LoadRootCatalogs(parentcatalog.Id, catalog.Id, catalogAssignment.Id);
 
-                    //SetSelectedCatalog(parentcatalog);
-                    //SetSelectedCategory(catalog, catalogAssignment);
-                    //SetSelectedAssignment(catalogAssignment);
+                    
                 }
                 else 
                 {
@@ -173,16 +168,16 @@ namespace Driv.XTB.CatalogManager
                         var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
                         var parentCatalogProxy = new CatalogProxy(parentcatalog);
 
-                        _selectedCatalog = parentCatalogProxy;
-                        _selectedCategory = catalogProxy;
+                        SetSelectedCatalog(parentcatalog);
+                        SetSelectedCategory(catalog);
 
                         LoadRootCatalogs();
-                        LoadCategories(_selectedCategory.CatalogRow.Id);
+                        LoadCategories(parentcatalog.Id, catalog.Id);
                     }
                     else
                     {
                         _selectedCatalog = catalogProxy;
-                        LoadRootCatalogs();
+                        LoadRootCatalogs(catalog.Id);
                     }
                 }          
             }
@@ -223,7 +218,7 @@ namespace Driv.XTB.CatalogManager
 
                 //select the all radio button
                 rbAll.Checked = true;
-                ExecuteMethod(LoadRootCatalogs);
+                LoadRootCatalogs();
                 cboCatalog.Select();
             }
         }
@@ -233,7 +228,7 @@ namespace Driv.XTB.CatalogManager
         #region Form Events
         private void menuRefresh_Click(object sender, EventArgs e)
         {
-            ExecuteMethod(LoadRootCatalogs);
+            LoadRootCatalogs();
         }
 
 
@@ -308,7 +303,7 @@ namespace Driv.XTB.CatalogManager
         {
             if (rbAll.Checked)
             {
-                ExecuteMethod(LoadRootCatalogs);
+                LoadRootCatalogs();
             }
         }
 
@@ -349,7 +344,7 @@ namespace Driv.XTB.CatalogManager
                                             new SolutionProxy(cboSolutions.SelectedEntity) :
                                             null;
 
-            ExecuteMethod(LoadRootCatalogs);
+            LoadRootCatalogs();
 
         }
 
@@ -370,7 +365,7 @@ namespace Driv.XTB.CatalogManager
             SetSelectedCatalog(catalog);
 
 
-            LoadCategories();
+            LoadCategories(catalog?.Id ?? Guid.Empty);
 
         }
 
@@ -383,7 +378,7 @@ namespace Driv.XTB.CatalogManager
 
         #region Private Methods
 
-        private void LoadSolutions(Guid selected)
+        private void LoadSolutions(Guid solutionId)
         {
 
             SetCboSolutionsDataSource(null);
@@ -414,7 +409,7 @@ namespace Driv.XTB.CatalogManager
 
                             var solutions = (EntityCollection)args.Result;
                             //Find the index of the selected solution
-                            var index = solutions.Entities.Select(e => e.Id).ToList().IndexOf(selected);
+                            var index = solutions.Entities.Select(e => e.Id).ToList().IndexOf(solutionId);
 
                             SetCboSolutionsDataSource(solutions);
                            
@@ -429,7 +424,7 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-        private void LoadRootCatalogs()
+        private void LoadRootCatalogs(Guid? catalogId = null, Guid? categoryId = null, Guid? assignmentId = null)
         {
 
             SetCboCatalogDataSource(null);
@@ -471,7 +466,7 @@ namespace Driv.XTB.CatalogManager
 
                             var catalogs = (EntityCollection)args.Result;
                             //Find the index of the selected Catalog in the list
-                            var index = catalogs.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCatalog?.CatalogRow.Id ?? Guid.Empty);
+                            var index = catalogs.Entities.Select(e => e.Id).ToList().IndexOf(catalogId ?? Guid.Empty);
 
                             SetCboCatalogDataSource(catalogs);
                             
@@ -482,6 +477,11 @@ namespace Driv.XTB.CatalogManager
                             }
                             cboCatalog.SelectedIndex = index;
                             cboCatalog.Enabled = true;
+
+                            if (categoryId != null) 
+                            {
+                                LoadCategories(catalogId.Value,categoryId, assignmentId);
+                            }
 
                         }
                         else
@@ -497,19 +497,29 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-        private void LoadCategories(Guid? selected = null)
+        private void LoadCategories(Guid catalogId, Guid? categoryId = null, Guid? assignmentId = null)
         {
             SetGridCategoriesDataSource(null);
 
+            if (categoryId == null) 
+            {
+                SetSelectedCategory(null);
+                
+            }
 
-            SetSelectedCategory(null);
+            if (assignmentId == null) 
+            {
+                SetSelectedAssignment(null);
+                SetGridAssignmentsDataSource(null);
+            }
+            
 
             WorkAsync(new WorkAsyncInfo
             {
                 Message = "Loading categories...",
                 Work = (worker, args) =>
                 {
-                    args.Result = Service.GetChildCatalogsFor(_selectedCatalog?.CatalogRow.Id ?? Guid.Empty);
+                    args.Result = Service.GetChildCatalogsFor(catalogId);
 
                 },
                 PostWorkCallBack = (args) =>
@@ -528,16 +538,38 @@ namespace Driv.XTB.CatalogManager
 
                             gridCategories.ClearSelection();
 
+                            
+
                             if (gridCategories.Rows.Count > 0)
                             {
-                                int index = GetGridSelectedIndex(gridCategories, selected);
+                                
+                                
+                                int index = GetGridSelectedIndex(gridCategories, categoryId);
+
+                                if (categoryId != null || categoryId == Guid.Empty) 
+                                {
+                                    gridCategories.RecordEnter -= new CRMRecordEventHandler(gridCategories_RecordEnter);
+                                }
+                                
                                 gridCategories.CurrentCell = gridCategories.Rows[index].Cells[2];
 
+                                if (categoryId != null || categoryId == Guid.Empty)
+                                {
+                                    gridCategories.RecordEnter += new CRMRecordEventHandler(gridCategories_RecordEnter);
+                                }
+
                             }
-                            else
+
+                            if (categoryId != null)
                             {
-                                SetSelectedCategory(null);
+                                LoadAssignments(categoryId.Value, assignmentId);
                             }
+
+
+                            //else
+                            //{
+                            //    SetSelectedCategory(null);
+                            //}
 
                         }
                     }
@@ -545,12 +577,15 @@ namespace Driv.XTB.CatalogManager
             });
         }
 
-        private void LoadAssignments(Guid? selected = null)
+        private void LoadAssignments(Guid categoryId, Guid? assignmentId = null)
         {
             SetGridAssignmentsDataSource(null);
 
-
-            SetSelectedAssignment(null);
+            if(assignmentId == null || assignmentId == Guid.Empty)
+            {
+                SetSelectedAssignment(null);
+            }
+            
 
             WorkAsync(new WorkAsyncInfo
             {
@@ -558,7 +593,7 @@ namespace Driv.XTB.CatalogManager
                 Work = (worker, args) =>
                 {
                     
-                    args.Result = Service.GetCatalogAssignmentsFor(_selectedCategory?.CatalogRow.Id ?? Guid.Empty);
+                    args.Result = Service.GetCatalogAssignmentsFor(categoryId);
 
                 },
                 PostWorkCallBack = (args) =>
@@ -579,14 +614,14 @@ namespace Driv.XTB.CatalogManager
 
                             if (gridAssignments.Rows.Count > 0)
                             {
-                                int index = GetGridSelectedIndex(gridAssignments, selected);
+                                int index = GetGridSelectedIndex(gridAssignments, assignmentId);
                                 gridAssignments.CurrentCell = gridAssignments.Rows[index].Cells[2];
 
                             }
-                            else
-                            {
-                                SetSelectedAssignment(null);
-                            }
+                            //else
+                            //{
+                            //    SetSelectedAssignment(null);
+                            //}
 
                         }
                     }
@@ -659,7 +694,7 @@ namespace Driv.XTB.CatalogManager
 
         }
 
-        private void SetSelectedCategory(Entity catalog, Entity catalogAssignment = null)
+        private void SetSelectedCategory(Entity catalog)
         {
             _selectedCategory = catalog != null ? new CatalogProxy(catalog) : null;
 
@@ -691,9 +726,19 @@ namespace Driv.XTB.CatalogManager
 
             }
 
+            //if (catalog == null) 
+            //{
+            //    LoadAssignments(Guid.Empty);
+            //}
+            //else if (_selectedCatalogAssignment != null && _selectedCatalogAssignment?.CatalogRef?.Id != catalog?.Id)
+            //{
+            //    LoadAssignments(catalog?.Id ?? Guid.Empty);
 
-            LoadAssignments(catalogAssignment?.Id ?? Guid.Empty);
-
+            //}
+            //else 
+            //{
+            //    LoadAssignments(catalog?.Id ?? Guid.Empty, _selectedCatalogAssignment?.CatalogRef?.Id);
+            //}
 
             imgGrpAssignments.Enabled = _selectedCategory != null;
 
@@ -883,7 +928,7 @@ namespace Driv.XTB.CatalogManager
 
                 //refresh catalog list and select newly created
                 SetSelectedCatalog(Service.GetCatalog(inputdlg.NewCatalogId));
-                ExecuteMethod(LoadRootCatalogs);
+                LoadRootCatalogs(inputdlg.NewCatalogId);
             }
             else if (dlgresult == DialogResult.Ignore)
             {
@@ -903,7 +948,8 @@ namespace Driv.XTB.CatalogManager
             {
 
                 //refresh category list
-                LoadCategories(inputdlg.NewCatalogId);
+                SetSelectedCategory(Service.GetCatalog(inputdlg.NewCatalogId));
+                LoadCategories(_selectedCatalog.CatalogRow.Id,  inputdlg.NewCatalogId);
                 UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -924,7 +970,7 @@ namespace Driv.XTB.CatalogManager
             {
 
                 //refresh category list
-                LoadAssignments(inputdlg.NewCatalogAssignmentId);
+                LoadAssignments(_selectedCategory.CatalogRow.Id, inputdlg.NewCatalogAssignmentId);
                 UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -950,7 +996,7 @@ namespace Driv.XTB.CatalogManager
 
                 //refresh custom api list and select newly updated
                 SetSelectedCatalog(Service.GetCatalog(_selectedCatalog.CatalogRow.Id));
-                ExecuteMethod(LoadRootCatalogs);
+                LoadRootCatalogs(_selectedCatalog.CatalogRow.Id);
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -970,10 +1016,13 @@ namespace Driv.XTB.CatalogManager
             }
             if (dlgresult == DialogResult.OK && inputdlg.CatalogUpdated)
             {
-
-
-                LoadCategories(_selectedCategory.CatalogRow.Id);
+                //clear and refetch
+                var currentcategory = _selectedCategory.CatalogRow.Id;
+                SetSelectedCategory(null);
+                SetSelectedCategory(Service.GetCatalog(currentcategory));
+                LoadCategories(_selectedCatalog.CatalogRow.Id, currentcategory);
                 UpdateTreeView();
+                gridCategories.Focus();
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -993,10 +1042,13 @@ namespace Driv.XTB.CatalogManager
             }
             if (dlgresult == DialogResult.OK && inputdlg.CatalogAssignmentUpdated)
             {
-
-
-                LoadAssignments(_selectedCatalogAssignment.CatalogAssignmentRow.Id);
+                //Clear and Refetch
+                var currentassignment = _selectedCatalogAssignment.CatalogAssignmentRow.Id;
+                SetSelectedAssignment(null);
+                SetSelectedAssignment(Service.GetCatalogAssignment(currentassignment));
+                LoadAssignments(_selectedCategory.CatalogRow.Id, currentassignment);
                 UpdateTreeView();
+                gridAssignments.Focus();
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -1020,7 +1072,7 @@ namespace Driv.XTB.CatalogManager
                 SetSelectedCatalog(null);
                
 
-                ExecuteMethod(LoadRootCatalogs);
+                LoadRootCatalogs();
 
 
 
@@ -1045,7 +1097,8 @@ namespace Driv.XTB.CatalogManager
 
                 SetSelectedCategory(null);
                 SetSelectedAssignment(null);
-                LoadAssignments();
+                LoadCategories(_selectedCatalog.CatalogRow.Id);
+                
                 UpdateTreeView();
 
                 //LoadCategories(null);
@@ -1073,7 +1126,7 @@ namespace Driv.XTB.CatalogManager
                 SetSelectedAssignment(null);
 
 
-                LoadAssignments();
+                LoadAssignments(_selectedCategory.CatalogRow.Id);
                 UpdateTreeView();
 
             }
@@ -1098,21 +1151,25 @@ namespace Driv.XTB.CatalogManager
         {
             SetSelectedCategory(Service.GetCatalog(e.Entity.Id));
 
+            if (_selectedCategory != null && _selectedCategory?.CatalogRow?.Id != _selectedCatalogAssignment?.CatalogRef?.Id) 
+            {
+                LoadAssignments(_selectedCategory.CatalogRow.Id);
+            }
         }
 
         
 
         private void gridAssigments_RecordEnter(object sender, CRMRecordEventArgs e)
         {
-            if (e?.Entity == null)
-            {
-                SetSelectedAssignment(null);
-            }
-            else 
+            if ((e?.Entity) != null)
             {
                 SetSelectedAssignment(Service.GetCatalogAssignment(e.Entity.Id));
             }
-                
+            //else
+            //{
+            //    SetSelectedAssignment(null);
+            //}
+
 
         }
 

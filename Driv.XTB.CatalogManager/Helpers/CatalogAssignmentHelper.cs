@@ -14,9 +14,19 @@ namespace Driv.XTB.CatalogManager.Helpers
     {
 
         public static Entity GetCatalogAssignment(this IOrganizationService service, Guid catalogassignmentid)
-            => service.Retrieve(CatalogAssignment.EntityName, catalogassignmentid, new ColumnSet() { AllColumns = true });
+        {
+            Entity catalogassignment = null;
+            try
+            {
+                catalogassignment = service.Retrieve(CatalogAssignment.EntityName, catalogassignmentid, new ColumnSet() { AllColumns = true });
+            }
+            catch (Exception)
+            {
 
-        
+                // If the catalog assignment is not found, return null
+            }
+            return catalogassignment;
+        }
 
         public static EntityCollection GetCatalogAssignmentsFor(this IOrganizationService service, Guid catalogid)
         {

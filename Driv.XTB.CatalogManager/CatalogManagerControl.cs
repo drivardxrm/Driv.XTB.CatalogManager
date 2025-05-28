@@ -7,6 +7,7 @@ using Microsoft.Xrm.Sdk.Query;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition.Hosting;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -141,46 +142,57 @@ namespace Driv.XTB.CatalogManager
             
             if (message.TargetArgument is string arg && Guid.TryParse(arg, out Guid argid))
             {
-                var catalogAssignment = Service.GetCatalogAssignment(argid);
-                if (catalogAssignment != null)
+                DisplayResource(argid);
+            }
+        }
+
+        /// <summary>
+        /// Called by OnIncomingMessage to display a specific resource in the plugin.
+        /// </summary>
+        /// <param name="argid"></param>
+        private void DisplayResource(Guid argid)
+        {
+            var catalogAssignment = Service.GetCatalogAssignment(argid);
+            if (catalogAssignment != null)
+            {
+                var catalogAssignmentProxy = new CatalogAssignmentProxy(catalogAssignment);
+                var catalog = Service.GetCatalog(catalogAssignmentProxy.CatalogRef.Id);
+                var catalogProxy = new CatalogProxy(catalog);
+                var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
+
+                SetSelectedCatalog(parentcatalog);
+                SetSelectedCategory(catalog);
+                SetSelectedAssignment(catalogAssignment);
+
+                LoadRootCatalogs(parentcatalog.Id, catalog.Id, catalogAssignment.Id);
+            }
+            else
+            {
+                var catalog = Service.GetCatalog(argid);
+                var catalogProxy = new CatalogProxy(catalog);
+
+                if (catalogProxy.ParentCatalogRef != null)
                 {
-                    var catalogAssignmentProxy = new CatalogAssignmentProxy(catalogAssignment);
-                    var catalog = Service.GetCatalog(catalogAssignmentProxy.CatalogRef.Id);
-                    var catalogProxy = new CatalogProxy(catalog);
                     var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
                     var parentCatalogProxy = new CatalogProxy(parentcatalog);
 
                     SetSelectedCatalog(parentcatalog);
                     SetSelectedCategory(catalog);
-                    SetSelectedAssignment(catalogAssignment);
+                    SetSelectedAssignment(null);
 
-                    LoadRootCatalogs(parentcatalog.Id, catalog.Id, catalogAssignment.Id);
-
-                    
+                    LoadRootCatalogs();
+                    LoadCategories(parentcatalog.Id, catalog.Id);
                 }
-                else 
+                else
                 {
-                    var catalog = Service.GetCatalog(argid);
-                    var catalogProxy = new CatalogProxy(catalog);
-
-                    if (catalogProxy.ParentCatalogRef != null)
-                    {
-                        var parentcatalog = Service.GetCatalog(catalogProxy.ParentCatalogRef.Id);
-                        var parentCatalogProxy = new CatalogProxy(parentcatalog);
-
-                        SetSelectedCatalog(parentcatalog);
-                        SetSelectedCategory(catalog);
-
-                        LoadRootCatalogs();
-                        LoadCategories(parentcatalog.Id, catalog.Id);
-                    }
-                    else
-                    {
-                        _selectedCatalog = catalogProxy;
-                        LoadRootCatalogs(catalog.Id);
-                    }
-                }          
+                    SetSelectedCatalog(catalog);
+                    SetSelectedCategory(null);
+                    SetSelectedAssignment(null);
+                    LoadRootCatalogs(catalog.Id);
+                }
             }
+
+            UpdateTreeView();
         }
 
 
@@ -359,6 +371,7 @@ namespace Driv.XTB.CatalogManager
 
 
             SetSelectedCategory(null);
+            SetSelectedAssignment(null);
 
 
             var catalog = cboCatalog.SelectedIndex == -1 ? null : cboCatalog.SelectedEntity;
@@ -366,6 +379,8 @@ namespace Driv.XTB.CatalogManager
 
 
             LoadCategories(catalog?.Id ?? Guid.Empty);
+
+            UpdateTreeView();
 
         }
 
@@ -478,10 +493,11 @@ namespace Driv.XTB.CatalogManager
                             cboCatalog.SelectedIndex = index;
                             cboCatalog.Enabled = true;
 
-                            if (categoryId != null) 
+                            if (categoryId != null)
                             {
-                                LoadCategories(catalogId.Value,categoryId, assignmentId);
+                                LoadCategories(catalogId.Value, categoryId, assignmentId);
                             }
+                            
 
                         }
                         else
@@ -566,11 +582,6 @@ namespace Driv.XTB.CatalogManager
                             }
 
 
-                            //else
-                            //{
-                            //    SetSelectedCategory(null);
-                            //}
-
                         }
                     }
                 }
@@ -618,10 +629,7 @@ namespace Driv.XTB.CatalogManager
                                 gridAssignments.CurrentCell = gridAssignments.Rows[index].Cells[2];
 
                             }
-                            //else
-                            //{
-                            //    SetSelectedAssignment(null);
-                            //}
+                            
 
                         }
                     }
@@ -690,8 +698,6 @@ namespace Driv.XTB.CatalogManager
             imgGrpCategories.Enabled = _selectedCatalog != null;
 
 
-            UpdateTreeView();
-
         }
 
         private void SetSelectedCategory(Entity catalog)
@@ -726,23 +732,7 @@ namespace Driv.XTB.CatalogManager
 
             }
 
-            //if (catalog == null) 
-            //{
-            //    LoadAssignments(Guid.Empty);
-            //}
-            //else if (_selectedCatalogAssignment != null && _selectedCatalogAssignment?.CatalogRef?.Id != catalog?.Id)
-            //{
-            //    LoadAssignments(catalog?.Id ?? Guid.Empty);
-
-            //}
-            //else 
-            //{
-            //    LoadAssignments(catalog?.Id ?? Guid.Empty, _selectedCatalogAssignment?.CatalogRef?.Id);
-            //}
-
             imgGrpAssignments.Enabled = _selectedCategory != null;
-
-            
 
         }
 
@@ -766,8 +756,8 @@ namespace Driv.XTB.CatalogManager
             if (_selectedCatalogAssignment != null)
             {
                 txtAssignmentCustomizableWarning.Visible = !_selectedCatalogAssignment.CanCustomize;
-                btnUpdateAssignment.Enabled = _selectedCategory.CanCustomize;
-                btnDeleteAssignment.Enabled = _selectedCategory.CanCustomize;
+                btnUpdateAssignment.Enabled = _selectedCatalogAssignment.CanCustomize;
+                btnDeleteAssignment.Enabled = _selectedCatalogAssignment.CanCustomize;
 
             }
             else
@@ -784,6 +774,10 @@ namespace Driv.XTB.CatalogManager
 
         private void UpdateTreeView() 
         {
+
+            treeCatalog.AfterCheck -= new TreeViewEventHandler(treeCatalog_AfterSelect);
+
+
             treeCatalog.Nodes.Clear();
             
             if (_selectedCatalog != null) 
@@ -794,6 +788,7 @@ namespace Driv.XTB.CatalogManager
                 var rootname = ((AliasedValue)root["root_name"])?.Value.ToString();
 
                 var rootnode = treeCatalog.Nodes.Add(rootname);
+                rootnode.Tag = Guid.Parse(((AliasedValue)root["root_catalogid"])?.Value.ToString());
 
                 rootnode.ImageIndex = 0;
                 rootnode.SelectedImageIndex = 0;
@@ -807,6 +802,7 @@ namespace Driv.XTB.CatalogManager
                     var category = categorygroup.First();
                     var categoryname = ((AliasedValue)category["category_name"])?.Value.ToString();
                     var categorynode = rootnode.Nodes.Add(categoryname);
+                    categorynode.Tag = Guid.Parse(((AliasedValue)category["category_catalogid"])?.Value.ToString());
 
                     categorynode.ImageIndex = 1;
                     categorynode.SelectedImageIndex = 1;
@@ -850,7 +846,8 @@ namespace Driv.XTB.CatalogManager
                             var assignmentname = $"{primaryname} ({assignmenttype})";
 
                             var assignmentnode = categorynode.Nodes.Add(assignmentname);
-                            
+                            assignmentnode.Tag = Guid.Parse(((AliasedValue)assignment["assignment_catalogassignmentid"])?.Value.ToString());
+
                             var assignmentimgindex = 0;
                             switch (assignmenttype)
                             {
@@ -876,8 +873,8 @@ namespace Driv.XTB.CatalogManager
             }
             treeCatalog.ExpandAll();
 
+            treeCatalog.AfterCheck += new TreeViewEventHandler(treeCatalog_AfterSelect);
 
-            
         }
 
 
@@ -929,6 +926,7 @@ namespace Driv.XTB.CatalogManager
                 //refresh catalog list and select newly created
                 SetSelectedCatalog(Service.GetCatalog(inputdlg.NewCatalogId));
                 LoadRootCatalogs(inputdlg.NewCatalogId);
+                UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
             {
@@ -997,7 +995,7 @@ namespace Driv.XTB.CatalogManager
                 //refresh custom api list and select newly updated
                 SetSelectedCatalog(Service.GetCatalog(_selectedCatalog.CatalogRow.Id));
                 LoadRootCatalogs(_selectedCatalog.CatalogRow.Id);
-
+                UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
             {
@@ -1074,6 +1072,7 @@ namespace Driv.XTB.CatalogManager
 
                 LoadRootCatalogs();
 
+                UpdateTreeView();
 
 
             }
@@ -1101,7 +1100,6 @@ namespace Driv.XTB.CatalogManager
                 
                 UpdateTreeView();
 
-                //LoadCategories(null);
 
 
             }
@@ -1165,10 +1163,7 @@ namespace Driv.XTB.CatalogManager
             {
                 SetSelectedAssignment(Service.GetCatalogAssignment(e.Entity.Id));
             }
-            //else
-            //{
-            //    SetSelectedAssignment(null);
-            //}
+           
 
 
         }
@@ -1195,6 +1190,47 @@ namespace Driv.XTB.CatalogManager
             {
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
+        }
+
+        private void treeCatalog_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var selectedNode = e.Node;
+            var id = (Guid)selectedNode.Tag; // Cast to the appropriate type, e.g., (Guid)selectedNode.Tag
+            switch (e.Node.Level)
+            {
+                
+                case 0: // Catalog
+
+                    SetSelectedCategory(null);
+                    SetSelectedAssignment(null);
+                    LoadCategories(_selectedCatalog.CatalogRow.Id);
+
+                    break;
+                case 1: // Category
+                    
+                    SetSelectedCategory(Service.GetCatalog(id));
+                    SetSelectedAssignment(null);
+                    LoadCategories(_selectedCatalog.CatalogRow.Id, _selectedCategory.CatalogRow.Id);
+                    break;
+                case 2: // Assignment
+
+                    var assignment = Service.GetCatalogAssignment(id);
+                    var assignmentProxy = new CatalogAssignmentProxy(assignment);
+                    if(assignmentProxy.CatalogRef.Id != _selectedCategory.CatalogRow.Id) 
+                    {
+                        SetSelectedCategory(Service.GetCatalog(assignmentProxy.CatalogRef.Id));
+                    }
+                    SetSelectedAssignment(assignment);
+                    LoadCategories(_selectedCatalog.CatalogRow.Id, _selectedCategory.CatalogRow.Id);
+
+
+                    break;
+                default:
+                    break;
+            }
+
+
+
         }
     }
 }

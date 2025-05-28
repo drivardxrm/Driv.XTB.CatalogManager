@@ -14,9 +14,19 @@ namespace Driv.XTB.CatalogManager.Helpers
     {
 
         public static Entity GetCatalog(this IOrganizationService service, Guid catalogid)
-            => service.Retrieve(Catalog.EntityName, catalogid, new ColumnSet() { AllColumns = true });
+        {
+            Entity catalog = null;
+            try
+            {
+                catalog = service.Retrieve(Catalog.EntityName, catalogid, new ColumnSet() { AllColumns = true });
+            }
+            catch (Exception)
+            {
 
-        
+                // If the catalog is not found, return null
+            }
+            return catalog;
+        }
 
         public static EntityCollection GetCatalogsFor(this IOrganizationService service, Guid solutionid)
         {

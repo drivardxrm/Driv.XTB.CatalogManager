@@ -457,7 +457,7 @@ namespace Driv.XTB.CatalogManager
                     }
                     else if (rbSolution.Checked && _selectedSolution != null) 
                     {
-                        args.Result = Service.GetCatalogsFor(_selectedSolution.SolutionRow.Id);
+                        args.Result = Service.GetCatalogsFor(_selectedSolution.Id);
                     }
                     else 
                     {
@@ -493,7 +493,7 @@ namespace Driv.XTB.CatalogManager
                             cboCatalog.SelectedIndex = index;
                             cboCatalog.Enabled = true;
 
-                            if (categoryId != null)
+                            if (categoryId != null && categoryId != Guid.Empty)
                             {
                                 LoadCategories(catalogId.Value, categoryId, assignmentId);
                             }
@@ -517,13 +517,13 @@ namespace Driv.XTB.CatalogManager
         {
             SetGridCategoriesDataSource(null);
 
-            if (categoryId == null) 
+            if (categoryId == null || categoryId == Guid.Empty) 
             {
                 SetSelectedCategory(null);
                 
             }
 
-            if (assignmentId == null) 
+            if (assignmentId == null || assignmentId == Guid.Empty) 
             {
                 SetSelectedAssignment(null);
                 SetGridAssignmentsDataSource(null);
@@ -576,7 +576,7 @@ namespace Driv.XTB.CatalogManager
 
                             }
 
-                            if (categoryId != null)
+                            if (categoryId != null && categoryId != Guid.Empty)
                             {
                                 LoadAssignments(categoryId.Value, assignmentId);
                             }
@@ -782,7 +782,7 @@ namespace Driv.XTB.CatalogManager
             
             if (_selectedCatalog != null) 
             {
-                var fullcatalog = Service.GetFullCatalog(_selectedCatalog.CatalogRow.Id);
+                var fullcatalog = Service.GetFullCatalog(_selectedCatalog.Id);
                 var root = fullcatalog.Entities.First();
 
                 var rootname = ((AliasedValue)root["root_name"])?.Value.ToString();
@@ -947,7 +947,7 @@ namespace Driv.XTB.CatalogManager
 
                 //refresh category list
                 SetSelectedCategory(Service.GetCatalog(inputdlg.NewCatalogId));
-                LoadCategories(_selectedCatalog.CatalogRow.Id,  inputdlg.NewCatalogId);
+                LoadCategories(_selectedCatalog.Id,  inputdlg.NewCatalogId);
                 UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -968,7 +968,7 @@ namespace Driv.XTB.CatalogManager
             {
 
                 //refresh category list
-                LoadAssignments(_selectedCategory.CatalogRow.Id, inputdlg.NewCatalogAssignmentId);
+                LoadAssignments(_selectedCategory.Id, inputdlg.NewCatalogAssignmentId);
                 UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -993,8 +993,8 @@ namespace Driv.XTB.CatalogManager
 
 
                 //refresh custom api list and select newly updated
-                SetSelectedCatalog(Service.GetCatalog(_selectedCatalog.CatalogRow.Id));
-                LoadRootCatalogs(_selectedCatalog.CatalogRow.Id);
+                SetSelectedCatalog(Service.GetCatalog(_selectedCatalog.Id));
+                LoadRootCatalogs(_selectedCatalog.Id);
                 UpdateTreeView();
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -1015,10 +1015,10 @@ namespace Driv.XTB.CatalogManager
             if (dlgresult == DialogResult.OK && inputdlg.CatalogUpdated)
             {
                 //clear and refetch
-                var currentcategory = _selectedCategory.CatalogRow.Id;
+                var currentcategory = _selectedCategory.Id;
                 SetSelectedCategory(null);
                 SetSelectedCategory(Service.GetCatalog(currentcategory));
-                LoadCategories(_selectedCatalog.CatalogRow.Id, currentcategory);
+                LoadCategories(_selectedCatalog.Id, currentcategory);
                 UpdateTreeView();
                 gridCategories.Focus();
 
@@ -1041,10 +1041,10 @@ namespace Driv.XTB.CatalogManager
             if (dlgresult == DialogResult.OK && inputdlg.CatalogAssignmentUpdated)
             {
                 //Clear and Refetch
-                var currentassignment = _selectedCatalogAssignment.CatalogAssignmentRow.Id;
+                var currentassignment = _selectedCatalogAssignment.Id;
                 SetSelectedAssignment(null);
                 SetSelectedAssignment(Service.GetCatalogAssignment(currentassignment));
-                LoadAssignments(_selectedCategory.CatalogRow.Id, currentassignment);
+                LoadAssignments(_selectedCategory.Id, currentassignment);
                 UpdateTreeView();
                 gridAssignments.Focus();
 
@@ -1096,7 +1096,7 @@ namespace Driv.XTB.CatalogManager
 
                 SetSelectedCategory(null);
                 SetSelectedAssignment(null);
-                LoadCategories(_selectedCatalog.CatalogRow.Id);
+                LoadCategories(_selectedCatalog.Id);
                 
                 UpdateTreeView();
 
@@ -1124,7 +1124,7 @@ namespace Driv.XTB.CatalogManager
                 SetSelectedAssignment(null);
 
 
-                LoadAssignments(_selectedCategory.CatalogRow.Id);
+                LoadAssignments(_selectedCategory.Id);
                 UpdateTreeView();
 
             }
@@ -1151,7 +1151,7 @@ namespace Driv.XTB.CatalogManager
 
             if (_selectedCategory != null && _selectedCategory?.CatalogRow?.Id != _selectedCatalogAssignment?.CatalogRef?.Id) 
             {
-                LoadAssignments(_selectedCategory.CatalogRow.Id);
+                LoadAssignments(_selectedCategory.Id);
             }
         }
 
@@ -1203,25 +1203,25 @@ namespace Driv.XTB.CatalogManager
 
                     SetSelectedCategory(null);
                     SetSelectedAssignment(null);
-                    LoadCategories(_selectedCatalog.CatalogRow.Id);
+                    LoadCategories(_selectedCatalog.Id);
 
                     break;
                 case 1: // Category
                     
                     SetSelectedCategory(Service.GetCatalog(id));
                     SetSelectedAssignment(null);
-                    LoadCategories(_selectedCatalog.CatalogRow.Id, _selectedCategory.CatalogRow.Id);
+                    LoadCategories(_selectedCatalog.Id, _selectedCategory.Id);
                     break;
                 case 2: // Assignment
 
                     var assignment = Service.GetCatalogAssignment(id);
                     var assignmentProxy = new CatalogAssignmentProxy(assignment);
-                    if(assignmentProxy.CatalogRef.Id != _selectedCategory.CatalogRow.Id) 
+                    if(assignmentProxy.CatalogRef.Id != _selectedCategory.Id) 
                     {
                         SetSelectedCategory(Service.GetCatalog(assignmentProxy.CatalogRef.Id));
                     }
                     SetSelectedAssignment(assignment);
-                    LoadCategories(_selectedCatalog.CatalogRow.Id, _selectedCategory.CatalogRow.Id);
+                    LoadCategories(_selectedCatalog.Id, _selectedCategory.Id, _selectedCatalogAssignment.Id);
 
 
                     break;

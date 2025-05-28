@@ -21,7 +21,9 @@ namespace Driv.XTB.CatalogManager.Proxy
             SolutionRow = solution;
         }
 
-
+        public Guid Id => SolutionRow.Attributes.Contains(Solution.PrimaryKey) ?
+                                                    (Guid)SolutionRow[Solution.PrimaryKey] :
+                                                    Guid.Empty;
 
         public string Prefix => ((AliasedValue)SolutionRow[$"P.{Publisher.Prefix}"]).Value.ToString();
 

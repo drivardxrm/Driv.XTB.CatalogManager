@@ -21,7 +21,9 @@ namespace Driv.XTB.CatalogManager.Proxy
             CatalogRow = catalog;
         }
 
-
+        public Guid Id => CatalogRow.Attributes.Contains(Catalog.PrimaryKey) ?
+                                                    (Guid)CatalogRow[Catalog.PrimaryKey] :
+                                                    Guid.Empty;
 
         public string Name => CatalogRow.Attributes.Contains(Catalog.PrimaryName) ?
                                                     CatalogRow[Catalog.PrimaryName].ToString() :

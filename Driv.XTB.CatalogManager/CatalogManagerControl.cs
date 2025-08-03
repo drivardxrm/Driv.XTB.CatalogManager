@@ -1232,5 +1232,17 @@ namespace Driv.XTB.CatalogManager
 
 
         }
+
+        private void menuApiManager_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Manager") { TargetArgument = null });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
     }
 }
